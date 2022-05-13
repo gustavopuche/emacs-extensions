@@ -1,1 +1,0 @@
-/home/gustavo/dev/emacs-extensions/emacs-window-tools/window-tools.el
