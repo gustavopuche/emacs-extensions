@@ -366,6 +366,9 @@ COMMANDS
 (add-hook 'c++-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'c-mode-common-hook 'ws-butler-mode)
 
+;; Lisp hooks
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
 (setq c-default-style "stroustrup"
       c-basic-offset 2)
 
