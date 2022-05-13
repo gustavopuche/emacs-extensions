@@ -1,0 +1,24 @@
+#+TITLE: Reuniones del servicio del campo Octubre - Noviembre 2020
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [table]
+#+OPTIONS: author:nil date:nil toc:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LaTeX_HEADER: \usepackage{booktabs}
+#+LaTeX_HEADER: \usepackage[table]{xcolor}
+#+LaTeX_HEADER: \usepackage{colortbl}
+#+LATEX: \definecolor{contiYellow}{RGB}{255,165,0}
+#+LATEX: \rowcolors[]{2}{contiYellow!5}{contiYellow!20}
+#+ATTR_LATEX: :environment longtable
+
+
+| Lunes | Nombre          | miércoles | Nombre          | Sábado | Nombre          |
+|-------+-----------------+-----------+-----------------+--------+-----------------|
+| 12-10 | FESTIVO         |     14-10 | Isaac Fernández |  17-10 | José Ormeño     |
+| 19-10 | Rubén Pérez     |     21-10 | Josep González  |  24-10 | Gustavo Puche   |
+| 28-10 | Juan José Cobo  |     28-10 | David Cobo      |  31-10 | Isaac Fernández |
+|       |                 |           |                 |        |                 |
+| 02-11 | José Ormeño     |     04-11 | Rubén Pérez     |  07-11 | Josép González  |
+| 09-11 | Gustavo Puche   |     11-11 | Juan José Cobo  |  14-11 | David Cobo      |
+| 16-11 | Isaac Fernández |     18-11 | José Ormeño     |  21-11 | Rubén Pérez     |
+| 23-11 | Josep González  |     25-11 | Gustavo Puche   |  28-11 | Juan José Cobo  |
+| 30-11 | David Cobo      |     02-12 | Isaac Fernández |  05-12 | José Ormeño     |

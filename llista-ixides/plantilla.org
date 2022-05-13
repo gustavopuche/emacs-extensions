@@ -1,0 +1,15 @@
+#+TITLE: Reuniones del servicio del campo Octubre - Noviembre 2020
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [table]
+#+OPTIONS: author:nil date:nil toc:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LaTeX_HEADER: \usepackage{booktabs}
+#+LaTeX_HEADER: \usepackage[table]{xcolor}
+#+LaTeX_HEADER: \usepackage{colortbl}
+#+LATEX: \definecolor{contiYellow}{RGB}{255,165,0}
+#+LATEX: \rowcolors[]{2}{contiYellow!5}{contiYellow!20}
+#+ATTR_LATEX: :environment longtable
+
+
+| Lunes | Nombre          | miércoles | Nombre          | Sábado | Nombre          |
+|-------+-----------------+-----------+-----------------+--------+-----------------|
