@@ -2,7 +2,7 @@
   :ensure t
   :init
   (global-company-mode)
-  :bind (("<tab>" . company-complete-common-or-cycle))
+  :bind (("M-<space>" . company-complete-common-or-cycle))
   :config)
 
 (eval-after-load 'company
