@@ -4,8 +4,18 @@ Emacs configuration files and extensions
 
 * Compile Tools
 
+  - Compile tools
+    - Android Qt clang
+    - Keybindding for compile and run.
+
 * Edit Tools
+
+  - Custom edit functions.
 
 * DoxyGraph
 
+  - Bind c/c++ source code with doxygen call graph images.
+
 * Mailing
+
+  - Mailing tools for emacs lisp.
