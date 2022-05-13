@@ -1,0 +1,116 @@
+% Created 2020-11-28 Sat 18:43
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[newfloat]{minted}
+\author{Gustavo Puche}
+\date{\today}
+\title{Emacs doxy-graph minor mode}
+\hypersetup{
+ pdfauthor={Gustavo Puche},
+ pdftitle={Emacs doxy-graph minor mode},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.0.50 (Org mode 9.3.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\texttt{doxy-graph-mode} links source code to doxygen call graphs.
+
+It allows to interactively see the call graph or the inverted call
+graph of a given function or method from source code.
+
+\section{Requirements}
+\label{sec:orge533f33}
+
+\begin{itemize}
+\item emacs 26.3 (or newer).
+\item doxygen 1.8.13 (or newer).
+\end{itemize}
+
+\section{Basic Setup}
+\label{sec:org3e8d4e1}
+
+After getting doxy-graph-mode.el you can add some of this lines to your \texttt{.emacs} file
+if you want that doxy-graph-mode auto-loads when c-mode, c++-mode or python-mode are enabled.
+
+\begin{minted}[breaklines,fontsize=\small,tabsize=2,frame=lines,autogobble]{elisp}
+(require 'doxy-graph-mode)
+
+(add-hook 'c-mode-hook 'doxy-graph-mode)
+(add-hook 'c++-mode-hook 'doxy-graph-mode)
+(add-hook 'python-mode-hook 'doxy-graph-mode)
+\end{minted}
+
+You can add a hook for another one of the languages supported by doxygen.
+
+\section{Usage}
+\label{sec:orgbaf6fa3}
+
+Firts of all you have to generate doxygen latex documentation
+including call graphs. To carry out this you can generate a \texttt{Doxyfile}
+config file with the command \texttt{doxygen -g} in your source code path.
+
+It is necessary to change the following settings inside \texttt{Doxyfile}.
+
+\begin{minted}[breaklines,fontsize=\small,tabsize=2,frame=lines,autogobble]{bash}
+CALL_GRAPH             = YES
+
+CALLER_GRAPH           = YES
+\end{minted}
+
+An example of \texttt{Doxyfile} is given in this repository.
+
+You can invoque \texttt{doxy-graph-mode} commad \texttt{M x doxy-graph-mode}.
+
+When mini mode is active you can position the cursor over function
+name and visualize call graph and inverted call graph.
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./img/call-graph.png}
+\end{center}
+
+Default keybindings are:
+
+\begin{itemize}
+\item \texttt{<C-f1>} Opens direct call graph.
+\item \texttt{<C-f2>} Opens inverted call graph.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./img/inverted-call-graph.png}
+\end{center}
+
+First time is called \texttt{doxy-graph-open-call-graph} or
+\texttt{doxy-graph-open-inverted-call-graph} it is asked for select doxygen
+latex folder. You can choose doxygen latex folder using the directory
+chooser.
+
+Calling the interactive function \texttt{doxy-graph-set-latex-path} you can
+change the folder where doxygen latex docs are placed.
+
+If you wish you can change default keybindings using
+\texttt{doxy-graph-mode-map}. The following example binds \texttt{C c c} and \texttt{C c i}
+like default shortcuts.
+
+\begin{minted}[breaklines,fontsize=\small,tabsize=2,frame=lines,autogobble]{elisp}
+(define-key doxy-graph-mode-map (kbd "C-c c") 'doxy-graph-open-call-graph)
+(define-key doxy-graph-mode-map (kbd "C-c i") 'doxy-graph-open-inverted-call-graph)
+\end{minted}
+\end{document}

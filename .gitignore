@@ -1,6 +1,7 @@
 *.*
 !.gitattributes
 !.gitignore
+!.emacs
 !readme.md
 !.gitkeep
 !*.el

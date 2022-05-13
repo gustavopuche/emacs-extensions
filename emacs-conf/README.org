@@ -1,0 +1,5 @@
+#+TITLE: Emacs configuration
+
+* Setup
+
+Emacs ~.emacs~ conf file and themes and some other staff.

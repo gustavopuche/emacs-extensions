@@ -1,0 +1,73 @@
+#+TITLE: Emacs doxy-graph minor mode 
+
+=doxy-graph-mode= links source code to doxygen call graphs.
+
+It allows to interactively see the call graph or the inverted call
+graph of a given function or method from source code.
+
+* Requirements
+
+- emacs 26.3 (or newer).
+- doxygen 1.8.13 (or newer).
+
+* Basic Setup
+
+After getting doxy-graph-mode.el you can add some of this lines to your =.emacs= file
+if you want that doxy-graph-mode auto-loads when c-mode, c++-mode or python-mode are enabled.
+
+#+BEGIN_SRC elisp
+(require 'doxy-graph-mode)
+
+(add-hook 'c-mode-hook 'doxy-graph-mode)
+(add-hook 'c++-mode-hook 'doxy-graph-mode)
+(add-hook 'python-mode-hook 'doxy-graph-mode)
+#+END_SRC
+
+You can add a hook for another one of the languages supported by doxygen.
+
+* Usage
+
+Firts of all you have to generate doxygen latex documentation
+including call graphs. To carry out this you can generate a =Doxyfile=
+config file with the command =doxygen -g= in your source code path.
+
+It is necessary to change the following settings inside =Doxyfile=.
+
+#+BEGIN_SRC bash
+CALL_GRAPH             = YES
+
+CALLER_GRAPH           = YES
+#+END_SRC
+
+An example of =Doxyfile= is given in this repository.
+
+You can invoque ~doxy-graph-mode~ commad =M x doxy-graph-mode=.
+
+When mini mode is active you can position the cursor over function
+name and visualize call graph and inverted call graph.
+
+[[./img/call-graph.png]]
+
+Default keybindings are:
+
+- =<C-f1>= Opens direct call graph.
+- =<C-f2>= Opens inverted call graph.
+
+[[./img/inverted-call-graph.png]]
+
+First time is called =doxy-graph-open-call-graph= or
+=doxy-graph-open-inverted-call-graph= it is asked for select doxygen
+latex folder. You can choose doxygen latex folder using the directory
+chooser.
+
+Calling the interactive function =doxy-graph-set-latex-path= you can
+change the folder where doxygen latex docs are placed.
+
+If you wish you can change default keybindings using
+=doxy-graph-mode-map=. The following example binds =C c c= and =C c i=
+like default shortcuts.
+
+#+BEGIN_SRC elisp
+(define-key doxy-graph-mode-map (kbd "C-c c") 'doxy-graph-open-call-graph)
+(define-key doxy-graph-mode-map (kbd "C-c i") 'doxy-graph-open-inverted-call-graph)
+#+END_SRC
