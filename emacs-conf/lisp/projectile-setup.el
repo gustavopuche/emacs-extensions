@@ -1,0 +1,1 @@
+/home/gustavo/dev/emacs-extensions/emacs-projectile/projectile-setup.el

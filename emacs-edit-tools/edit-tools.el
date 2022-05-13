@@ -50,6 +50,39 @@
   (interactive)
   (load-file "~/.emacs"))
 
+(defun matches-in-buffer ()
+  "return a list of matches of REGEXP in BUFFER or the current buffer if not given."
+  (interactive)
+  (let ((matches))
+    (save-match-data
+      (save-excursion
+        (with-current-buffer (current-buffer)
+          (save-restriction
+            (widen)
+            (goto-char 1)
+            (while (search-forward-regexp "[A-Z0-9_]+\\.\\(DLL\\|OCX\\)" nil t 1)
+              (push (concat (match-string 0) "\n") matches))
+			)
+		  )
+		)
+	  matches)
+	(kill-new (string-join (reverse matches)))
+	)
+  )
+
+(defun fun-temp ()
+  (interactive)
+  (let ((matches))
+	(add-to-ordered-list 'matches "hola\n")
+	(add-to-ordered-list 'matches "como\n" )
+	(push "estas\n" matches)
+	(kill-new (string-join (reverse matches)))
+	))
+
+(defun fun-buffer ()
+  (interactive)
+  (with-temp-buffer (insert "Aço es una proba")) (clipboard-kill-region (point-min) (point-max)))
+
 (put 'erase-buffer 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)

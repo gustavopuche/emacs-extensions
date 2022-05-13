@@ -1,0 +1,1 @@
+/home/gustavo/dev/emacs-extensions/gus-emacs-themes/gus-taronja-dark-theme.el
