@@ -122,4 +122,6 @@
   ;; Face name is `helm-swoop-line-number-face`
   (setq helm-swoop-use-line-number-face t))
 
+(require 'helm-org)
+
 (provide 'helm-setup)

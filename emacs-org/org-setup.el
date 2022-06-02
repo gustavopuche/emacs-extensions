@@ -28,29 +28,40 @@
 
 ;;      (setq org-koma-letter-default-class "my-letter")))
 
-;; Setup org minted
-(setq org-latex-listings 'minted
-      org-latex-packages-alist '(("newfloat" "minted"))
-      org-latex-pdf-process
-      '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-	"xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; ;; Setup org minted
+;; (setq org-latex-listings 'minted
+;;       org-latex-packages-alist '(("newfloat" "minted"))
+;;       org-latex-pdf-process
+;;       '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;; 	"xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
-(setq org-latex-minted-options '(("breaklines")("fontsize" "\\tiny")("tabsize" "2")("frame" "lines")("autogobble")))
+;; (setq org-latex-minted-options '(("breaklines")("fontsize" "\\tiny")("tabsize" "2")("frame" "lines")("autogobble")))
 
-;; Setup org beamer tikzpicture
-(add-to-list 'org-latex-packages-alist
-             '("" "tikz" t))
+;; ;; Setup org beamer tikzpicture
+;; (add-to-list 'org-latex-packages-alist
+;;              '("" "tikz" t))
 
-(eval-after-load "preview"
-  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
+;; (eval-after-load "preview"
+;;   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
 
-(setq org-latex-to-pdf-process "lualatex --shell-escape --batch %f")
+;; (setq org-latex-to-pdf-process "lualatex --shell-escape --batch %f")
 
-(setq org-latex-create-formula-image-program 'imagemagick)
+;; (setq org-latex-create-formula-image-program 'imagemagick)
 
-(setq org-latex-inline-image-rules '(("file" . "\\.\\(pdf\\|jpeg\\|jpg\\|png\\|ps\\|eps\\|tikz\\|pgf\\|svg\\|gif\\)\\'")))
+;; (setq org-latex-inline-image-rules '(("file" . "\\.\\(pdf\\|jpeg\\|jpg\\|png\\|ps\\|eps\\|tikz\\|pgf\\|svg\\|gif\\)\\'")))
 
 ;; visual-line-mode active with latex-mode
 (add-hook 'text-mode-hook 'visual-line-mode)
+(add-hook 'org-brain-visualize-text-hook 'visual-line-mode)
+
+;; this controls the color of bold, italic, underline, verbatim, strikethrough
+(setq org-emphasis-alist
+  '(("*" (bold :foreground "orange" )) ;; this make bold both italic and bold, but not color change
+    ("/" (italic :foreground "dark salmon" )) ;; italic text, the text will be "dark salmon"
+    ("_" underline :foreground "cyan" ) ;; underlined text, color is "cyan"
+    ("=" (bold :foreground "DeepSkyBlue" )) 
+    ("~" (bold :foreground "LightSeaGreen" ))
+    ("+" (bold :foreground "tomato" ))))
+(setq org-hide-emphasis-markers t) ;; hides the emphasis markers
 
 (provide 'org-setup)

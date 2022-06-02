@@ -28,9 +28,6 @@
 
 ;;; Code:
 
-;; requires
-(require 'highlight-numbers)
-
 ;; Setting operators.
 (defface font-lock-operator-face
   '((t :foreground "red"

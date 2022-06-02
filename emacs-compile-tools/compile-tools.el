@@ -14,6 +14,8 @@
 
 ;;; Code:
 
+(require 'rainbow-delimiters)
+
 ;; Environment variables
 (defvar compile-tools--target nil
   "Qt TARGET.")
