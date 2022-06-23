@@ -58,9 +58,9 @@
 (setq org-emphasis-alist
   '(("*" (bold :foreground "orange" )) ;; this make bold both italic and bold, but not color change
     ("/" (italic :foreground "dark salmon" )) ;; italic text, the text will be "dark salmon"
-    ("_" underline :foreground "cyan" ) ;; underlined text, color is "cyan"
-    ("=" (bold :foreground "DeepSkyBlue" )) 
-    ("~" (bold :foreground "LightSeaGreen" ))
+    ("_" (italic :foreground "DeepSkyBlue") ) ;; underlined text, color is "cyan"
+    ("=" (bold :foreground "DodgerBlue" )) 
+    ("~" (bold :foreground "MediumSeaGreen" ))
     ("+" (bold :foreground "tomato" ))))
 (setq org-hide-emphasis-markers t) ;; hides the emphasis markers
 

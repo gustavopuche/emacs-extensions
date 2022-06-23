@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;
 ;; LSP Mode      ;;
 ;;;;;;;;;;;;;;;;;;;
-(setq lsp-keymap-prefix "C-c l")
+(setq lsp-keymap-prefix "C-s-l")
 (require 'lsp-mode)
 ;; (setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
 ;;     projectile hydra flycheck company avy which-key helm-xref dap-mode))
@@ -17,9 +17,6 @@
 ;; (define-key global-map [remap execute-extended-command] #'helm-M-x)
 ;; (define-key global-map [remap switch-to-buffer] #'helm-mini)
 
-(which-key-mode)
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
 
 ;; Enable yasnippet
 (yas-global-mode 1)
@@ -34,11 +31,21 @@
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (require 'dap-cpptools)
+  (require 'helm-lsp)
   (yas-global-mode))
 
 (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
+(define-key lsp-mode-map (kbd "<f2>") 'helm-lsp-workspace-symbol)
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(which-key-mode)
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+
+
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; Change to clangd linux 14.0.3
+(setq lsp-clangd-binary-path "/home/gustavo/dev/clangd_14.0.3/bin/clangd")
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))

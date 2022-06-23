@@ -1,5 +1,7 @@
 (require 'helm-config)
 (require 'helm-grep)
+(require 'helm-projectile)
+(require 'helm-ag)
 
 ;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)
@@ -14,7 +16,9 @@
      (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
      (define-key helm-gtags-mode-map (kbd "M-g M-p") 'helm-gtags-parse-file)
      (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
-     (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)))
+     (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+     (define-key helm-gtags-mode-map (kbd "<f3>") 'helm-gtags-find-tag-from-here)
+     (define-key helm-gtags-mode-map (kbd "<C-f3>") 'helm-gtags-pop-stack)))
 
 (define-key global-map (kbd "M-,") 'xref-pop-marker-stack)
 
@@ -87,6 +91,7 @@
 ;; Add as much extensions as you want to grep with helm-ag.
 ;; Initially only .cpp and .h files are searched.
 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h)$")
+(global-set-key (kbd "s-p s a") 'helm-ag-project-root)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: helm-swoop                ;;

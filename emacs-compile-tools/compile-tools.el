@@ -356,7 +356,7 @@ COMMANDS
 (global-set-key (kbd "<f6>") 'compile-tools-debug)
 (global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
 (global-set-key (kbd "<f4>") 'compile-tools-qmake)
-(global-set-key (kbd "<f3>") 'compile-tools-cmake)
+;; (global-set-key (kbd "<f3>") 'compile-tools-cmake)
 (global-set-key (kbd "<C-s-f2>") 'compile-tools-set-target)
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 
@@ -371,8 +371,21 @@ COMMANDS
 ;; Lisp hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 
-(setq c-default-style "stroustrup"
-      c-basic-offset 2)
+(defun gus-cc-style()
+  (c-set-style "linux")
+  (c-set-offset 'innamespace '0)
+  (c-set-offset 'inextern-lang '0)
+  (c-set-offset 'inline-open '0)
+  (c-set-offset 'label '*)
+  (c-set-offset 'case-label '*)
+  (c-set-offset 'access-label '/)
+  (setq c-basic-offset 2)
+  (setq tab-width 2)
+  (setq indent-tabs-mode nil)
+)
+
+(add-hook 'c-mode-hook 'gus-cc-style)
+(add-hook 'c++-mode-hook 'gus-cc-style)
 
 ;; Compilation output
 (setq compilation-scroll-output t)

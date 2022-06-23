@@ -12,6 +12,9 @@
 (defconst edit-tools--debug-comments "^.*Remove later\\.\n.*\n[[:space:]]*\n")
 (defconst edit-tools--empty-line-with-spaces "^[[:space:]]+$")
 
+(defvar edit-tools--fdfind "")
+(defvar edit-tools--find-cmd "")
+
 (defun edit-tools-regex-global-replace (regex1 regex2)
  "Replace `regex1' with `regex2' in a buffer."
  (goto-char 1)
@@ -34,6 +37,35 @@
    (kill-new (buffer-substring (point) isearch-other-end))
    (isearch-done))
 
+(defun edit-tools-insert-include ()
+  (interactive)
+  (let ((include-str))
+    (with-current-buffer
+	(progn
+	  (setq include-str (edit-tools-get-include
+			     (concat
+			      (buffer-substring-no-properties
+			       (region-beginning) (region-end))
+			      ".h")))
+	  (message include-str)
+	  (deactivate-mark)
+	  (search-backward "#include")
+	  (line-move 1)
+	  (insert (concat "#include \"" include-str "\""))
+	  (newline)))))
+
+(defun edit-tools-get-include (filename)
+  (replace-regexp-in-string
+   (projectile-project-root) ""
+   (replace-regexp-in-string
+    "\n$" "" (edit-tools-set-fdfind filename))))
+
+(defun edit-tools-set-fdfind (filename)
+  (setq edit-tools--fdfind (shell-command-to-string (concat "fdfind --color=never -g " filename " " (projectile-project-root)))))
+
+(defun edit-tools-find-cmd (filename)
+  (setq edit-tools--find-cmd (concat "fdfind --color=never -g " filename " " (projectile-project-root))))
+
 (defun swap-buffer ()
   "Swap buffers order."
   (interactive)
@@ -44,7 +76,6 @@
            (set-window-buffer window-b buffer-a)
            (switch-to-buffer buffer-b)
            (other-window 1)))))
-
 
 (defun reload-init-file ()
   (interactive)
@@ -88,6 +119,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
 
+
 ;; Delete selected text when a key is pressed.
 (delete-selection-mode 1)
 
@@ -104,6 +136,8 @@
 (global-set-key (kbd "C-c C-d") "\C-u\M-! date -I")
 ;; Select All keybinding
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-s-u") 'upcase-char)
+(global-set-key (kbd "<f12>") 'edit-tools-insert-include)
 
 ;; ;; Copy org tags into other file.
 ;; (let* ((target-heading "Destination")

@@ -51,7 +51,6 @@
 	  )
     )
 
-
 (defun load-list (list-name filePath)
     (with-temp-buffer
       (insert "(setq ")
