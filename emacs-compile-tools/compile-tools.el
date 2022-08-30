@@ -282,7 +282,7 @@ make -f ./Makefile qmake_all"
 (defun compile-tools-compile-cmake ()
   "Execute cmake command."
   (interactive)
-  (compile "cmake ."))
+  (compile "cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=1"))
 
 (defun compile-tools-compile-make-install ()
   "Execute make run command."
@@ -350,7 +350,8 @@ COMMANDS
 (global-set-key (kbd "<f9>") 'compile-tools-compile-make)
 (global-set-key (kbd "<C-f9>") 'compile-tools-compile-make-apk)
 (global-set-key (kbd "<C-s-f9>") 'compile-tools-compile-make-aab)
-(global-set-key (kbd "<f8>") 'compile-tools-compile-make-clean)
+;; (global-set-key (kbd "<f8>") 'compile-tools-compile-make-clean)
+(global-set-key (kbd "<f8>") 'compile-tools-compile-cmake)
 (global-set-key (kbd "<C-f8>") 'compile-tools-reset-target)
 (global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
 (global-set-key (kbd "<f6>") 'compile-tools-debug)
@@ -404,6 +405,48 @@ COMMANDS
 (autoload 'visual-basic-mode "visual-basic-mode" "Visual Basic mode." t)
 (push '("\\.\\(?:frm\\|\\(?:ba\\|cl\\|vb\\)s\\)\\'" . visual-basic-mode)
       auto-mode-alist)
+
+;; Hide DOS cr-characters.
+(setq magit-diff-hide-trailing-cr-characters t)
+
+(require 'srefactor)
+(require 'srefactor-lisp)
+
+;; OPTIONAL: ADD IT ONLY IF YOU USE C/C++. 
+(semantic-mode 1) ;; -> this is optional for Lisp
+
+(define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+(define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+(global-set-key (kbd "M-RET o") 'srefactor-lisp-one-line)
+(global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
+(global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
+(global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer)
+
+(require 'hideshow)
+(require 'sgml-mode)
+(require 'nxml-mode)
+
+(add-to-list 'hs-special-modes-alist
+             '(nxml-mode
+               "<!--\\|<[^/>]*[^/]>"
+               "-->\\|</[^/>]*[^/]>"
+
+               "<!--"
+               sgml-skip-tag-forward
+               nil))
+
+
+
+(add-hook 'nxml-mode-hook 'hs-minor-mode)
+(add-hook 'nxml-mode-hook 'linum-mode)
+(add-hook 'c-mode-hook 'linum-mode)
+(add-hook 'c++-mode-hook 'linum-mode)
+
+;; optional key bindings, easier than hs defaults
+(define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
+
+;; Remove doxy-graph from mode-line.
+(delight (doxy-graph-mode))
 
 (provide 'compile-tools)
 

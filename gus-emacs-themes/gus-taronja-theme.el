@@ -274,12 +274,12 @@
    '(org-quote ((t (:foreground "orange"))))
    '(org-document-info-keyword ((t (:foreground "orange"))))
    '(org-latex-and-related ((t (:foreground "orange"))))
-   '(helm-selection-line ((t (:background "RoyalBlue"))))
+   '(helm-selection-line ((t (:background "RoyalBlue" :foreground ,"white"))))
 
    ;;;;; helm-swoop
    '(helm-swoop-target-line-block-face ((,class (:foreground ,"white" :background ,"RoyalBlue"))))
    '(helm-swoop-target-line-face ((,class (:background ,"RoyalBlue"))))
-   '(helm-swoop-target-word-face ((,class (:background ,"RoyalBlue" :foreground ,"black"))))
+   '(helm-swoop-target-word-face ((,class (:background ,"RoyalBlue" :foreground ,"white"))))
 
   )
 

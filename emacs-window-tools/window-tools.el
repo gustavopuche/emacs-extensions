@@ -48,4 +48,12 @@
 (global-set-key (kbd "<C-M-left>") 'shrink-window-horizontally)
 (global-set-key (kbd "<C-M-right>") 'enlarge-window-horizontally)
 
+;; delight
+(delight 'doxy-graph-mode nil)
+(delight 'abbrev-mode nil 'abbrev)
+(delight 'eldoc-mode nil "eldoc")
+
+;; Power line
+(powerline-default-theme)
+
 (provide 'window-tools)

@@ -1,6 +1,12 @@
 ;;;;;;;;;;;;;;;;;;;
 ;; LSP Mode      ;;
 ;;;;;;;;;;;;;;;;;;;
+(use-package irony :delight)
+(use-package yasnippet :delight yas-minor-mode)
+(use-package flycheck :delight)
+(use-package drag-stuff :delight)
+(use-package which-key :delight)
+
 (setq lsp-keymap-prefix "C-s-l")
 (require 'lsp-mode)
 ;; (setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
@@ -37,10 +43,9 @@
 (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 (define-key lsp-mode-map (kbd "<f2>") 'helm-lsp-workspace-symbol)
 
-(which-key-mode)
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
-
+(add-hook 'nxml-mode-hook 'lsp)
 
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 

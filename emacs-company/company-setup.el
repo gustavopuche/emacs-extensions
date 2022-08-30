@@ -1,8 +1,9 @@
 (use-package company
+  :delight
   :ensure t
   :init
   (global-company-mode)
-  :bind (("M-<space>" . company-complete-common-or-cycle))
+  :bind (("s-<space>" . company-complete-common-or-cycle))
   :config)
 
 (eval-after-load 'company

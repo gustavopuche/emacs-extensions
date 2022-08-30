@@ -3,6 +3,9 @@
 (require 'helm-projectile)
 (require 'helm-ag)
 
+(use-package helm-gtags
+  :delight)
+
 ;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
@@ -92,6 +95,16 @@
 ;; Initially only .cpp and .h files are searched.
 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h)$")
 (global-set-key (kbd "s-p s a") 'helm-ag-project-root)
+
+;; Set full ag search or only source.
+(global-set-key (kbd "<s-f1>") (lambda () (interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cxx|xml|tex|ini)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h-e cc -e el -e ini -e xml -e tex")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex")))
+(global-set-key (kbd "<s-f2>") (lambda () (interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h-e cc -e el")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: helm-swoop                ;;

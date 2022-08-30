@@ -139,6 +139,19 @@
 (global-set-key (kbd "C-s-u") 'upcase-char)
 (global-set-key (kbd "<f12>") 'edit-tools-insert-include)
 
+;; enable drag-stuff everywhere
+(drag-stuff-global-mode t)
+
+;; display column-number in mode line.
+(column-number-mode t)
+
+;; apply default key bindings
+(drag-stuff-define-keys)
+
+(use-package ws-butler :delight)
+(require 'highlight-global)
+(global-set-key (kbd "M-H") 'highlight-frame-toggle)
+
 ;; ;; Copy org tags into other file.
 ;; (let* ((target-heading "Destination")
 ;;        (target-marker (org-find-exact-headline-in-buffer target-heading))

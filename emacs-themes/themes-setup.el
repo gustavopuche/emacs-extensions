@@ -19,7 +19,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one-light t)
+  (load-theme 'doom-snazzy t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -53,6 +53,8 @@
 (add-hook 'treemacs-mode-hook 'treemacs-face-mode)
 (add-hook 'org-brain-visualize-mode-hook 'org-brain-face-mode)
 (add-hook 'org-mode-hook 'org-brain-face-mode)
+
+(load-theme 'gus-taronja t)
 
 ;; (custom-set-faces
 ;;  ;; custom-set-faces was added by Custom.

@@ -58,10 +58,13 @@
 (setq org-emphasis-alist
   '(("*" (bold :foreground "orange" )) ;; this make bold both italic and bold, but not color change
     ("/" (italic :foreground "dark salmon" )) ;; italic text, the text will be "dark salmon"
-    ("_" (italic :foreground "DeepSkyBlue") ) ;; underlined text, color is "cyan"
-    ("=" (bold :foreground "DodgerBlue" )) 
+    ("_" (italic :foreground "DarkViolet") ) ;; underlined text, color is "DarkViolet"
+    ("=" (bold :foreground "DeepSkyBlue" )) 
     ("~" (bold :foreground "MediumSeaGreen" ))
     ("+" (bold :foreground "tomato" ))))
 (setq org-hide-emphasis-markers t) ;; hides the emphasis markers
+
+;; Add organizer.org file to agenda.
+(org-agenda-files '("~/org/brain/organizer.org"))
 
 (provide 'org-setup)
