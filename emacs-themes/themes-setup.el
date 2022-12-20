@@ -49,6 +49,11 @@
   (setq buffer-face-mode-face '(:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 130 :width normal))
   (buffer-face-mode))
 
+;; Fix helm selection
+(with-eval-after-load 'helm
+  (set-face-attribute 'helm-selection nil 
+                      :background "purple"
+                      :foreground "white"))
 
 (add-hook 'treemacs-mode-hook 'treemacs-face-mode)
 (add-hook 'org-brain-visualize-mode-hook 'org-brain-face-mode)

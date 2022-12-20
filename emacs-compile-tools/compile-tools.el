@@ -356,10 +356,16 @@ COMMANDS
 (global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
 (global-set-key (kbd "<f6>") 'compile-tools-debug)
 (global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
-(global-set-key (kbd "<f4>") 'compile-tools-qmake)
-;; (global-set-key (kbd "<f3>") 'compile-tools-cmake)
+(global-set-key (kbd "<f4>") 'vc-msg-show)
+(global-set-key (kbd "<C-f4>") 'vc-annotate)
+(global-set-key (kbd "<C-s-f4>") 'magit-blame)
+;; (global-set-key (kbd "<f4>") 'compile-tools-qmake)
+;;(global-set-key (kbd "<f3>") 'vc-msg-show)
 (global-set-key (kbd "<C-s-f2>") 'compile-tools-set-target)
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
+(global-set-key (kbd "<S-f12>") 'lsp-ui-peek-find-references)
+(global-set-key (kbd "<C-S-f10>") 'lsp-ui-peek-find-definitions)
+(global-set-key (kbd "<C-S-f3>") 'xref-find-definitions-other-window)
 
 ;; C++ hooks.
 (add-hook 'c-mode-hook 'doxy-graph-mode)
@@ -408,6 +414,16 @@ COMMANDS
 
 ;; Hide DOS cr-characters.
 (setq magit-diff-hide-trailing-cr-characters t)
+;; SpeedUp magit.
+(with-eval-after-load 'magit
+  (remove-hook 'magit-status-sections-hook 'magit-insert-untracked-files)
+  ;; (remove-hook 'magit-status-sections-hook 'magit-insert-status-headers)
+  (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-pushremote)
+  ;; (remove-hook 'magit-status-sections-hook 'magit-insert-unpulled-from-pushremote)
+  ;; (remove-hook 'magit-status-sections-hook 'magit-insert-unpulled-from-upstream)
+  (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-upstream-or-recent)
+  (setq magit-auto-revert-mode nil))
+
 
 (require 'srefactor)
 (require 'srefactor-lisp)
@@ -424,10 +440,20 @@ COMMANDS
 
 (require 'hideshow)
 (require 'sgml-mode)
-(require 'nxml-mode)
+(defalias 'xml-mode 'sgml-mode 
+    "Use `sgml-mode' instead of nXML's `xml-mode'.")
+;; (require 'nxml-mode)
 
+;; (add-to-list 'hs-special-modes-alist
+;;              '(nxml-mode
+;;                "<!--\\|<[^/>]*[^/]>"
+;;                "-->\\|</[^/>]*[^/]>"
+
+;;                "<!--"
+;;                sgml-skip-tag-forward
+;;                nil))
 (add-to-list 'hs-special-modes-alist
-             '(nxml-mode
+             '(sgml-mode
                "<!--\\|<[^/>]*[^/]>"
                "-->\\|</[^/>]*[^/]>"
 
@@ -435,18 +461,28 @@ COMMANDS
                sgml-skip-tag-forward
                nil))
 
-
-
-(add-hook 'nxml-mode-hook 'hs-minor-mode)
-(add-hook 'nxml-mode-hook 'linum-mode)
+(add-hook 'sgml-mode-hook 'hs-minor-mode)
+;; (add-hook 'sgml-mode-hook 'linum-mode)
+(add-hook 'sgml-mode-hook (lambda () (visual-line-mode -1)))
 (add-hook 'c-mode-hook 'linum-mode)
 (add-hook 'c++-mode-hook 'linum-mode)
 
 ;; optional key bindings, easier than hs defaults
-(define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
+;; (define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
+(define-key sgml-mode-map (kbd "<C-iso-lefttab>") 'hs-toggle-hiding)
 
 ;; Remove doxy-graph from mode-line.
 (delight (doxy-graph-mode))
+
+;; No TABS for any mode.
+(setq indent-tabs-mode nil)
+
+(defun my-init-perl-mode ()
+  (setq perl-indent-level                2)
+  (setq indent-tabs-mode nil)
+  (setq perl-continued-statement-offset  2)
+  (setq perl-continued-brace-offset     -2) )
+(my-init-perl-mode)
 
 (provide 'compile-tools)
 

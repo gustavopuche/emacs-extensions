@@ -52,7 +52,9 @@
 
 ;; visual-line-mode active with latex-mode
 (add-hook 'text-mode-hook 'visual-line-mode)
-(add-hook 'org-brain-visualize-text-hook 'visual-line-mode)
+(add-hook 'org-brain-visualize-text-hook (lambda () (visual-line-mode 1)
+					   (org-display-inline-images)))
+
 
 ;; this controls the color of bold, italic, underline, verbatim, strikethrough
 (setq org-emphasis-alist
@@ -66,5 +68,24 @@
 
 ;; Add organizer.org file to agenda.
 (org-agenda-files '("~/org/brain/organizer.org"))
+
+(setq org-todo-keywords '((sequence "TODO(t)" "DOING" "BLOCKED(b@/!)" "REVIEW" "|" "DONE(d!)" "CANCELLED(c@)")))
+
+(setq org-log-done 'time)
+(setq org-todo-keyword-faces '(("todo" . "SlateGray")
+			       ("doing" . "DarkOrchid")
+			       ("blocked" . "Firebrick")
+			       ("done" . "ForestGreen")
+			       ("cancelled" .  "SlateBlue")))
+
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
+
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(setq org-startup-with-inline-images t)
+(setq org-support-shift-select t)
+
+;; Use graphviz inside org.
+(require 'ob-dot)
 
 (provide 'org-setup)

@@ -23,6 +23,9 @@
      (define-key helm-gtags-mode-map (kbd "<f3>") 'helm-gtags-find-tag-from-here)
      (define-key helm-gtags-mode-map (kbd "<C-f3>") 'helm-gtags-pop-stack)))
 
+(if helm-gtags-mode
+    (setq helm-gtags-auto-update t))
+
 (define-key global-map (kbd "M-,") 'xref-pop-marker-stack)
 
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
@@ -98,47 +101,68 @@
 
 ;; Set full ag search or only source.
 (global-set-key (kbd "<s-f1>") (lambda () (interactive)
-				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cxx|xml|tex|ini)$")
-				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h-e cc -e el -e ini -e xml -e tex")
-				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex")))
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|xml|tex|txt|ini|pl|pm|html|js)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js")
+				 (message "Setup ag and fdfind for: c++ lisp latex txt xml perl ini html js")))
 (global-set-key (kbd "<s-f2>") (lambda () (interactive)
-				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h)$")
-				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h-e cc -e el")
-				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el")))
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cxx|cc|cpp|h)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el")
+				 (message "Setup ag and fdfind for: c++ only")))
+(global-set-key (kbd "<s-f3>") (lambda () (interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(xml)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e xml")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e xml")
+				 (message "Setup ag and fdfind for: xml only")))
+(global-set-key (kbd "<s-f4>") (lambda () (interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(tex)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e tex")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e tex")
+				 (message "Setup ag and fdfind for: LaTeX only")))
+
+(global-set-key (kbd "<s-f5>") (lambda () (interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(pl|pm)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e pl -e pm")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e pl -e pm")
+				 (message "Setup ag and fdfind for: Perl only")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: helm-swoop                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(with-eval-after-load 'helm-swoop
-  ;; Change keybinds to whatever you like :)
-  (global-set-key (kbd "M-i") 'helm-swoop)
-  (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
-  (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
-  (global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
+(require 'helm-swoop)
 
-  ;; When doing isearch, hand the word over to helm-swoop
-  (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-  (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+;; Change keybinds to whatever you like :)
+(global-set-key (kbd "M-i") 'helm-swoop)
+(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+(global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
+(global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
 
-  ;; Save buffer when helm-multi-swoop-edit complete
-  (setq helm-multi-swoop-edit-save t)
+;; When doing isearch, hand the word over to helm-swoop
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
 
-  ;; If this value is t, split window inside the current window
-  (setq helm-swoop-split-with-multiple-windows nil)
+;; Save buffer when helm-multi-swoop-edit complete
+(setq helm-multi-swoop-edit-save t)
 
-  ;; Split direction.  'split-window-vertically or 'split-window-horizontally
-  (setq helm-swoop-split-direction 'split-window-vertically)
+;; If this value is t, split window inside the current window
+(setq helm-swoop-split-with-multiple-windows nil)
 
-  ;; If nil, you can slightly boost invoke speed in exchange for text color
-  (setq helm-swoop-speed-or-color nil)
+;; Split direction.  'split-window-vertically or 'split-window-horizontally
+(setq helm-swoop-split-direction 'split-window-vertically)
 
-  ;; Go to the opposite side of line from the end or beginning of line
-  (setq helm-swoop-move-to-line-cycle t)
+;; If nil, you can slightly boost invoke speed in exchange for text color
+(setq helm-swoop-speed-or-color nil)
 
-  ;; Optional face for line numbers
-  ;; Face name is `helm-swoop-line-number-face`
-  (setq helm-swoop-use-line-number-face t))
+;; Go to the opposite side of line from the end or beginning of line
+(setq helm-swoop-move-to-line-cycle t)
+
+;; Optional face for line numbers
+;; Face name is `helm-swoop-line-number-face`
+(setq helm-swoop-use-line-number-face t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'helm-org)
 

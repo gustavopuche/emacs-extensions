@@ -14,7 +14,7 @@
 (setq helm-projectile-fuzzy-match nil)
 (helm-projectile-on)
 
-(setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h-e cc -e el -e ini -e xml -e tex")
-(setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex")
+(setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h-e cc -e el -e ini -e xml -e tex -e pl -e pm")
+(setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e pl -e pm")
 
 (provide 'projectile-setup)

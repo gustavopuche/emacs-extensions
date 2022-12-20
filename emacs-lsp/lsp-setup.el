@@ -38,19 +38,23 @@
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (require 'dap-cpptools)
   (require 'helm-lsp)
-  (yas-global-mode))
+  (yas-global-mode)
+  (setq lsp-ui-doc-enable nil))
 
 (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 (define-key lsp-mode-map (kbd "<f2>") 'helm-lsp-workspace-symbol)
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
-(add-hook 'nxml-mode-hook 'lsp)
+(add-hook 'sgml-mode-hook #'lsp-deferred)
 
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; Change to clangd linux 14.0.3
-(setq lsp-clangd-binary-path "/home/gustavo/dev/clangd_14.0.3/bin/clangd")
+;; ;; Change to clangd linux 14.0.3
+;; (setq lsp-clangd-binary-path "/home/gustavo/dev/clangd_14.0.3/bin/clangd")
+;; Change to clangd linux 15.0.1
+;; (setq lsp-clangd-binary-path "/home/gustavo/dev/clangd_15.0.1/bin/clangd")
+(setq lsp-clangd-binary-path "/usr/bin/clangd")
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
@@ -69,5 +73,13 @@
               ("C-c o" . cpp-auto-include/ensure-includes-for-current-line)))
 
 ;;------------------------------------------------------------------------------
+
+;; Fixes isearch mode cancelled when moving mouse.
+(put 'dap-tooltip-mouse-motion 'isearch-scroll t)
+(put 'handle-switch-frame 'isearch-scroll t)
+
+(setq lsp-ui-doc-enable nil
+      lsp-ui-sideline-enable nil)
+
 
 (provide 'lsp-setup)

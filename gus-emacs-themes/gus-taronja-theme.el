@@ -28,6 +28,9 @@
 
 ;;; Code:
 
+;; Fix rainbow delimiters and other staff.
+(require 'doom-themes-base)
+
 ;; Setting operators.
 (defface font-lock-operator-face
   '((t :foreground "red"
@@ -69,16 +72,25 @@
        (background (if 256color "#1c1c1c" "#181a26"))
        (current-line (if 256color "#121212" "#14151E"))
        (block-background (if 256color "#262626" "#1F2232"))
-       (selection "#103050")
+       (selection "#ffaa00")
        (foreground "#eaeaea")
-       (comment "#969896")
+       (comment "#d6d8d6")
        (red "#d54e53")
-       (orange "goldenrod")
-       (yellow "#e7c547")
+       (orange "#ffa500")
+       (yellow "#ffff7f")
        (green "DarkOliveGreen3")
        (aqua "#70c0b1")
        (blue "DeepSkyBlue1")
        (purple "#c397d8")
+       (white "#ffffff")
+       (violet "#b9c6ff")
+       (pink "#ffd2ff")
+       (executable "#ffa0aa")
+       (directory "cyan")
+       (modified "gold")
+       (alert "light pink")
+       (constant "thistle")
+       (current-line-number "#f3f99d")
 
        ;; Ediff colors.
        (bg1           "#292b2e")
@@ -93,11 +105,27 @@
        (blue          "#4f97d7")
        (blue-bg       "#293239")
        (magenta       "#a31db1")
-       (yellow        "#b1951d")
+       (yellow        "#ffff7f")
        (yellow-bg     "#32322c"))
 
   (custom-theme-set-faces
    'gus-taronja
+
+   ;; ;; from doom-themes-base
+   ;; ;;;; rainbow-delimiters
+   ;; '(rainbow-delimiters-depth-1-face ((,class(:foreground ,blue))))
+   ;; '(rainbow-delimiters-depth-2-face ((,class(:foreground ,magenta))))
+   ;; '(rainbow-delimiters-depth-3-face ((,class(:foreground ,green))))
+   ;; '(rainbow-delimiters-depth-4-face ((,class(:foreground ,violet))))
+   ;; '(rainbow-delimiters-depth-5-face ((,class(:foreground ,teal))))
+   ;; '(rainbow-delimiters-depth-6-face ((,class(:foreground ,blue))))
+   ;; '(rainbow-delimiters-depth-7-face ((,class(:foreground ,magenta))))
+   ;; '(rainbow-delimiters-depth-8-face ((,class(:foreground ,green))))
+   ;; '(rainbow-delimiters-depth-9-face ((,class(:foreground ,violet))))
+   ;; '(rainbow-delimiters-base-error-face ((,class(:weight bold :foreground ,red))))
+   ;; '(rainbow-delimiters-unmatched-face  ((,class(:foreground ,red :weight bold :inverse-video t))))
+   ;; '(rainbow-delimiters-mismatched-face ((,class(:weight bold))))
+   ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
    
    '(default ((t (:background "DodgerBlue" :foreground "#eeeeee"))))
    '(mouse ((t (:foregound "green"))))
@@ -150,19 +178,25 @@
    '(font-latex-warning-face ((t (:bold t :foreground "Pink" :weight bold))))
    '(font-lock-builtin-face ((t (:foreground "#00ecff"))))
    '(font-lock-comment-face ((t (:italic t :foreground "yellow2" :slant italic))))
-   '(font-lock-constant-face ((t (:foreground "gold"))))
+   `(font-lock-constant-face ((,class (:foreground ,constant))))
    '(font-lock-doc-face ((t (:foreground "BlanchedAlmond"))))
    '(font-lock-doc-string-face ((t (:foreground "BlanchedAlmond"))))
-   '(font-lock-function-name-face ((t (:bold t :foreground "#feaa51" :weight bold))))
-   '(font-lock-keyword-face ((t (:bold t :foreground "#feaa51" :weight bold))))
+   
+   `(font-lock-function-name-face ((,class (:bold t :foreground ,orange :weight bold))))
+   
+   `(font-lock-keyword-face ((t (:bold t :foreground ,orange :weight bold))))
+   
    '(font-lock-preprocessor-face ((t (:foreground "pink"))))
    '(font-lock-reference-face ((t (:foreground "pink"))))
-   '(font-lock-string-face ((t (:foreground "#45ed45"))))
+   
+   `(font-lock-string-face ((,class(:foregound ,violet))))
+   
    '(font-lock-type-face ((t (:foreground "#ffd2ff"))))
    '(font-lock-variable-name-face ((t (:foreground "SeaGreen2"))))
    '(font-lock-warning-face ((t (:foreground "yellow"))))
    
-   '(font-lock-operator-face ((t (:foreground "#ac9eff" :weight bold))))
+   `(font-lock-operator-face ((,class(:foreground ,violet :weight bold))))
+   
    '(font-lock-parenthesis-face ((t (:foreground "yellow" :weight bold))))
    '(font-lock-brackets-face ((t (:foreground "coral" :weight bold))))
    '(font-lock-braces-face ((t (:foreground "SteelBlue1" :weight bold))))
@@ -184,15 +218,19 @@
    `(ediff-odd-diff-Ancestor ((,class(:background ,bg4 :extend t))))
    `(ediff-odd-diff-B ((,class(:background ,bg4 :extend t))))
    `(ediff-odd-diff-C ((,class(:background ,bg4 :extend t))))
-
+   
+   ;;;;; nxml
+   `(nxml-attribute-local-name ((,class(:foregound ,orange))))
+   `(nxml-attribute-value ((,class(:foreground ,white))))
+   `(nxml-attribute-value-delimiter ((,class(:foreground ,purple))))
    
    ;; Emacs interface
    `(cursor ((,class (:background ,orange))))
    `(fringe ((,class (:background ,current-line))))
-   `(linum ((,class (:background ,current-line :foreground ,green))))
+   `(linum ((,class (:background ,current-line :foreground ,"yellow"))))
    `(border ((,class (:background ,current-line))))
    `(border-glyph ((,class (nil))))
-   `(highlight ((,class (:inverse-video nil :background ,current-line))))
+   `(highlight ((,class (:foreground ,"white" :background ,selection))))
    `(gui-element ((,class (:background ,current-line :foreground ,foreground))))
    `(mode-line ((,class (:foreground nil :background ,current-line
                                      :box (:line-width 1 :color ,foreground)
@@ -203,9 +241,9 @@
                                            :background ,current-line :weight normal
                                            :box (:line-width 1 :color ,foreground)))))
    `(mode-line-emphasis ((,class (:foreground ,foreground :slant italic))))
-   `(mode-line-highlight ((,class (:foreground ,purple :box nil))))
+   `(mode-line-highlight ((,class (:foreground ,"black" :background ,yellow :box nil))))
    `(minibuffer-prompt ((,class (:foreground ,"orange"))))
-   `(region ((,class (:background ,selection))))
+   `(region ((,class (:foreground ,"white" :background ,selection))))
    `(secondary-selection ((,class (:background ,current-line))))
    
    `(header-line ((,class (:inherit mode-line :foreground ,purple :background nil))))
@@ -234,7 +272,7 @@
    '(info-menu-header ((t (:bold t :weight bold))))
    '(info-node ((t (:foreground "DeepSkyBlue1"))))
    '(info-xref ((t (:bold t :foreground "SeaGreen2" :weight bold))))
-   '(isearch ((t (:background "palevioletred2" :foreground "orange"))))
+   '(isearch ((t (:background "turquoise" :foreground "white"))))
    '(isearch-lazy-highlight-face ((t (:foreground "#feaa51" :background "white" :inverse-video t))))
    '(italic ((t (:italic t :slant italic))))
    '(menu ((t (:background "gray" :foreground "black"))))
@@ -244,6 +282,11 @@
    '(modeline-mousable-minor-mode ((t (:background "gray" :foreground "black" :box (:line-width 2 :style released-button)))))
    '(mouse ((t (:background "white"))))
 
+   '(hi-yellow ((t (:background "yellow" :foreground "black"))))
+   '(hi-pink ((t (:background "pink" :foreground "black"))))
+   '(hi-green ((t (:background "green" :foreground "black"))))
+   '(hi-blue ((t (:background "cyan" :foreground "black"))))
+   
    ;; '(region ((t (:background "#feaa51"))))
    '(region ((t (:foreground "#feaa51" :inverse-video t))))
    
@@ -252,7 +295,7 @@
    '(show-paren-match-face ((t (:bold t :foreground "yellow" :weight bold))))
    '(show-paren-mismatch-face ((t (:bold t :foreground "orange" :weight bold))))
    '(tool-bar ((t (:background "grey75" :foreground "black" :box (:line-width 1 :style released-button)))))
-   '(tooltip ((t (:background "lightyellow" :foreground "black"))))
+   ;; '(tooltip ((t (:background "lightyellow" :foreground "black"))))
    '(trailing-whitespace ((t (:background "#102e4e"))))
    '(underline ((t (:underline t))))
 
@@ -262,10 +305,9 @@
    '(widget-field-face ((t (:background "dim gray"))))
    '(widget-inactive-face ((t (:foreground "light gray"))))
    '(highlight-numbers-number ((t (:foreground "cyan"))))
-   '(widget-single-line-field-face ((t (:background "dim gray")))))
-
-   ;; helm.
-   '(helm-buffer-size ((t (:foreground "green"))))
+   '(widget-single-line-field-face ((t (:background "dim gray"))))
+   
+      ;; helm.
    '(helm-swoop-line-number-face ((t (:foreground "green"))))
    '(ibuffer-locked-buffer ((t (:foreground "green"))))
    '(org-macro ((t (:foreground "orange"))))
@@ -274,14 +316,34 @@
    '(org-quote ((t (:foreground "orange"))))
    '(org-document-info-keyword ((t (:foreground "orange"))))
    '(org-latex-and-related ((t (:foreground "orange"))))
-   '(helm-selection-line ((t (:background "RoyalBlue" :foreground ,"white"))))
+   '(helm-selection-line ((t (:background "yellow" :foreground "black"))))
 
+   ;; Overwritten by doom themes
+   `(helm-buffer-size ((,class (:foreground ,pink))))
+   `(helm-buffer-process ((,class (:foreground ,directory))))
+   `(helm-buffer-file ((,class (:foreground ,directory))))
+   `(helm-ff-executable ((,class (:foreground ,executable))))
+   `(helm-ff-file-extension ((,class (:foreground ,yellow))))
+   `(helm-ff-directory ((,class (:foreground ,directory))))
+   `(helm-ff-dotted-directory ((,class (:foreground ,directory))))
+
+   `(treemacs-git-modified-face ((,class (:foreground ,modified))))
+   `(treemacs-fringe-indicator-face ((,class (:foreground ,directory))))
+   `(error ((,class (:foreground ,alert))))
+     
    ;;;;; helm-swoop
-   '(helm-swoop-target-line-block-face ((,class (:foreground ,"white" :background ,"RoyalBlue"))))
-   '(helm-swoop-target-line-face ((,class (:background ,"RoyalBlue"))))
-   '(helm-swoop-target-word-face ((,class (:background ,"RoyalBlue" :foreground ,"white"))))
+   `(helm-swoop-target-line-block-face ((,class (:foreground ,"white" :background ,"yellow"))))
+   `(helm-swoop-target-line-face ((,class (:background ,"yellow"))))
+   `(helm-swoop-target-word-face ((,class (:background ,"yellow" :foreground ,"white"))))
 
-  )
+   ;; lsp
+   `(lsp-ui-peek-highlight ((,class (:foreground ,"white" :background ,selection))))
+
+   ;; '(lsp-face-highlight-textual ((t (:background "#eeeeee" :foreground "DodgerBlue"))))
+   ;; '(lsp-face-highlight-read    ((,class (:inherit 'lsp-face-highlight-textual))))
+   ;; '(lsp-face-highlight-write   ((,class (:inherit 'lsp-face-highlight-textual))))
+   
+   ))
 
 ;;;###autoload
 (when load-file-name
