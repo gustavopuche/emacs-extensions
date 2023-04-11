@@ -345,28 +345,6 @@ COMMANDS
                     compile-tools--qt-build-path "/android-build  --input "
                     (compile-tools-get-deploy-file) " --gradle --reinstall --device " (compile-tools-android-device))))
 
-(global-set-key (kbd "<f10>") 'compile-tools-compile-make-qt-android-run)
-(global-set-key (kbd "<C-f10>") 'compile-tools-compile-make-install)
-(global-set-key (kbd "<f9>") 'compile-tools-compile-make)
-(global-set-key (kbd "<C-f9>") 'compile-tools-compile-make-apk)
-(global-set-key (kbd "<C-s-f9>") 'compile-tools-compile-make-aab)
-;; (global-set-key (kbd "<f8>") 'compile-tools-compile-make-clean)
-(global-set-key (kbd "<f8>") 'compile-tools-compile-cmake)
-(global-set-key (kbd "<C-f8>") 'compile-tools-reset-target)
-(global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
-(global-set-key (kbd "<f6>") 'compile-tools-debug)
-(global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
-(global-set-key (kbd "<f4>") 'vc-msg-show)
-(global-set-key (kbd "<C-f4>") 'vc-annotate)
-(global-set-key (kbd "<C-s-f4>") 'magit-blame)
-;; (global-set-key (kbd "<f4>") 'compile-tools-qmake)
-;;(global-set-key (kbd "<f3>") 'vc-msg-show)
-(global-set-key (kbd "<C-s-f2>") 'compile-tools-set-target)
-(global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
-(global-set-key (kbd "<S-f12>") 'lsp-ui-peek-find-references)
-(global-set-key (kbd "<C-S-f10>") 'lsp-ui-peek-find-definitions)
-(global-set-key (kbd "<C-S-f3>") 'xref-find-definitions-other-window)
-
 ;; C++ hooks.
 (add-hook 'c-mode-hook 'doxy-graph-mode)
 (add-hook 'c++-mode-hook 'doxy-graph-mode)
@@ -424,19 +402,11 @@ COMMANDS
   (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-upstream-or-recent)
   (setq magit-auto-revert-mode nil))
 
-
 (require 'srefactor)
 (require 'srefactor-lisp)
 
 ;; OPTIONAL: ADD IT ONLY IF YOU USE C/C++. 
 (semantic-mode 1) ;; -> this is optional for Lisp
-
-(define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-(define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-(global-set-key (kbd "M-RET o") 'srefactor-lisp-one-line)
-(global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
-(global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
-(global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer)
 
 (require 'hideshow)
 (require 'sgml-mode)

@@ -7,22 +7,7 @@
 (use-package drag-stuff :delight)
 (use-package which-key :delight)
 
-(setq lsp-keymap-prefix "C-s-l")
 (require 'lsp-mode)
-;; (setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
-;;     projectile hydra flycheck company avy which-key helm-xref dap-mode))
-
-;; (when (cl-find-if-not #'package-installed-p package-selected-packages)
-;;   (package-refresh-contents)
-;;   (mapc #'package-install package-selected-packages))
-
-;; ;; sample `helm' configuration use https://github.com/emacs-helm/helm/ for details
-;; (helm-mode)
-;; (require 'helm-xref)
-;; (define-key global-map [remap find-file] #'helm-find-files)
-;; (define-key global-map [remap execute-extended-command] #'helm-M-x)
-;; (define-key global-map [remap switch-to-buffer] #'helm-mini)
-
 
 ;; Enable yasnippet
 (yas-global-mode 1)
@@ -41,19 +26,11 @@
   (yas-global-mode)
   (setq lsp-ui-doc-enable nil))
 
-(define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-(define-key lsp-mode-map (kbd "<f2>") 'helm-lsp-workspace-symbol)
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 (add-hook 'sgml-mode-hook #'lsp-deferred)
 
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
-
-;; ;; Change to clangd linux 14.0.3
-;; (setq lsp-clangd-binary-path "/home/gustavo/dev/clangd_14.0.3/bin/clangd")
-;; Change to clangd linux 15.0.1
-;; (setq lsp-clangd-binary-path "/home/gustavo/dev/clangd_15.0.1/bin/clangd")
 (setq lsp-clangd-binary-path "/usr/bin/clangd")
 
 (eval-after-load 'flycheck
@@ -81,5 +58,7 @@
 (setq lsp-ui-doc-enable nil
       lsp-ui-sideline-enable nil)
 
+;; Disable incons in header line.
+(setq lsp-headerline-breadcrumb-icons-enable nil)
 
 (provide 'lsp-setup)

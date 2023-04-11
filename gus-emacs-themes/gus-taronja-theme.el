@@ -76,12 +76,13 @@
        (foreground "#eaeaea")
        (comment "#d6d8d6")
        (red "#d54e53")
-       (orange "#ffa500")
+       (orange "#ffbb88")
        (yellow "#ffff7f")
-       (green "DarkOliveGreen3")
-       (aqua "#70c0b1")
+       (green "#89f09d")
+       (aqua "#00ecff")
        (blue "DeepSkyBlue1")
        (purple "#c397d8")
+       (black "#000000")
        (white "#ffffff")
        (violet "#b9c6ff")
        (pink "#ffd2ff")
@@ -89,7 +90,7 @@
        (directory "cyan")
        (modified "gold")
        (alert "light pink")
-       (constant "thistle")
+       (constant "lightyellow")
        (current-line-number "#f3f99d")
 
        ;; Ediff colors.
@@ -126,8 +127,9 @@
    ;; '(rainbow-delimiters-unmatched-face  ((,class(:foreground ,red :weight bold :inverse-video t))))
    ;; '(rainbow-delimiters-mismatched-face ((,class(:weight bold))))
    ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-   
-   '(default ((t (:background "DodgerBlue" :foreground "#eeeeee"))))
+
+   '(default ((t (:background "DodgerBlue" :foreground "#eeeeee" :family "MSX Screen 0" :foundry "PfEd" :slant normal :weight normal :height 83 :width normal))))
+   '(all-the-icons-purple ((t (:foreground "green"))))
    '(mouse ((t (:foregound "green"))))
    '(cursor ((t (:foregound "green"))))
    '(border ((t (:foregound "black"))))
@@ -141,11 +143,11 @@
    '(border ((t (:background "black"))))
    '(calendar-today-face ((t (:background "blue"))))
    '(change-log-acknowledgement-face ((t (:italic t :slant italic :foreground "CadetBlue"))))
-   '(change-log-conditionals-face ((t (:foreground "SeaGreen2"))))
+   `(change-log-conditionals-face ((t (:foreground ,green))))
    '(change-log-date-face ((t (:foreground "burlywood"))))
-   '(change-log-email-face ((t (:foreground "SeaGreen2"))))
+   `(change-log-email-face ((t (:foreground ,green))))
    '(change-log-file-face ((t (:bold t :weight bold :foreground "goldenrod"))))
-   '(change-log-function-face ((t (:foreground "SeaGreen2"))))
+   `(change-log-function-face ((t (:foreground ,green))))
    '(change-log-list-face ((t (:bold t :weight bold :foreground "DeepSkyBlue1"))))
    '(change-log-name-face ((t (:foreground "gold"))))
    '(comint-highlight-input ((t (:bold t :weight bold))))
@@ -156,7 +158,7 @@
    '(cvs-header-face ((t (:bold t :foreground "lightyellow" :weight bold))))
    '(cvs-marked-face ((t (:bold t :foreground "green" :weight bold))))
    '(cvs-msg-face ((t (:italic t :slant italic))))
-   '(cvs-need-action-face ((t (:foreground "orange"))))
+   `(cvs-need-action-face ((t (:foreground ,orange))))
    '(cvs-unknown-face ((t (:foreground "red"))))
    '(diary-face ((t (:foreground "orange red"))))
    '(diff-added-face ((t (nil))))
@@ -176,9 +178,9 @@
    '(font-latex-sedate-face ((t (:foreground "LightGray"))))
    '(font-latex-string-face ((t (:foreground "LightSalmon"))))
    '(font-latex-warning-face ((t (:bold t :foreground "Pink" :weight bold))))
-   '(font-lock-builtin-face ((t (:foreground "#00ecff"))))
+   `(font-lock-builtin-face ((t (:foreground ,aqua))))
    '(font-lock-comment-face ((t (:italic t :foreground "yellow2" :slant italic))))
-   `(font-lock-constant-face ((,class (:foreground ,constant))))
+   `(font-lock-constant-face ((,class (:foreground ,constant :weight bold))))
    '(font-lock-doc-face ((t (:foreground "BlanchedAlmond"))))
    '(font-lock-doc-string-face ((t (:foreground "BlanchedAlmond"))))
    
@@ -192,7 +194,7 @@
    `(font-lock-string-face ((,class(:foregound ,violet))))
    
    '(font-lock-type-face ((t (:foreground "#ffd2ff"))))
-   '(font-lock-variable-name-face ((t (:foreground "SeaGreen2"))))
+   `(font-lock-variable-name-face ((t (:foreground ,green))))
    '(font-lock-warning-face ((t (:foreground "yellow"))))
    
    `(font-lock-operator-face ((,class(:foreground ,violet :weight bold))))
@@ -233,16 +235,17 @@
    `(highlight ((,class (:foreground ,"white" :background ,selection))))
    `(gui-element ((,class (:background ,current-line :foreground ,foreground))))
    `(mode-line ((,class (:foreground nil :background ,current-line
-                                     :box (:line-width 1 :color ,foreground)
-                                     :family "Lucida Grande"))))
-   `(mode-line-buffer-id ((,class (:foreground ,purple :background nil))))
+                                     :box (:line-width 2 :color ,foreground)
+                                     :family "CPMono_v07" :foundry "PYRS" :slant normal :weight light :height 98 :width normal))))
+   `(mode-line-buffer-id ((,class (:foreground ,orange :background nil))))
    `(mode-line-inactive ((,class (:inherit mode-line
                                            :foreground ,comment
                                            :background ,current-line :weight normal
                                            :box (:line-width 1 :color ,foreground)))))
    `(mode-line-emphasis ((,class (:foreground ,foreground :slant italic))))
    `(mode-line-highlight ((,class (:foreground ,"black" :background ,yellow :box nil))))
-   `(minibuffer-prompt ((,class (:foreground ,"orange"))))
+   `(header-line ((,class (:foregound ,orange))))
+   `(minibuffer-prompt ((,class (:foreground ,orange))))
    `(region ((,class (:foreground ,"white" :background ,selection))))
    `(secondary-selection ((,class (:background ,current-line))))
    
@@ -267,11 +270,11 @@
    '(highlight ((t (:background "#feaa51"))))
    '(holiday-face ((t (:foreground "green"))))
    '(info-header-node ((t (:foreground "DeepSkyBlue1"))))
-   '(info-header-xref ((t (:bold t :weight bold :foreground "SeaGreen2"))))
+   `(info-header-xref ((t (:bold t :weight bold :foreground ,green))))
    '(info-menu-5 ((t (:foreground "wheat"))))
    '(info-menu-header ((t (:bold t :weight bold))))
    '(info-node ((t (:foreground "DeepSkyBlue1"))))
-   '(info-xref ((t (:bold t :foreground "SeaGreen2" :weight bold))))
+   `(info-xref ((t (:bold t :foreground ,green :weight bold))))
    '(isearch ((t (:background "turquoise" :foreground "white"))))
    '(isearch-lazy-highlight-face ((t (:foreground "#feaa51" :background "white" :inverse-video t))))
    '(italic ((t (:italic t :slant italic))))
@@ -293,32 +296,32 @@
    '(scroll-bar ((t (:background "gray" :foreground "#506070"))))
    '(secondary-selection ((t (:background "yellow" :foreground "gray10"))))
    '(show-paren-match-face ((t (:bold t :foreground "yellow" :weight bold))))
-   '(show-paren-mismatch-face ((t (:bold t :foreground "orange" :weight bold))))
+   `(show-paren-mismatch-face ((t (:bold t :foreground ,orange :weight bold))))
    '(tool-bar ((t (:background "grey75" :foreground "black" :box (:line-width 1 :style released-button)))))
    ;; '(tooltip ((t (:background "lightyellow" :foreground "black"))))
+
+   '(company-tooltip-selection ((t (:background "yellow" :foreground "black"))))
+
    '(trailing-whitespace ((t (:background "#102e4e"))))
    '(underline ((t (:underline t))))
 
    '(widget-button-face ((t (:bold t :weight bold))))
-   '(widget-button-pressed-face ((t (:foreground "orange"))))
+   `(widget-button-pressed-face ((t (:foreground ,orange))))
    '(widget-documentation-face ((t (:foreground "lime green"))))
    '(widget-field-face ((t (:background "dim gray"))))
    '(widget-inactive-face ((t (:foreground "light gray"))))
    '(highlight-numbers-number ((t (:foreground "cyan"))))
    '(widget-single-line-field-face ((t (:background "dim gray"))))
-   
-      ;; helm.
-   '(helm-swoop-line-number-face ((t (:foreground "green"))))
-   '(ibuffer-locked-buffer ((t (:foreground "green"))))
-   '(org-macro ((t (:foreground "orange"))))
-   '(helm-etags-file ((t (:foreground "orange"))))
-   '(org-code ((t (:foreground "orange"))))
-   '(org-quote ((t (:foreground "orange"))))
-   '(org-document-info-keyword ((t (:foreground "orange"))))
-   '(org-latex-and-related ((t (:foreground "orange"))))
-   '(helm-selection-line ((t (:background "yellow" :foreground "black"))))
 
-   ;; Overwritten by doom themes
+   ;; dired.
+   `(dired-directory ((t (:bold t :foreground ,yellow :weight bold))))
+   
+   ;; helm.
+   `(helm-source-header ((t (:foreground ,orange))))
+   `(helm-swoop-line-number-face ((t (:foreground ,green))))
+   `(helm-etags-file ((t (:foreground ,orange))))
+   `(helm-selection ((t (:background ,orange :foreground ,white))))
+   `(helm-selection-line ((t (:background ,yellow :foreground ,black))))
    `(helm-buffer-size ((,class (:foreground ,pink))))
    `(helm-buffer-process ((,class (:foreground ,directory))))
    `(helm-buffer-file ((,class (:foreground ,directory))))
@@ -326,23 +329,60 @@
    `(helm-ff-file-extension ((,class (:foreground ,yellow))))
    `(helm-ff-directory ((,class (:foreground ,directory))))
    `(helm-ff-dotted-directory ((,class (:foreground ,directory))))
+   `(helm-swoop-target-line-block-face ((,class (:foreground ,"black" :background ,"yellow"))))
+   `(helm-swoop-target-line-face ((,class (:background ,"yellow" :foreground ,"black"))))
+   `(helm-swoop-target-word-face ((,class (:background ,"yellow" :foreground ,"black"))))
 
+   ;; ibuffer.
+   '(ibuffer-locked-buffer ((t (:foreground "green"))))
+
+   ;; org.
+   `(org-macro ((t (:foreground ,orange))))
+   `(org-meta-line ((t (:foreground ,yellow))))
+   `(org-code ((t (:foreground ,orange))))
+   `(org-quote ((t (:foreground ,orange))))
+   `(org-document-info-keyword ((t (:foreground ,orange))))
+   `(org-document-title ((t (:foreground ,aqua))))
+   `(org-table ((t (:foreground ,aqua))))
+   `(org-latex-and-related ((t (:foreground ,orange))))
+   `(org-agenda-current-date ((t (:foreground ,yellow))))
+   `(org-agenda-current-time ((t (:foreground ,orange))))
+   `(org-block ((t (:foreground ,white))))
+   `(org-block-begin-line ((t (:foreground ,white :weight bold))))
+   `(org-block-end-line ((t (:foreground ,white :weight bold))))
+   `(org-time-grid ((t (:foreground ,red :weight bold))))
+   `(org-property-value ((t (:foreground ,yellow))))
+   `(org-special-keyword ((t (:foreground ,red :weight bold))))
+   `(org-scheduled-today ((t (:foreground ,white :weight bold))))
+   `(org-scheduled-previously ((t (:foreground ,red :weight bold))))
+   `(org-upcoming-distant-deadline ((t (:foreground ,red :weight bold))))
+
+   ;; treemacs.
    `(treemacs-git-modified-face ((,class (:foreground ,modified))))
    `(treemacs-fringe-indicator-face ((,class (:foreground ,directory))))
    `(error ((,class (:foreground ,alert))))
-     
-   ;;;;; helm-swoop
-   `(helm-swoop-target-line-block-face ((,class (:foreground ,"white" :background ,"yellow"))))
-   `(helm-swoop-target-line-face ((,class (:background ,"yellow"))))
-   `(helm-swoop-target-word-face ((,class (:background ,"yellow" :foreground ,"white"))))
 
    ;; lsp
-   `(lsp-ui-peek-highlight ((,class (:foreground ,"white" :background ,selection))))
+   `(lsp-ui-peek-highlight ((,class (:foreground ,white :background ,selection))))
+   `(lsp-face-highlight-textual ((,class (:foreground ,white :background ,orange))))
+   `(lsp-headerline ((,class (:inherit mode-line :foreground ,orange :background,black))))
+   `(lsp-headerline-breadcrumb-deprecated-face ((,class (:inherit lsp-headerline :foreground ,orange :bold t :weight bold :height 1.20))))
+   `(lsp-headerline-breadcrumb-path-error-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face))))
+   `(lsp-headerline-breadcrumb-path-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face))))
+   `(lsp-headerline-breadcrumb-path-hint-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face))))
+   `(lsp-headerline-breadcrumb-path-info-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face))))
+   `(lsp-headerline-breadcrumb-path-warning-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face))))
+   `(lsp-headerline-breadcrumb-project-prefix-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face))))
+   `(lsp-headerline-breadcrumb-separator-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face :foreground ,green))))
+   `(lsp-headerline-breadcrumb-symbols-error-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face :foreground ,yellow))))
+   `(lsp-headerline-breadcrumb-symbols-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-error-face))))
+   `(lsp-headerline-breadcrumb-symbols-hint-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-error-face))))
+   `(lsp-headerline-breadcrumb-symbols-info-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-error-face))))
+   `(lsp-headerline-breadcrumb-symbols-warning-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-error-face))))
+   `(lsp-headerline-breadcrumb-unknown-project-prefix-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-error-face))))
 
-   ;; '(lsp-face-highlight-textual ((t (:background "#eeeeee" :foreground "DodgerBlue"))))
-   ;; '(lsp-face-highlight-read    ((,class (:inherit 'lsp-face-highlight-textual))))
-   ;; '(lsp-face-highlight-write   ((,class (:inherit 'lsp-face-highlight-textual))))
-   
+   ;; which-hey.
+   `(which-key-group-description-face ((t (:foreground ,yellow :weight bold))))
    ))
 
 ;;;###autoload

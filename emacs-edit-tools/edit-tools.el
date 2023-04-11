@@ -175,6 +175,18 @@ will be killed."
 (require 'highlight-global)
 (global-set-key (kbd "M-H") 'highlight-frame-toggle)
 
+;; Solve problem with dead keys.
+(require 'iso-transl)
+
+;; Dired 2 panels.
+(setq dired-dwim-target t)
+
+;; Hide dired hidden files.
+(setq dired-listing-switches "-la")
+
+;; Hide dired details.
+(add-hook 'dired-mode-hook 'dired-hide-details-mode)
+
 ;; ;; Copy org tags into other file.
 ;; (let* ((target-heading "Destination")
 ;;        (target-marker (org-find-exact-headline-in-buffer target-heading))
