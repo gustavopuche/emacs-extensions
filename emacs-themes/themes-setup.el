@@ -64,6 +64,8 @@
   (add-hook 'c-mode-hook 'programming-face-mode)
   (add-hook 'emacs-lisp-mode-hook 'dired-face-mode)
   [add-hook 'text-mode-hook 'dired-face-mode]
+  (add-hook 'which-key-mode-hook 'dired-face-mode)
+  (add-hook 'helm-mode-hook 'dired-face-mode)
   )
 
 (require 'treemacs-all-the-icons)

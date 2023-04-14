@@ -9,12 +9,14 @@
 (global-set-key (kbd "<f2>") 'helm-occur)
 (global-set-key (kbd "<f3>") 'helm-gtags-find-tag-from-here)
 (global-set-key (kbd "<f4>") 'helm-imenu)
-(global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
-(global-set-key (kbd "<f6>") 'compile-tools-debug)
-(global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
-(global-set-key (kbd "<f8>") 'compile-tools-compile-cmake)
-(global-set-key (kbd "<f9>") 'compile-tools-compile-make)
-(global-set-key (kbd "<f10>") 'helm-lsp-workspace-symbol)
+
+(with-eval-after-load 'cmake-mode
+  (define-key cmake-mode-map (kbd "<f5>") 'compile-tools-compile-make-run)
+  (define-key cmake-mode-map (kbd "<f6>") 'compile-tools-debug)
+  (define-key cmake-mode-map (kbd "<f7>") 'compile-tools-run-gtest)
+  (define-key cmake-mode-map (kbd "<f8>") 'compile-tools-compile-cmake)
+  (define-key cmake-mode-map (kbd "<f9>") 'compile-tools-compile-make)
+  (define-key cmake-mode-map (kbd "<f10>") 'helm-lsp-workspace-symbol))
 
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
@@ -115,5 +117,18 @@
 (global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
 (global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
 (global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer)
+
+;; lsp.
+(with-eval-after-load 'lsp-mode
+  (define-key lsp-mode-map (kbd "<f5>") 'lsp-ui-peek-find-references)
+  (define-key lsp-mode-map (kbd "<f6>") 'lsp-ui-peek-find-definitions)
+  (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-implementation)
+)
+;; rebihnd dired keys.
+(with-eval-after-load 'dired-mode
+  (define-key dired-mode-map (kbd "<tab>") 'other-window)
+  (define-key dired-mode-map (kbd "<f5>") 'dired-do-copy)
+  (define-key dired-mode-map (kbd "<f6>") 'dired-do-rename)
+  ) 
 
 (provide 'keys-setup)

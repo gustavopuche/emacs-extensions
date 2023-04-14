@@ -91,6 +91,9 @@
        (modified "gold")
        (alert "light pink")
        (constant "lightyellow")
+       (lime "lime green")
+       (coral "coral")
+       (sandy "sandy brown")
        (current-line-number "#f3f99d")
 
        ;; Ediff colors.
@@ -233,6 +236,7 @@
    `(border ((,class (:background ,current-line))))
    `(border-glyph ((,class (nil))))
    `(highlight ((,class (:foreground ,"white" :background ,selection))))
+   `(match ((,class (:foregound ,white :background ,coral))))
    `(gui-element ((,class (:background ,current-line :foreground ,foreground))))
    `(mode-line ((,class (:foreground nil :background ,current-line
                                      :box (:line-width 2 :color ,foreground)
@@ -336,6 +340,12 @@
    ;; ibuffer.
    '(ibuffer-locked-buffer ((t (:foreground "green"))))
 
+   ;; magit.
+   `(magit-diff-hunk-heading ((,class (:foreground ,white))))
+   `(magit-diffstat-removed ((,class (:foreground ,pink))))
+   `(magit-filename ((,class (:foreground ,yellow))))
+   `(magit-header-line ((,class (:foreground ,white))))
+   
    ;; org.
    `(org-macro ((t (:foreground ,orange))))
    `(org-meta-line ((t (:foreground ,yellow))))
@@ -359,11 +369,14 @@
 
    ;; treemacs.
    `(treemacs-git-modified-face ((,class (:foreground ,modified))))
+   `(treemacs-git-ignored-face ((,class (:foreground ,pink))))
    `(treemacs-fringe-indicator-face ((,class (:foreground ,directory))))
    `(error ((,class (:foreground ,alert))))
 
    ;; lsp
    `(lsp-ui-peek-highlight ((,class (:foreground ,white :background ,selection))))
+   `(lsp-face-highlight-read ((,class (:foreground ,white :background ,coral))))
+   `(lsp-face-highlight-write ((,class (:foreground ,white :background ,sandy))))
    `(lsp-face-highlight-textual ((,class (:foreground ,white :background ,orange))))
    `(lsp-headerline ((,class (:inherit mode-line :foreground ,orange :background,black))))
    `(lsp-headerline-breadcrumb-deprecated-face ((,class (:inherit lsp-headerline :foreground ,orange :bold t :weight bold :height 1.20))))
