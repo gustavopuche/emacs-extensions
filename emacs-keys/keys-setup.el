@@ -15,8 +15,7 @@
   (define-key cmake-mode-map (kbd "<f6>") 'compile-tools-debug)
   (define-key cmake-mode-map (kbd "<f7>") 'compile-tools-run-gtest)
   (define-key cmake-mode-map (kbd "<f8>") 'compile-tools-compile-cmake)
-  (define-key cmake-mode-map (kbd "<f9>") 'compile-tools-compile-make)
-  (define-key cmake-mode-map (kbd "<f10>") 'helm-lsp-workspace-symbol))
+  (define-key cmake-mode-map (kbd "<f9>") 'compile-tools-compile-make))
 
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
@@ -33,6 +32,18 @@
 (global-set-key (kbd "<C-s-f4>") 'magit-blame)
 (global-set-key (kbd "<C-s-f2>") 'compile-tools-set-target)
 (global-set-key (kbd "<C-S-f3>") 'xref-find-definitions-other-window)
+
+(global-set-key (kbd "C-c s") 'swap-buffer)
+(global-set-key (kbd "C-c C-l") 'reload-init-file)
+(define-key isearch-mode-map (kbd "M-w") 'edit-tools-hack-isearch-kill)
+
+;; Bind date keybindding
+(global-set-key (kbd "C-c C-d") "\C-u\M-! date -I")
+
+;; Select All keybinding
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-s-u") 'upcase-char)
+
 
 (global-set-key (kbd "M-t") 'helm-gtags-find-tag)
 (global-set-key (kbd "M-r") 'helm-gtags-find-rtag)
@@ -123,12 +134,24 @@
   (define-key lsp-mode-map (kbd "<f5>") 'lsp-ui-peek-find-references)
   (define-key lsp-mode-map (kbd "<f6>") 'lsp-ui-peek-find-definitions)
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-implementation)
+  (define-key lsp-mode-map (kbd "<f8>") 'helm-lsp-workspace-symbol)
+  (define-key lsp-mode-map (kbd "<f9>") 'lsp-ui-doc-show)
+  (define-key lsp-mode-map (kbd "<f10>") 'lsp-ui-doc-hide)
+  (define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
+  (define-key lsp-mode-map (kbd "<f12>") 'edit-tools-insert-include)
 )
 ;; rebihnd dired keys.
-(with-eval-after-load 'dired-mode
+(with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "<tab>") 'other-window)
+  (define-key dired-mode-map (kbd "<f3>") 'dired-do-find-regexp)
   (define-key dired-mode-map (kbd "<f5>") 'dired-do-copy)
   (define-key dired-mode-map (kbd "<f6>") 'dired-do-rename)
+  (define-key dired-mode-map (kbd "<f7>") 'dired-do-create-files)
+  (define-key dired-mode-map (kbd "<f8>") 'dired-do-delete)
   ) 
+
+(with-eval-after-load 'magit
+  (define-key magit-mode-map (kbd "<f5>") 'magit-refresh)
+  (define-key magit-mode-map (kbd "<f12>") 'magit-toggle-untracked-files))
 
 (provide 'keys-setup)

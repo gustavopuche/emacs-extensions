@@ -9,7 +9,7 @@
 ;; Package-Requires: 
 
 ;;; Code:
-(defconst edit-tools--debug-comments "^.*Remove later\\.\n.*\n[[:space:]]*\n")
+(defconst edit-tools--debug-comments "^.*////////.*\n.*Remove later\.*\n.*\n.*//////.*\n")
 (defconst edit-tools--empty-line-with-spaces "^[[:space:]]+$")
 
 (defvar edit-tools--fdfind "")
@@ -152,16 +152,6 @@ will be killed."
 ;; Avoid 'file changed on disk' message.
 (setq revert-without-query '(".*"))
 
-(global-set-key (kbd "C-c s") 'swap-buffer)
-(global-set-key (kbd "C-c C-l") 'reload-init-file)
-(define-key isearch-mode-map (kbd "M-w") 'edit-tools-hack-isearch-kill)
-;; Bind date keybindding
-(global-set-key (kbd "C-c C-d") "\C-u\M-! date -I")
-;; Select All keybinding
-(global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "C-s-u") 'upcase-char)
-(global-set-key (kbd "<f12>") 'edit-tools-insert-include)
-
 ;; enable drag-stuff everywhere
 (drag-stuff-global-mode t)
 
@@ -270,6 +260,5 @@ will be killed."
 ;; (global-set-key (kbd "<f5>") 'matches-in-buffer)
 ;; (global-set-key (kbd "<f6>") 'fun-temp)
 ;; (global-set-key (kbd "<f7>") 'fun-buffer)
-
 
 (provide 'edit-tools)

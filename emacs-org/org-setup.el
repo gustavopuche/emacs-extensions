@@ -1,3 +1,9 @@
+(custom-set-variables
+ '(package-archives
+   (quote
+    (("gnu" . "https://elpa.gnu.org/packages/")
+     ("ox-odt" . "https://kjambunathan.github.io/elpa/")))))
+
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
@@ -16,6 +22,7 @@
 (require 'calfw-cal)
 (require 'calfw-ical)
 (require 'calfw-org)
+(require 'org-extra-emphasis)
 
 (defun refresh-org-agenda-files ()
    (interactive)
@@ -61,5 +68,35 @@
 
 ;; Use graphviz inside org.
 (require 'ob-dot)
+
+;; ox-odt config.
+(custom-set-variables
+ '(org-odt-convert-process "LibreOffice")
+ '(org-odt-preferred-output-format "docx")
+ '(org-odt-transform-processes
+   '(("Optimize Column Width of all Tables"
+      "soffice" "--norestore" "--invisible" "--headless"
+      "macro:///OrgMode.Utilities.OptimizeColumnWidth(%I)")
+     ("Update All"
+      "soffice" "--norestore" "--invisible" "--headless"
+      "macro:///OrgMode.Utilities.UpdateAll(%I)")
+     ("Reload"
+      "soffice" "--norestore" "--invisible" "--headless"
+      "macro:///OrgMode.Utilities.Reload(%I)")))
+ '(org-latex-to-mathml-convert-command
+   "java -jar %j -unicode -force -df %o %I")
+ '(org-latex-to-mathml-jar-file
+   "/home/kjambunathan/Downloads/mathtoweb.jar"))
+
+(require 'ox-odt)
+
+;; (setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s")
+(setcdr (assq 'system org-file-apps-gnu) "xdg-open %s")
+
+(advice-add 'org-open-file :around
+            (lambda (orig-fun &rest args)
+              ;; Work around a weird problem with xdg-open.
+              (let ((process-connection-type nil))
+                (apply orig-fun args))))
 
 (provide 'org-setup)

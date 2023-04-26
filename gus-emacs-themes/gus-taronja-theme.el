@@ -341,7 +341,9 @@
    '(ibuffer-locked-buffer ((t (:foreground "green"))))
 
    ;; magit.
+   `(magit-diff-file-heading-selection ((,class (:foreground ,yellow))))
    `(magit-diff-hunk-heading ((,class (:foreground ,white))))
+   `(magit-diff-hunk-heading-selection ((,class (:foreground ,yellow))))
    `(magit-diffstat-removed ((,class (:foreground ,pink))))
    `(magit-filename ((,class (:foreground ,yellow))))
    `(magit-header-line ((,class (:foreground ,white))))
@@ -367,6 +369,60 @@
    `(org-scheduled-previously ((t (:foreground ,red :weight bold))))
    `(org-upcoming-distant-deadline ((t (:foreground ,red :weight bold))))
 
+    ;; org-extra-emphasis.
+   '(org-extra-emphasis ((t ( 
+                             :height 1.5
+                             :inherit default
+                             :weight bold
+                             :width normal
+                             ))))
+   '(org-extra-emphasis-01 ((t ( 
+				:family "CherryBomb"
+				:foreground "#A53E2D"
+				:inherit org-extra-emphasis
+				:weight extra-bold
+				))))
+   '(org-extra-emphasis-02 ((t ( 
+				:family "Eater"
+				:foreground "#EEB97E"
+				:inherit org-extra-emphasis
+				))))
+   '(org-extra-emphasis-03 ((t ( 
+				:family "Diplomata"
+				:foreground "#683231"
+				:inherit org-extra-emphasis
+				))))
+   '(org-extra-emphasis-04 ((t ( 
+				:family "Linux Biolinum Keyboard O"
+				:foreground "#353D8B"
+				:inherit org-extra-emphasis
+				))))
+   '(org-extra-emphasis-05 ((t ( 
+				:family "Finger-Maniac" :foundry "FSTR" :slant normal :weight normal
+				:foreground "#54436E"
+				:inherit org-extra-emphasis
+				))))
+   '(org-extra-emphasis-06 ((t ( 
+				:family "Fuzzy Bubbles"
+				:foreground "#D65D8F"
+				:inherit org-extra-emphasis
+				))))
+   '(org-extra-emphasis-07 ((t ( 
+				:family "Gloria Hallelujah"
+				:foreground "#E5C494"
+				:inherit org-extra-emphasis
+				:weight extra-bold
+				))))
+   '(org-extra-emphasis-08 ((t ( 
+				:family "Henny Penny"
+				:foreground "#0B9FCF"
+				:inherit org-extra-emphasis
+				))))
+   '(org-extra-emphasis-09 ((t ( 
+				:family "Humor Sans"
+				:foreground "#C9564C"
+				:inherit org-extra-emphasis
+				))))
    ;; treemacs.
    `(treemacs-git-modified-face ((,class (:foreground ,modified))))
    `(treemacs-git-ignored-face ((,class (:foreground ,pink))))
@@ -394,6 +450,9 @@
    `(lsp-headerline-breadcrumb-symbols-warning-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-error-face))))
    `(lsp-headerline-breadcrumb-unknown-project-prefix-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-error-face))))
 
+   ;;flycheck.
+   `(flycheck-fringe-warning ((t (:foreground ,yellow :weight bold))))
+   
    ;; which-hey.
    `(which-key-group-description-face ((t (:foreground ,yellow :weight bold))))
    ))

@@ -400,7 +400,17 @@ COMMANDS
   ;; (remove-hook 'magit-status-sections-hook 'magit-insert-unpulled-from-pushremote)
   ;; (remove-hook 'magit-status-sections-hook 'magit-insert-unpulled-from-upstream)
   (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-upstream-or-recent)
-  (setq magit-auto-revert-mode nil))
+  (setq magit-auto-revert-mode nil)
+  (defun magit-toggle-untracked-files ()
+    (interactive)
+    (if (member 'magit-insert-untracked-files magit-status-sections-hook)
+	(progn
+	  (remove-hook 'magit-status-sections-hook 'magit-insert-untracked-files)
+	  (message "Deactivate magit-insert-untracked-files."))
+      (progn
+	(add-hook 'magit-status-sections-hook 'magit-insert-untracked-files)
+	(message "Activate magit-insert-untracked-files."))))
+  )
 
 (require 'srefactor)
 (require 'srefactor-lisp)
