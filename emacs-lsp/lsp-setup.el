@@ -30,6 +30,8 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 (add-hook 'sgml-mode-hook #'lsp-deferred)
+(add-hook 'sh-mode-hook 'lsp)
+(add-hook 'perl-mode-hook 'lsp)
 
 (setq lsp-clangd-binary-path "/usr/bin/clangd")
 
