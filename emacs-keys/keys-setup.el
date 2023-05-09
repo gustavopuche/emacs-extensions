@@ -160,4 +160,9 @@
   (define-key magit-mode-map (kbd "<f5>") 'magit-refresh)
   (define-key magit-mode-map (kbd "<f12>") 'magit-toggle-untracked-files))
 
+(with-eval-after-load 'perl-mode
+  (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
+  (define-key lsp-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack))
+
+
 (provide 'keys-setup)
