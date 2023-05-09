@@ -28,6 +28,22 @@
    (interactive)
    (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")))
 
+(add-to-list 'org-agenda-custom-commands
+             '("W" "Closed tasks previous weeks"
+               agenda ""
+               ((org-agenda-start-day "-14d")
+                (org-agenda-span 14)
+                (org-agenda-start-on-weekday 1)
+                (org-agenda-start-with-log-mode '(closed))
+                (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp "^\\* DONE ")))))
+
+(add-to-list 'org-agenda-custom-commands
+	     '("w" "Previous weeks all"
+               agenda ""
+               ((org-agenda-start-day "-14d")
+                (org-agenda-span 14)
+                (org-agenda-start-on-weekday 1))))
+
 ;; visual-line-mode active with latex-mode
 (add-hook 'text-mode-hook 'visual-line-mode)
 (add-hook 'org-brain-visualize-text-hook (lambda () (visual-line-mode 1)

@@ -95,6 +95,7 @@
        (coral "coral")
        (sandy "sandy brown")
        (current-line-number "#f3f99d")
+       (warning "LightPink1")
 
        ;; Ediff colors.
        (bg1           "#292b2e")
@@ -136,6 +137,16 @@
    '(mouse ((t (:foregound "green"))))
    '(cursor ((t (:foregound "green"))))
    '(border ((t (:foregound "black"))))
+   `(warning ((t (:foreground ,warning :weight bold))))
+
+   `(outline-1 ((t (:foreground ,yellow))))
+   `(outline-2 ((t (:foreground ,green))))
+   `(outline-3 ((t (:foreground ,orange))))
+   `(outline-4 ((t (:foreground ,pink))))
+   `(outline-5 ((t (:foreground ,warning))))
+   `(outline-6 ((t (:foreground ,cyan))))
+   `(outline-7 ((t (:foreground ,violet))))
+   `(outline-8 ((t (:foreground ,constant))))
 
    '(Info-title-1-face ((t (:bold t :weight bold :height 1.728))))
    '(Info-title-2-face ((t (:bold t :weight bold :height 1.44))))
@@ -321,6 +332,7 @@
    `(dired-directory ((t (:bold t :foreground ,yellow :weight bold))))
    
    ;; helm.
+   `(helm-lsp-diag-warning ((t (:foreground ,warning :weight bold))))
    `(helm-source-header ((t (:foreground ,orange))))
    `(helm-swoop-line-number-face ((t (:foreground ,green))))
    `(helm-etags-file ((t (:foreground ,orange))))
@@ -347,7 +359,10 @@
    `(magit-diffstat-removed ((,class (:foreground ,pink))))
    `(magit-filename ((,class (:foreground ,yellow))))
    `(magit-header-line ((,class (:foreground ,white))))
-   
+
+   ;; Man.
+   `(Man-overstrike ((,class (:foreground ,white))))
+
    ;; org.
    `(org-macro ((t (:foreground ,orange))))
    `(org-meta-line ((t (:foreground ,yellow))))
@@ -364,63 +379,71 @@
    `(org-block-end-line ((t (:foreground ,white :weight bold))))
    `(org-time-grid ((t (:foreground ,red :weight bold))))
    `(org-property-value ((t (:foreground ,yellow))))
-   `(org-special-keyword ((t (:foreground ,red :weight bold))))
+   `(org-special-keyword ((t (:foreground ,cyan :weight bold))))
    `(org-scheduled-today ((t (:foreground ,white :weight bold))))
-   `(org-scheduled-previously ((t (:foreground ,red :weight bold))))
-   `(org-upcoming-distant-deadline ((t (:foreground ,red :weight bold))))
+   `(org-scheduled-previously ((t (:foreground ,cyan :weight bold))))
+   `(org-upcoming-distant-deadline ((t (:foreground ,warning :weight bold))))
 
+   `(org-agenda-date ((t (:foreground ,yellow))))
+   `(org-agenda-date-today ((t (:foreground ,green))))
+   `(org-agenda-current-time ((t (:foreground ,cyan))))
+   `(org-warning ((t (:foreground ,warning :weight bold))))
+
+   `(org-headline-done ((t (:foreground ,green))))
+
+   
     ;; org-extra-emphasis.
-   '(org-extra-emphasis ((t ( 
+   `(org-extra-emphasis ((t ( 
                              :height 1.5
                              :inherit default
                              :weight bold
                              :width normal
                              ))))
-   '(org-extra-emphasis-01 ((t ( 
+   `(org-extra-emphasis-01 ((t ( 
 				:family "CherryBomb"
-				:foreground "#A53E2D"
+				:foreground ,cyan
 				:inherit org-extra-emphasis
 				:weight extra-bold
 				))))
-   '(org-extra-emphasis-02 ((t ( 
+   `(org-extra-emphasis-02 ((t ( 
 				:family "Eater"
-				:foreground "#EEB97E"
+				:foreground ,yellow
 				:inherit org-extra-emphasis
 				))))
-   '(org-extra-emphasis-03 ((t ( 
+   `(org-extra-emphasis-03 ((t ( 
 				:family "Diplomata"
-				:foreground "#683231"
+				:foreground ,green
 				:inherit org-extra-emphasis
 				))))
-   '(org-extra-emphasis-04 ((t ( 
+   `(org-extra-emphasis-04 ((t ( 
 				:family "Linux Biolinum Keyboard O"
-				:foreground "#353D8B"
+				:foreground ,warning
 				:inherit org-extra-emphasis
 				))))
-   '(org-extra-emphasis-05 ((t ( 
+   `(org-extra-emphasis-05 ((t ( 
 				:family "Finger-Maniac" :foundry "FSTR" :slant normal :weight normal
-				:foreground "#54436E"
+				:foreground ,white
 				:inherit org-extra-emphasis
 				))))
-   '(org-extra-emphasis-06 ((t ( 
+   `(org-extra-emphasis-06 ((t ( 
 				:family "Fuzzy Bubbles"
-				:foreground "#D65D8F"
+				:foreground ,pink
 				:inherit org-extra-emphasis
 				))))
-   '(org-extra-emphasis-07 ((t ( 
+   `(org-extra-emphasis-07 ((t ( 
 				:family "Gloria Hallelujah"
-				:foreground "#E5C494"
+				:foreground ,orange
 				:inherit org-extra-emphasis
 				:weight extra-bold
 				))))
-   '(org-extra-emphasis-08 ((t ( 
+   `(org-extra-emphasis-08 ((t ( 
 				:family "Henny Penny"
-				:foreground "#0B9FCF"
+				:foreground ,warning
 				:inherit org-extra-emphasis
 				))))
-   '(org-extra-emphasis-09 ((t ( 
+   `(org-extra-emphasis-09 ((t ( 
 				:family "Humor Sans"
-				:foreground "#C9564C"
+				:foreground ,cyan
 				:inherit org-extra-emphasis
 				))))
    ;; treemacs.
