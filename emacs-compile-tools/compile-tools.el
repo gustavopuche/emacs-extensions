@@ -7,14 +7,17 @@
 ;; Version: 0.2
 ;; Keywords: languages all
 ;; Package-Requires:
-
+(use-package magit :ensure t)
+(use-package rainbow-delimiters :ensure t)
+(use-package srefactor :ensure t)
+(use-package hideshow :ensure t)
+(use-package sgml-mode :ensure t)
+(require 'srefactor-lisp)
 
 ;;; Commentary:
 ;; Settup keybindings for compile commands.
 
 ;;; Code:
-
-(require 'rainbow-delimiters)
 
 ;; Environment variables
 (defvar compile-tools--target nil
@@ -412,17 +415,13 @@ COMMANDS
 	(message "Activate magit-insert-untracked-files."))))
   )
 
-(require 'srefactor)
-(require 'srefactor-lisp)
 
 ;; OPTIONAL: ADD IT ONLY IF YOU USE C/C++. 
 (semantic-mode 1) ;; -> this is optional for Lisp
 
-(require 'hideshow)
-(require 'sgml-mode)
 (defalias 'xml-mode 'sgml-mode 
     "Use `sgml-mode' instead of nXML's `xml-mode'.")
-;; (require 'nxml-mode)
+;; (use-package nxml-mode)
 
 ;; (add-to-list 'hs-special-modes-alist
 ;;              '(nxml-mode

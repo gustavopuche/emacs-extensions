@@ -1,10 +1,12 @@
-(custom-set-variables
- '(package-archives
-   (quote
-    (("gnu" . "https://elpa.gnu.org/packages/")
-     ("ox-odt" . "https://kjambunathan.github.io/elpa/")))))
-
 (require 'org)
+(require 'org-brain)
+;; (use-package calfw-cal :ensure t)
+;; (use-package calfw-ical :ensure t)
+;; (use-package calfw-org :ensure t)
+(require 'org-extra-emphasis)
+(use-package ox-odt :ensure t)
+;; (use-package ob-dot :ensure t)
+
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
@@ -18,11 +20,6 @@
 
 ;; (setq org-odt-styles-file "/home/gustavo/org/styles.odt")
 ;; (require 'ox-org)
-(require 'org-brain)
-(require 'calfw-cal)
-(require 'calfw-ical)
-(require 'calfw-org)
-(require 'org-extra-emphasis)
 
 (defun refresh-org-agenda-files ()
    (interactive)
@@ -83,7 +80,6 @@
 (setq org-image-actual-width nil)
 
 ;; Use graphviz inside org.
-(require 'ob-dot)
 
 ;; ox-odt config.
 (custom-set-variables
@@ -104,7 +100,6 @@
  '(org-latex-to-mathml-jar-file
    "/home/kjambunathan/Downloads/mathtoweb.jar"))
 
-(require 'ox-odt)
 
 ;; (setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s")
 (setcdr (assq 'system org-file-apps-gnu) "xdg-open %s")

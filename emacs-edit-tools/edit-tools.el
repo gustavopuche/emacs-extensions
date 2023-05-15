@@ -7,6 +7,12 @@
 ;; Version: 0.1
 ;; Keywords: languages all
 ;; Package-Requires: 
+(use-package drag-stuff :ensure t)
+(use-package ws-butler :delight :ensure t)
+(require 'highlight-global)
+
+;; Solve problem with dead keys.
+(require 'iso-transl)
 
 ;;; Code:
 (defconst edit-tools--debug-comments "^.*////////.*\n.*Remove later\.*\n.*\n.*//////.*\n")
@@ -161,12 +167,8 @@ will be killed."
 ;; apply default key bindings
 (drag-stuff-define-keys)
 
-(use-package ws-butler :delight)
-(require 'highlight-global)
 (global-set-key (kbd "M-H") 'highlight-frame-toggle)
 
-;; Solve problem with dead keys.
-(require 'iso-transl)
 
 ;; Dired 2 panels.
 (setq dired-dwim-target t)

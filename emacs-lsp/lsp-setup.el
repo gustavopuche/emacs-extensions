@@ -1,13 +1,13 @@
 ;;;;;;;;;;;;;;;;;;;
 ;; LSP Mode      ;;
 ;;;;;;;;;;;;;;;;;;;
-(use-package irony :delight)
-(use-package yasnippet :delight yas-minor-mode)
-(use-package flycheck :delight)
-(use-package drag-stuff :delight)
-(use-package which-key :delight)
-
-(require 'lsp-mode)
+(use-package irony :delight :ensure t)
+(use-package dap-mode :delight :ensure t)
+(use-package yasnippet :delight yas-minor-mode :ensure t)
+(use-package flycheck :delight :ensure t)
+(use-package drag-stuff :delight :ensure t)
+(use-package which-key :delight :ensure t)
+(use-package lsp-mode :ensure t)
 
 ;; Enable yasnippet
 (yas-global-mode 1)

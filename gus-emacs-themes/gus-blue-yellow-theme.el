@@ -1,4 +1,4 @@
-;;; tema-gus-taronja.el --- gus-taronja-theme
+;;; tema-gus-blue-yellow.el --- gus-blue-yellow-theme
 
 ;; Copyright (C) 2001 by Tomas Cerha
 ;; Copyright (C) 2013 by Syohei YOSHIDA
@@ -63,8 +63,8 @@
 
 (font-lock-add-keywords 'c++-mode '(("[}{]" 0 'font-lock-braces-face)))
 
-(deftheme gus-taronja
-  "gus-taronja theme")
+(deftheme gus-blue-yellow
+  "gus-blue-yellow theme")
 
 (let* ((class '((class color) (min-colors 89)))
        (256color (eq (display-color-cells (selected-frame)) 256))
@@ -116,7 +116,7 @@
        (yellow-bg     "#32322c"))
 
   (custom-theme-set-faces
-   'gus-taronja
+   'gus-blue-yellow
 
    ;; ;; from doom-themes-base
    ;; ;;;; rainbow-delimiters
@@ -488,6 +488,6 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'gus-taronja)
+(provide-theme 'gus-blue-yellow)
 
-;;; gus-taronja-theme.el ends here
+;;; gus-blue-yellow-theme.el ends here

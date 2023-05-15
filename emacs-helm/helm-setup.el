@@ -1,10 +1,14 @@
-(require 'helm-config)
-(require 'helm-grep)
-(require 'helm-projectile)
-(require 'helm-ag)
+;; (require 'helm-config)
+(use-package helm :ensure t)
+(use-package helm-grepint :ensure t)
+(use-package helm-projectile :ensure t)
+(use-package helm-ag :ensure t)
+(use-package helm-lsp :ensure t)
 
-(use-package helm-gtags
-  :delight)
+(use-package helm-gtags :delight :ensure t)
+(use-package helm-swoop :ensure t)
+(with-eval-after-load 'helm-mode
+	    (use-package helm-org :ensure t))
 
 ;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)
@@ -37,7 +41,6 @@
 ;; PACKAGE: helm-swoop                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'helm-swoop)
 
 ;; Save buffer when helm-multi-swoop-edit complete
 (setq helm-multi-swoop-edit-save t)
@@ -59,7 +62,5 @@
 (setq helm-swoop-use-line-number-face t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'helm-org)
 
 (provide 'helm-setup)
