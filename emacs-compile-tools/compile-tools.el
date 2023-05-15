@@ -8,6 +8,7 @@
 ;; Keywords: languages all
 ;; Package-Requires:
 (use-package magit :ensure t)
+(use-package cmake-mode :ensure t)
 (use-package rainbow-delimiters :ensure t)
 (use-package srefactor :ensure t)
 (use-package hideshow :ensure t)
@@ -441,10 +442,9 @@ COMMANDS
                nil))
 
 (add-hook 'sgml-mode-hook 'hs-minor-mode)
-;; (add-hook 'sgml-mode-hook 'linum-mode)
 (add-hook 'sgml-mode-hook (lambda () (visual-line-mode -1)))
-(add-hook 'c-mode-hook 'linum-mode)
-(add-hook 'c++-mode-hook 'linum-mode)
+(add-hook 'c-mode-hook 'display-line-numbers)
+(add-hook 'c++-mode-hook 'display-line-numbers)
 
 ;; optional key bindings, easier than hs defaults
 ;; (define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
