@@ -6,17 +6,120 @@
  '(ansi-color-names-vector
    ["#100e23" "#ff8080" "#95ffa4" "#ffe9aa" "#91ddff" "#c991e1" "#aaffe4" "#BAC9E4"])
  '(calendar-week-start-day 1)
- '(custom-safe-themes
-   '("b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "44ce31f709daeece2d4c19ce4f3899a5dabc7085543a5a2377bbeec8d5b38117" "a3fa4abaf08cc169b61dea8f6df1bbe4123ec1d2afeb01c17e11fdc31fc66379" "1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "3a3de615f80a0e8706208f0a71bbcc7cc3816988f971b6d237223b6731f91605" "9bc1eec9b485726318efd9341df6da8b53fa684931d33beba57ed7207f2090d6" "234249a92c2cf7b61223d9f83e1d9eefcd80fcf6b7a5e9ca03dc9d3f1b122ae2" "b42cf9ee9e59c3aec585fff1ce35acf50259d8b59f3047e57df0fa38516aa335" "f07583bdbcca020adecb151868c33820dfe3ad5076ca96f6d51b1da3f0db7105" "dd3eb539595bd7643baaff3a3be67b735a82052c37c2d59192ef51a0983dbfca" "929744da373c859c0f07325bc9c8d5cc30d418468c2ecb3a4f6cb2e3728d4775" "c712d616ea5a9ef4e513681846eb908728bbb087c2d251ded8374ee9faafa199" "6e03b7f86fcca5ce4e63cda5cd0da592973e30b5c5edf198eddf51db7a12b832" "2fc7672758572337a2c9d748d8f53cc7839244642e4409b375baef6152400b4d" "89127a6e23df1b1120aa61bd7984f1d5f2747cad1e700614a68bdb7df77189ba" "6ecfc451f545459728a4a8b1d44ac4cdcc5d93465536807d0cb0647ef2bb12c4" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "5cd698ce53179b1e4eaa7917c992832a220600c973967904fea71e3980a46532" "beeb4fbb490f1a420ea5acc6f589b72c6f0c31dd55943859fc9b60b0c1091468" "35b4668e8858dba2d282534e5f221320caee7665ba8e434acc9d831481f21d4b" "83e7481811eba345af17cba126a0126eb999eb92c54df73d31622cd1ef14958b" default))
+ '(column-number-mode t)
+ '(connection-local-criteria-alist
+   '(((:application tramp :protocol "flatpak")
+      tramp-container-connection-local-default-flatpak-profile)
+     ((:application tramp)
+      tramp-connection-local-default-system-profile tramp-connection-local-default-shell-profile)))
+ '(connection-local-profile-alist
+   '((tramp-container-connection-local-default-flatpak-profile
+      (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin"))
+     (tramp-connection-local-darwin-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,uid,user,gid,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state=abcde" "-o" "ppid,pgid,sess,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etime,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (euid . number)
+       (user . string)
+       (egid . number)
+       (comm . 52)
+       (state . 5)
+       (ppid . number)
+       (pgrp . number)
+       (sess . number)
+       (ttname . string)
+       (tpgid . number)
+       (minflt . number)
+       (majflt . number)
+       (time . tramp-ps-time)
+       (pri . number)
+       (nice . number)
+       (vsize . number)
+       (rss . number)
+       (etime . tramp-ps-time)
+       (pcpu . number)
+       (pmem . number)
+       (args)))
+     (tramp-connection-local-busybox-ps-profile
+      (tramp-process-attributes-ps-args "-o" "pid,user,group,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "stat=abcde" "-o" "ppid,pgid,tty,time,nice,etime,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (user . string)
+       (group . string)
+       (comm . 52)
+       (state . 5)
+       (ppid . number)
+       (pgrp . number)
+       (ttname . string)
+       (time . tramp-ps-time)
+       (nice . number)
+       (etime . tramp-ps-time)
+       (args)))
+     (tramp-connection-local-bsd-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,euid,user,egid,egroup,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state,ppid,pgid,sid,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etimes,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (euid . number)
+       (user . string)
+       (egid . number)
+       (group . string)
+       (comm . 52)
+       (state . string)
+       (ppid . number)
+       (pgrp . number)
+       (sess . number)
+       (ttname . string)
+       (tpgid . number)
+       (minflt . number)
+       (majflt . number)
+       (time . tramp-ps-time)
+       (pri . number)
+       (nice . number)
+       (vsize . number)
+       (rss . number)
+       (etime . number)
+       (pcpu . number)
+       (pmem . number)
+       (args)))
+     (tramp-connection-local-default-shell-profile
+      (shell-file-name . "/bin/sh")
+      (shell-command-switch . "-c"))
+     (tramp-connection-local-default-system-profile
+      (path-separator . ":")
+      (null-device . "/dev/null"))))
  '(european-calendar-style t)
+ '(exwm-floating-border-color "#c8c8c8")
  '(fci-rule-color "#858FA5")
+ '(highlight-tail-colors
+   ((("#e9f1e8" "#50a14f" "green")
+     . 0)
+    (("#e1eef3" "#0184bc" "brightcyan")
+     . 20)))
  '(jdee-db-active-breakpoint-face-colors (cons "#100e23" "#906cff"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#100e23" "#95ffa4"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#100e23" "#565575"))
  '(menu-bar-mode nil)
+ '(objed-cursor-color "#e45649")
+ '(org-agenda-files
+   '("~/org/brain/STC-69647.org" "~/org/brain/STC-55249.org" "~/org/brain/STC-63293.org" "~/org/brain/STC-60883.org" "~/org/brain/STC-63814.org" "~/org/brain/STC-59592.org" "~/org/brain/STC-60603.org" "~/org/brain/STC-62887.org" "~/org/brain/STC-64341.org" "~/org/brain/STC-58735.org" "~/org/brain/STC-43305.org" "~/org/brain/STC-60075:Clear memory when handling user names and passwords.org" "~/org/brain/STC-62886:Enabler: Create motor scheduler feature - Auxiliary scheduler Control-Status signals.org" "~/org/brain/STC-61283:Check for new FW versions.org" "~/org/brain/STC-60118:Handle misallocated memory in CV403DriverHWInterface.org" "~/org/brain/STC-60341.org" "~/org/brain/STC-60778.org" "~/org/brain/STC-59372.org" "~/org/brain/STC-55176.org" "~/org/brain/STC-45190.org" "~/org/brain/STC-56843.org" "~/org/brain/STC-55669.org" "~/org/brain/STC-9026.org" "~/org/brain/STC-45537.org" "~/org/brain/organizer.org"))
+ '(org-latex-to-mathml-convert-command "java -jar %j -unicode -force -df %o %I")
+ '(org-latex-to-mathml-jar-file "/home/kjambunathan/Downloads/mathtoweb.jar")
+ '(org-odt-convert-process "LibreOffice")
+ '(org-odt-preferred-output-format "docx")
+ '(org-odt-transform-processes
+   '(("Optimize Column Width of all Tables" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.OptimizeColumnWidth(%I)")
+     ("Update All" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.UpdateAll(%I)")
+     ("Reload" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.Reload(%I)")))
+ '(package-archives
+   '(("gnu" . "https://elpa.gnu.org/packages/")
+     ("ox-odt" . "https://kjambunathan.github.io/elpa/")))
  '(package-selected-packages
-   '(flycheck-irony ws-butler helm-gtags helm-rtags helm-org-rifle helm-eww helm-org-multi-wiki helm-org helm-ispell rainbow-delimiters highlight-numbers cmake-ide cmake-mode auto-yasnippet auto-complete-clang-async ac-clang company-rtags helm-company helm-ag helm-ack helm-flycheck helm-xref magit helm-lsp helm-projectile helm-swoop helm lsp-mode doom-themes yasnippet projectile hydra flycheck company avy which-key dap-mode))
+   '(ox-odt all-the-icons-dired treemacs-all-the-icons calfw-howm calfw-cal calfw-ical calfw-org calfw graphviz-dot-mode vc-msg helm-swoop powerline lsp-ui delight drag-stuff srefactor cpp-auto-include noxml-fold web-mode-edit-element web-mode helm-gtags all-the-icons popup company-irony-c-headers company-irony flycheck-irony ws-butler helm-rtags helm-org-rifle helm-eww helm-org-multi-wiki helm-org helm-ispell rainbow-delimiters highlight-numbers cmake-ide cmake-mode auto-yasnippet auto-complete-clang-async ac-clang company-rtags helm-company helm-flycheck helm-xref magit lsp-mode doom-themes yasnippet projectile hydra flycheck company avy which-key dap-mode))
+ '(pdf-view-midnight-colors (cons "#383a42" "#fafafa"))
+ '(rustic-ansi-faces
+   ["#fafafa" "#e45649" "#50a14f" "#986801" "#4078f2" "#a626a4" "#0184bc" "#383a42"])
  '(tool-bar-mode nil)
+ '(tramp-default-proxies-alist nil)
  '(truncate-lines t)
  '(vc-annotate-background "#1b182c")
  '(vc-annotate-color-map
@@ -39,10 +142,8 @@
     (cons 320 "#805f77")
     (cons 340 "#858FA5")
     (cons 360 "#858FA5")))
- '(vc-annotate-very-old-color nil))
-
-
-(set-frame-font "-outline-MSX Screen 0-normal-normal-normal-mono-14-*-*-*-c-*-iso10646-1")
+ '(vc-annotate-very-old-color nil)
+ '(warning-suppress-log-types '((org))))
 
 (package-initialize)
 
@@ -58,19 +159,21 @@
 (require 'lsp-setup)
 (require 'projectile-setup)
 (require 'licondefusr)
-(require 'mailing)
+;; (require 'mailing)
 (require 'text-order)
 (require 'doxy-graph-mode)
 (require 'compile-tools)
 (require 'window-tools)
+(require 'keys-setup)
 
 (require 'server)
 (or (server-running-p)
     (server-start))
 
+(put 'dired-find-alternate-file 'disabled nil)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "CPMono_v07" :foundry "PYRS" :slant normal :weight light :height 98 :width normal)))))
