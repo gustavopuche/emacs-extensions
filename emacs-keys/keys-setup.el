@@ -162,7 +162,7 @@
 
 (with-eval-after-load 'perl-mode
   (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
-  (define-key lsp-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack))
-
+  (define-key lsp-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
+  (define-key lsp-mode-map (kbd "<f5>") 'execute-perl))
 
 (provide 'keys-setup)

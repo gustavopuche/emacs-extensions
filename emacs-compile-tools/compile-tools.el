@@ -456,6 +456,10 @@ COMMANDS
 ;; No TABS for any mode.
 (setq indent-tabs-mode nil)
 
+(defun execute-perl ()
+  (interactive)
+  (shell-command (concat "perl " buffer-file-name)))
+
 (defun my-init-perl-mode ()
   (setq perl-indent-level                2)
   (setq indent-tabs-mode nil)

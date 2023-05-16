@@ -10,6 +10,10 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t))) ; this line activates dot
+
 (setq org-log-done t)
 
 (setq org-src-fontify-natively t
@@ -25,6 +29,7 @@
    (interactive)
    (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")))
 
+(refresh-org-agenda-files)
 (add-to-list 'org-agenda-custom-commands
              '("W" "Closed tasks previous weeks"
                agenda ""
@@ -40,6 +45,14 @@
                ((org-agenda-start-day "-14d")
                 (org-agenda-span 14)
                 (org-agenda-start-on-weekday 1))))
+
+(add-to-list 'org-agenda-custom-commands
+	     '("D" "Show all DONE tasks"
+               agenda ""
+               ((org-agenda-start-day "2022-01-01")
+		(org-agenda-span 'year)
+                (org-agenda-start-with-log-mode '(closed))
+                (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp "^\\* DONE ")))))
 
 ;; visual-line-mode active with latex-mode
 (add-hook 'text-mode-hook 'visual-line-mode)
