@@ -50,7 +50,7 @@
 	     '("D" "Show all DONE tasks"
                agenda ""
                ((org-agenda-start-day "2022-01-01")
-		(org-agenda-span 'year)
+		(org-agenda-span 1000)
                 (org-agenda-start-with-log-mode '(closed))
                 (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp "^\\* DONE ")))))
 

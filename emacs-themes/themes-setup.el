@@ -7,7 +7,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-monokai-spectrum t)
+  (load-theme 'doom-one-light t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -24,7 +24,7 @@
   )
 
 (with-eval-after-load 'doom-themes
-  (load-theme 'gus-blue-yellow t)
+  (load-theme 'infodoc t)
 
   ;; Use variable width font faces in current buffer
   (defun programming-face-mode ()
@@ -48,15 +48,15 @@
   (defun dired-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
-    (setq buffer-face-mode-face '(:family "CPMono_v07" :foundry "PYRS" :slant normal :weight light :height 98 :width normal))
+    (setq buffer-face-mode-face '(:family "CPMono_v07" :foundry "PYRS" :slant normal :weight extralight :height 98 :width normal))
     (buffer-face-mode))
 
   (add-hook 'treemacs-mode-hook 'treemacs-face-mode)
   (add-hook 'dired-mode-hook 'dired-face-mode)
   (add-hook 'org-brain-visualize-mode-hook 'org-brain-face-mode)
   (add-hook 'org-mode-hook 'org-brain-face-mode)
-  (add-hook 'c++-mode-hook 'programming-face-mode)
-  (add-hook 'c-mode-hook 'programming-face-mode)
+  (add-hook 'c++-mode-hook 'dired-face-mode)
+  (add-hook 'c-mode-hook 'dired-face-mode)
   (add-hook 'emacs-lisp-mode-hook 'dired-face-mode)
   [add-hook 'text-mode-hook 'dired-face-mode]
   (add-hook 'which-key-mode-hook 'dired-face-mode)
@@ -71,7 +71,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "CPMono_v07" :foundry "PYRS" :slant normal :weight light :height 98 :width normal)))))
+ '(default ((t (:family "CPMono_v07" :foundry "PYRS" :slant normal :weight extralight :height 98 :width normal)))))
 
 (provide 'themes-setup)
 ;;

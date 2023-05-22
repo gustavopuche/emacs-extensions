@@ -7,6 +7,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+ '(column-number-mode t)
  '(connection-local-criteria-alist
    '(((:application tramp :protocol "flatpak")
       tramp-container-connection-local-default-flatpak-profile)
@@ -88,7 +89,7 @@
       (path-separator . ":")
       (null-device . "/dev/null"))))
  '(custom-safe-themes
-   '("7530e7d2ec4f66bac74fe1409f860dce70c3e3fa5f2f801cd248138c8effe18f" "a27b9e11c25dc455f3d54280230c2cd2eb96e1fc3843bc11e5924ed9ea527e7e" "e0c8b8175dff079c55eafadee381922c1370178b874f55beed2399bc5f49e556" default))
+   '("31f31c0aba4b496aa4013ab45ce5e93ac7c6fda025706a0ab8d6162a6dc4c5fc" "ec6d2c3c2295fb4dab82da1a5b6ac992ad99631d2dbf2f2b7173e2f7e5ceaa7a" "7530e7d2ec4f66bac74fe1409f860dce70c3e3fa5f2f801cd248138c8effe18f" "a27b9e11c25dc455f3d54280230c2cd2eb96e1fc3843bc11e5924ed9ea527e7e" "e0c8b8175dff079c55eafadee381922c1370178b874f55beed2399bc5f49e556" default))
  '(font-use-system-font t)
  '(ispell-dictionary nil)
  '(menu-bar-mode nil)
@@ -147,4 +148,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "CPMono_v07" :foundry "PYRS" :slant normal :weight light :height 98 :width normal)))))
+ '(default ((t (:family "CPMono_v07" :slant normal :weight extralight :height 98 :width normal)))))

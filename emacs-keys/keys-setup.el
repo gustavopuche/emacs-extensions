@@ -149,7 +149,9 @@
 ;; rebihnd dired keys.
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "<tab>") 'other-window)
-  (define-key dired-mode-map (kbd "<f3>") 'dired-do-find-regexp)
+  (define-key dired-mode-map (kbd "<f2>") 'find-name-dired)
+  (define-key dired-mode-map (kbd "<f3>") 'find-grep-dired)
+  (define-key dired-mode-map (kbd "<f4>") 'dired-do-find-regexp)
   (define-key dired-mode-map (kbd "<f5>") 'dired-do-copy)
   (define-key dired-mode-map (kbd "<f6>") 'dired-do-rename)
   (define-key dired-mode-map (kbd "<f7>") 'dired-do-create-files)
@@ -163,6 +165,8 @@
 (with-eval-after-load 'perl-mode
   (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
   (define-key lsp-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
-  (define-key lsp-mode-map (kbd "<f5>") 'execute-perl))
+  (define-key lsp-mode-map (kbd "<f5>") 'execute-perl)
+  (define-key lsp-mode-map (kbd "<f11>") 'cperl-perldoc)
+  (define-key lsp-mode-map (kbd "<f12>") 'cperl-perldoc-at-point))
 
 (provide 'keys-setup)

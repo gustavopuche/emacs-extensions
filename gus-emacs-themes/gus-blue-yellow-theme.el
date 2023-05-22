@@ -78,7 +78,7 @@
        (red "#d54e53")
        (orange "#ffbb88")
        (yellow "#ffff7f")
-       (green "#89f09d")
+       (green "chartreuse")
        (aqua "#00ecff")
        (blue "DeepSkyBlue1")
        (purple "#c397d8")
@@ -106,7 +106,7 @@
        (bg4           "#0a0814")
        (aqua-bg       "#293235")
        (green-bg      "#293235")
-       (cyan          "#28def0")
+       (cyan          "cyan")
        (red           "#f2241f")
        (red-bg        "#3c2a2c")
        (blue          "#4f97d7")
@@ -478,6 +478,11 @@
 
    ;;flycheck.
    `(flycheck-fringe-warning ((t (:foreground ,yellow :weight bold))))
+
+   ;; terminal colors
+   `(term-color-blue ((t (:foreground ,yellow))))
+   `(term-color-cyan ((t (:foreground ,cyan))))
+   `(term-color-green ((t (:foreground ,green))))
    
    ;; which-hey.
    `(which-key-group-description-face ((t (:foreground ,yellow :weight bold))))

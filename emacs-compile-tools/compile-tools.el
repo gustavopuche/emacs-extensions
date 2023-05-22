@@ -458,7 +458,7 @@ COMMANDS
 
 (defun execute-perl ()
   (interactive)
-  (shell-command (concat "perl " buffer-file-name)))
+  (compile (concat "perl " buffer-file-name)))
 
 (defun my-init-perl-mode ()
   (setq perl-indent-level                2)
