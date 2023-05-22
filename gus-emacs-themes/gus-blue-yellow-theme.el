@@ -201,20 +201,14 @@
    '(font-lock-doc-string-face ((t (:foreground "BlanchedAlmond"))))
    
    `(font-lock-function-name-face ((,class (:bold t :foreground ,function :weight bold))))
-   
    `(font-lock-keyword-face ((t (:bold t :foreground ,cyan :weight bold))))
-   
    '(font-lock-preprocessor-face ((t (:foreground "pink"))))
    '(font-lock-reference-face ((t (:foreground "pink"))))
-   
    `(font-lock-string-face ((,class(:foregound ,violet))))
-   
    '(font-lock-type-face ((t (:foreground "#ffd2ff"))))
    `(font-lock-variable-name-face ((t (:foreground ,green))))
    '(font-lock-warning-face ((t (:foreground "yellow"))))
-   
    `(font-lock-operator-face ((,class(:foreground ,violet :weight bold))))
-   
    '(font-lock-parenthesis-face ((t (:foreground "yellow" :weight bold))))
    '(font-lock-brackets-face ((t (:foreground "coral" :weight bold))))
    '(font-lock-braces-face ((t (:foreground "SteelBlue1" :weight bold))))
