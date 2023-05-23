@@ -205,16 +205,8 @@
    `(font-lock-keyword-face ((t (:bold t :foreground ,cyan :weight bold))))
    '(font-lock-preprocessor-face ((t (:foreground "pink"))))
    '(font-lock-reference-face ((t (:foreground "pink"))))
-   `(font-lock-string-face ((,class(:foregound ,violet))))
-<<<<<<< HEAD
-   '(font-lock-type-face ((t (:foreground "#ffd2ff"))))
-||||||| parent of 20533dd (New emacs dired and some new compile stuff)
-   
-   '(font-lock-type-face ((t (:foreground "#ffd2ff"))))
-=======
-   
+   `(font-lock-string-face ((,class(:foregound ,violet))))  
    `(font-lock-type-face ((t (:foreground ,type))))
->>>>>>> 20533dd (New emacs dired and some new compile stuff)
    `(font-lock-variable-name-face ((t (:foreground ,green))))
    '(font-lock-warning-face ((t (:foreground "yellow"))))
    `(font-lock-operator-face ((,class(:foreground ,violet :weight bold))))
