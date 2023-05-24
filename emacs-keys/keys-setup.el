@@ -156,6 +156,8 @@
   (define-key dired-mode-map (kbd "<f6>") 'dired-do-rename)
   (define-key dired-mode-map (kbd "<f7>") 'dired-do-create-files)
   (define-key dired-mode-map (kbd "<f8>") 'dired-do-delete)
+  (define-key dired-mode-map (kbd "s") 'dired-sort)
+  (define-key dired-mode-map (kbd ".") 'dired-omit-mode)
   ) 
 
 (with-eval-after-load 'magit
@@ -166,6 +168,7 @@
   (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
   (define-key lsp-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
   (define-key lsp-mode-map (kbd "<f5>") 'execute-perl)
+  (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
   (define-key lsp-mode-map (kbd "<f11>") 'cperl-perldoc)
   (define-key lsp-mode-map (kbd "<f12>") 'cperl-perldoc-at-point))
 

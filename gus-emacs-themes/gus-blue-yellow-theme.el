@@ -68,7 +68,6 @@
 
 (let* ((class '((class color) (min-colors 89)))
        (256color (eq (display-color-cells (selected-frame)) 256))
-
        (background (if 256color "#1c1c1c" "#181a26"))
        (current-line (if 256color "#121212" "#14151E"))
        (block-background (if 256color "#262626" "#1F2232"))
@@ -78,6 +77,7 @@
        (red "#d54e53")
        (orange "#ffbb88")
        (yellow "#ffff7f")
+       (yellow-dark "yellow")
        (green "chartreuse")
        (aqua "#00ecff")
        (blue "DeepSkyBlue1")
@@ -97,7 +97,8 @@
        (coral "coral")
        (sandy "sandy brown")
        (current-line-number "#f3f99d")
-       (warning "LightPink1")
+       (type pink)
+       (warning pink)
 
        ;; Ediff colors.
        (bg1           "#292b2e")
@@ -204,8 +205,8 @@
    `(font-lock-keyword-face ((t (:bold t :foreground ,cyan :weight bold))))
    '(font-lock-preprocessor-face ((t (:foreground "pink"))))
    '(font-lock-reference-face ((t (:foreground "pink"))))
-   `(font-lock-string-face ((,class(:foregound ,violet))))
-   '(font-lock-type-face ((t (:foreground "#ffd2ff"))))
+   `(font-lock-string-face ((,class(:foregound ,violet))))  
+   `(font-lock-type-face ((t (:foreground ,type))))
    `(font-lock-variable-name-face ((t (:foreground ,green))))
    '(font-lock-warning-face ((t (:foreground "yellow"))))
    `(font-lock-operator-face ((,class(:foreground ,violet :weight bold))))
@@ -326,6 +327,7 @@
 
    ;; dired.
    `(dired-directory ((t (:bold t :foreground ,yellow :weight bold))))
+   `(dired-header ((t (:bold t :foreground ,yellow-dark :weight bold))))
    
    ;; helm.
    `(helm-lsp-diag-warning ((t (:foreground ,warning :weight bold))))
@@ -389,7 +391,8 @@
    `(org-headline-done ((t (:foreground ,green))))
 
    
-    ;; org-extra-emphasis.
+   ;; org-extra-emphasis.
+   ;; !!, !@, !%, !&, @!, @@, @%, @&, %!, %@, %%, %&, &!, &@, &%, &&
    `(org-extra-emphasis ((t ( 
                              :height 1.5
                              :inherit default
@@ -403,19 +406,22 @@
 				:weight extra-bold
 				))))
    `(org-extra-emphasis-02 ((t ( 
-				:family "Eater"
+				:family "CherryBomb"
 				:foreground ,yellow
 				:inherit org-extra-emphasis
+				:weight extra-bold
 				))))
    `(org-extra-emphasis-03 ((t ( 
-				:family "Diplomata"
+				:family "CherryBomb"
 				:foreground ,green
 				:inherit org-extra-emphasis
+				:weight extra-bold
 				))))
    `(org-extra-emphasis-04 ((t ( 
-				:family "Linux Biolinum Keyboard O"
+				:family "CherryBomb"
 				:foreground ,warning
 				:inherit org-extra-emphasis
+				:weight extra-bold
 				))))
    `(org-extra-emphasis-05 ((t ( 
 				:family "Finger-Maniac" :foundry "FSTR" :slant normal :weight normal
@@ -472,6 +478,10 @@
 
    ;;flycheck.
    `(flycheck-fringe-warning ((t (:foreground ,yellow :weight bold))))
+
+   ;; compilation colors.
+   `(compilation-error ((t (:foreground ,warning :weight bold))))
+   `(compilation-warning ((t (:foreground ,warning :weight bold))))
 
    ;; terminal colors
    `(term-color-blue ((t (:foreground ,yellow))))

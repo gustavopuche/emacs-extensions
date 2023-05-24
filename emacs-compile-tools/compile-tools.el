@@ -349,6 +349,26 @@ COMMANDS
                     compile-tools--qt-build-path "/android-build  --input "
                     (compile-tools-get-deploy-file) " --gradle --reinstall --device " (compile-tools-android-device))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; PERL specific functions.
+(defun compile-tools-run-perl-sics-install ()
+  "Run [SICS]/Build/Install.sh"
+  (interactive)
+  (compile (concat "cd " (projectile-project-root) "/Build"
+		   " && "
+		   "perl Install.pl")))
+
+;; (defun compile-tools-set-perl-path ()
+;;   "Set PERL5LIB environment variable to allow SICS perl."
+;;   (interactive)
+;;   (setenv "PERL5LIB" (concat (getenv "HOME") "/lib/perl/5.30.0"
+;; 			     ":"
+;; 			     (getenv "HOME") "/qnx700/target/qnx7/x86_64/usr/lib/perl5/5.24.0/x86_64-nto"))
+;;   (message (concat "PERL5LIB=" (getenv "PERL5LIB"))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;; C++ hooks.
 (add-hook 'c-mode-hook 'doxy-graph-mode)
 (add-hook 'c++-mode-hook 'doxy-graph-mode)

@@ -89,7 +89,7 @@
       (path-separator . ":")
       (null-device . "/dev/null"))))
  '(custom-safe-themes
-   '("31f31c0aba4b496aa4013ab45ce5e93ac7c6fda025706a0ab8d6162a6dc4c5fc" "ec6d2c3c2295fb4dab82da1a5b6ac992ad99631d2dbf2f2b7173e2f7e5ceaa7a" "7530e7d2ec4f66bac74fe1409f860dce70c3e3fa5f2f801cd248138c8effe18f" "a27b9e11c25dc455f3d54280230c2cd2eb96e1fc3843bc11e5924ed9ea527e7e" "e0c8b8175dff079c55eafadee381922c1370178b874f55beed2399bc5f49e556" default))
+   '("ad0eacd8aad1dc2485c12954e928863201ad3c800fc8d8cfc9e9226698cbe337" "833871173a9d257ae8cc46738adb9cbe0ee044de16218e177a27d15a4896407c" "e87197ac5a0205702c0d709faf55f8e6653984fb959743a184bf9ac44bec7898" "b5d339ae8fe5cdf4888c7c7bc6ccea83c93b6a93186a60a9447555bd16e649f0" "1b62514c663914e3b3d750695f4504aa7cbb507f5de66ec34eaee78a43ac24e3" "31f31c0aba4b496aa4013ab45ce5e93ac7c6fda025706a0ab8d6162a6dc4c5fc" "ec6d2c3c2295fb4dab82da1a5b6ac992ad99631d2dbf2f2b7173e2f7e5ceaa7a" "7530e7d2ec4f66bac74fe1409f860dce70c3e3fa5f2f801cd248138c8effe18f" "a27b9e11c25dc455f3d54280230c2cd2eb96e1fc3843bc11e5924ed9ea527e7e" "e0c8b8175dff079c55eafadee381922c1370178b874f55beed2399bc5f49e556" default))
  '(font-use-system-font t)
  '(ispell-dictionary nil)
  '(menu-bar-mode nil)
@@ -123,6 +123,7 @@
 (setq load-prefer-newer t)
 
 (require 'themes-setup)
+(require 'dired-setup)
 (require 'edit-tools)
 (require 'org-setup)
 (require 'irony-setup)
@@ -148,4 +149,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "CPMono_v07" :slant normal :weight extralight :height 98 :width normal)))))
+ '(default ((t (:family "CPMono_v07" :foundry "PYRS" :slant normal :weight extralight :height 98 :width normal)))))
