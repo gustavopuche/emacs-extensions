@@ -10,12 +10,19 @@
 (global-set-key (kbd "<f3>") 'helm-gtags-find-tag-from-here)
 (global-set-key (kbd "<f4>") 'helm-imenu)
 
+(defun set-compile-keys ()
+  (interactive)
+  (global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
+  (global-set-key (kbd "<f6>") 'compile-tools-debug)
+  (global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
+  (global-set-key (kbd "<f8>") 'compile-tools-compile-cmake)
+  (global-set-key (kbd "<f9>") 'compile-tools-compile-make))
+
 (with-eval-after-load 'cmake-mode
-  (define-key cmake-mode-map (kbd "<f5>") 'compile-tools-compile-make-run)
-  (define-key cmake-mode-map (kbd "<f6>") 'compile-tools-debug)
-  (define-key cmake-mode-map (kbd "<f7>") 'compile-tools-run-gtest)
-  (define-key cmake-mode-map (kbd "<f8>") 'compile-tools-compile-cmake)
-  (define-key cmake-mode-map (kbd "<f9>") 'compile-tools-compile-make))
+  (set-compile-keys))
+
+(with-eval-after-load 'c++-mode
+  (set-compile-keys))
 
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
