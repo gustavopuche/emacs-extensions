@@ -7,7 +7,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-monokai-spectrum t)
+  (load-theme 'doom-one-light t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -24,7 +24,7 @@
   )
 
 (with-eval-after-load 'doom-themes
-  (load-theme 'gus-blue-yellow t)
+  (load-theme 'infodoc t)
 
   ;; Use variable width font faces in current buffer
   (defun programming-face-mode ()
@@ -48,7 +48,19 @@
   (defun dired-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
-    (setq buffer-face-mode-face '(:family "CPMono_v07" :foundry "PYRS" :slant normal :weight extralight :height 98 :width normal))
+    (setq buffer-face-mode-face '(:family "CPMono_v07" :weight light :height 98))
+    (buffer-face-mode))
+
+  (defun extralight-face-mode ()
+    "Set font to a variable width (proportional) fonts in current buffer"
+    (interactive)
+    (setq buffer-face-mode-face '(:family "CPMono_v07 ExtraLight" :height 98))
+    (buffer-face-mode))
+
+  (defun light-face-mode ()
+    "Set font to a variable width (proportional) fonts in current buffer"
+    (interactive)
+    (setq buffer-face-mode-face '(:family "CPMono_v07 Light" :height 98))
     (buffer-face-mode))
 
   (add-hook 'treemacs-mode-hook 'treemacs-face-mode)
@@ -61,17 +73,12 @@
   [add-hook 'text-mode-hook 'dired-face-mode]
   (add-hook 'which-key-mode-hook 'dired-face-mode)
   (add-hook 'helm-mode-hook 'dired-face-mode)
+
+  (set-face-attribute 'default nil :font "CPMono_v07 Bold" :height 98)
   )
 
 (require 'treemacs-all-the-icons)
 (treemacs-load-theme "all-the-icons")
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "CPMono_v07" :foundry "PYRS" :slant normal :weight extralight :height 98 :width normal)))))
 
 (provide 'themes-setup)
 ;;

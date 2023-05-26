@@ -99,6 +99,7 @@
        (current-line-number "#f3f99d")
        (type pink)
        (warning pink)
+       (magenta "thistle")
 
        ;; Ediff colors.
        (bg1           "#292b2e")
@@ -361,6 +362,7 @@
 
    ;; Man.
    `(Man-overstrike ((,class (:foreground ,white))))
+   `(Man-underline ((t (:foreground ,cyan :weight bold))))
 
    ;; org.
    `(org-macro ((t (:foreground ,orange))))
@@ -487,6 +489,9 @@
    `(term-color-blue ((t (:foreground ,yellow))))
    `(term-color-cyan ((t (:foreground ,cyan))))
    `(term-color-green ((t (:foreground ,green))))
+   `(term-color-magenta ((t (:foreground ,magenta))))
+   `(term-color-red ((t (:foreground ,pink))))
+
    
    ;; which-hey.
    `(which-key-group-description-face ((t (:foreground ,yellow :weight bold))))

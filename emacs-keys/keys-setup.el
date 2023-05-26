@@ -78,38 +78,49 @@
 (global-set-key (kbd "s-p s a") 'helm-ag-project-root)
 
 ;; Set full ag search or only source.
-(global-set-key (kbd "<s-f1>") (lambda () (interactive)
-				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|xml|tex|txt|ini|pl|pm|html|js|sh)$|^.[^\.]+$")
-				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
-				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
-				 (message "Setup ag and fdfind for: c++ lisp latex txt xml perl ini html js sh")))
-(global-set-key (kbd "<s-f2>") (lambda () (interactive)
+(defun projectile-default-find-and-grep-commands ()
+  (interactive)
+  (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|xml|tex|txt|ini|pl|pm|html|js|sh)$|^.[^\.]+$")
+  (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
+  (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
+  (message "Setup ag and fdfind for: c++ lisp latex txt xml perl ini html js sh"))
+
+(projectile-default-find-and-grep-commands) ;; Setup at startup.
+
+(global-set-key (kbd "<s-f1>") 'projectile-default-find-and-grep-commands)
+(global-set-key (kbd "<s-f2>") (lambda ()(interactive)
 				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cxx|cc|cpp|h|hpp|c)$")
 				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e c -e hpp")
 				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e c -e hpp")
 				 (message "Setup ag and fdfind for: c++ only")))
-(global-set-key (kbd "<s-f3>") (lambda () (interactive)
+(global-set-key (kbd "<s-f3>") (lambda ()(interactive)
 				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(xml)$")
 				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e xml")
 				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e xml")
 				 (message "Setup ag and fdfind for: xml only")))
-(global-set-key (kbd "<s-f4>") (lambda () (interactive)
+(global-set-key (kbd "<s-f4>") (lambda ()(interactive)
 				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(tex)$")
 				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e tex")
 				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e tex")
 				 (message "Setup ag and fdfind for: LaTeX only")))
 
-(global-set-key (kbd "<s-f5>") (lambda () (interactive)
+(global-set-key (kbd "<s-f5>") (lambda ()(interactive)
 				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(pl|pm)$")
 				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e pl -e pm")
 				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e pl -e pm")
 				 (message "Setup ag and fdfind for: Perl only")))
 
-(global-set-key (kbd "<s-f6>") (lambda () (interactive)
+(global-set-key (kbd "<s-f6>") (lambda ()(interactive)
 				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(sh)$|^.[^\.]+$")
 				 (setq projectile-generic-command "fdfind '^[^.]+$|^.*\.sh$' --color=never --type f")
 				 (setq projectile-git-command "fdfind '^[^.]+$|^.*\.sh$' --color=never --type f")
 				 (message "Setup ag and fdfind for: Shell Script or No extension")))
+
+(global-set-key (kbd "<s-f7>") (lambda ()(interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(el)$|^.[^\.]+$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e el")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e el")
+				 (message "Setup ag and fdfind for: Emacs LISP or No extension")))
 
 ;; Change keybinds to whatever you like :)
 
@@ -137,8 +148,9 @@
 
 ;; lsp.
 (with-eval-after-load 'lsp-mode
-  (define-key lsp-mode-map (kbd "<f5>") 'lsp-ui-peek-find-references)
-  (define-key lsp-mode-map (kbd "<f6>") 'lsp-ui-peek-find-definitions)
+  (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
+  (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
+  (define-key lsp-mode-map (kbd "<f6>") 'lsp-ui-peek-find-references)
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-implementation)
   (define-key lsp-mode-map (kbd "<f8>") 'helm-lsp-workspace-symbol)
   (define-key lsp-mode-map (kbd "<f9>") 'lsp-ui-doc-show)
@@ -159,6 +171,9 @@
   (define-key dired-mode-map (kbd "s") 'dired-sort)
   (define-key dired-mode-map (kbd ".") 'dired-omit-mode)
   ) 
+
+;; (add-hook 'after-init-hook (lambda ()
+;; 			     (define-key makefile-gmake-mode-map (kbd "<f5>") 'compile-tools-make-linux64)))
 
 (with-eval-after-load 'magit
   (define-key magit-mode-map (kbd "<f5>") 'magit-refresh)

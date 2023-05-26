@@ -12,7 +12,7 @@
    '(((:application tramp :protocol "flatpak")
       tramp-container-connection-local-default-flatpak-profile)
      ((:application tramp)
-      tramp-connection-local-default-system-profile tramp-connection-local-default-shell-profile)))
+      tramp-connection-local-default-system-profile tramp-connection-local-default-shell-profile)) t)
  '(connection-local-profile-alist
    '((tramp-container-connection-local-default-flatpak-profile
       (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin"))
@@ -87,9 +87,9 @@
       (shell-command-switch . "-c"))
      (tramp-connection-local-default-system-profile
       (path-separator . ":")
-      (null-device . "/dev/null"))))
+      (null-device . "/dev/null"))) t)
  '(custom-safe-themes
-   '("ad0eacd8aad1dc2485c12954e928863201ad3c800fc8d8cfc9e9226698cbe337" "833871173a9d257ae8cc46738adb9cbe0ee044de16218e177a27d15a4896407c" "e87197ac5a0205702c0d709faf55f8e6653984fb959743a184bf9ac44bec7898" "b5d339ae8fe5cdf4888c7c7bc6ccea83c93b6a93186a60a9447555bd16e649f0" "1b62514c663914e3b3d750695f4504aa7cbb507f5de66ec34eaee78a43ac24e3" "31f31c0aba4b496aa4013ab45ce5e93ac7c6fda025706a0ab8d6162a6dc4c5fc" "ec6d2c3c2295fb4dab82da1a5b6ac992ad99631d2dbf2f2b7173e2f7e5ceaa7a" "7530e7d2ec4f66bac74fe1409f860dce70c3e3fa5f2f801cd248138c8effe18f" "a27b9e11c25dc455f3d54280230c2cd2eb96e1fc3843bc11e5924ed9ea527e7e" "e0c8b8175dff079c55eafadee381922c1370178b874f55beed2399bc5f49e556" default))
+   '("f34008749941a3eae23c302658052133171253d603c4ea1903f2ce564bc50ba9" "5fa02336dc394ed10a6cae6852b5d8d7ace9d8c0c7a8dafa51ed514be13ce8b4" "e9ccc031436358a5378361c742cc2cb0cd9ea356ee93fb78dde6febf3675d164" "ad0eacd8aad1dc2485c12954e928863201ad3c800fc8d8cfc9e9226698cbe337" "833871173a9d257ae8cc46738adb9cbe0ee044de16218e177a27d15a4896407c" "e87197ac5a0205702c0d709faf55f8e6653984fb959743a184bf9ac44bec7898" "b5d339ae8fe5cdf4888c7c7bc6ccea83c93b6a93186a60a9447555bd16e649f0" "1b62514c663914e3b3d750695f4504aa7cbb507f5de66ec34eaee78a43ac24e3" "31f31c0aba4b496aa4013ab45ce5e93ac7c6fda025706a0ab8d6162a6dc4c5fc" "ec6d2c3c2295fb4dab82da1a5b6ac992ad99631d2dbf2f2b7173e2f7e5ceaa7a" "7530e7d2ec4f66bac74fe1409f860dce70c3e3fa5f2f801cd248138c8effe18f" "a27b9e11c25dc455f3d54280230c2cd2eb96e1fc3843bc11e5924ed9ea527e7e" "e0c8b8175dff079c55eafadee381922c1370178b874f55beed2399bc5f49e556" default))
  '(font-use-system-font t)
  '(ispell-dictionary nil)
  '(menu-bar-mode nil)
@@ -104,7 +104,9 @@
      ("Reload" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.Reload(%I)")))
  '(package-selected-packages
    '(cmake-mode magit yasnippet ws-butler which-key use-package treemacs-all-the-icons srefactor rainbow-delimiters powerline ox-odt helm-swoop helm-projectile helm-org helm-lsp helm-gtags helm-grepint helm-ag gnu-elpa-keyring-update flycheck drag-stuff doom-themes delight dap-mode company-irony-c-headers company-irony))
- '(tool-bar-mode nil))
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil)
+ '(warning-suppress-log-types '((comp))))
 
 (package-initialize)
 
@@ -144,9 +146,11 @@
     (server-start))
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+(set-face-attribute 'default nil :font "CPMono_v07 Bold" :height 98)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "CPMono_v07" :foundry "PYRS" :slant normal :weight extralight :height 98 :width normal)))))
+ )

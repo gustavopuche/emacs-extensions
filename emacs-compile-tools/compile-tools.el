@@ -349,6 +349,12 @@ COMMANDS
                     compile-tools--qt-build-path "/android-build  --input "
                     (compile-tools-get-deploy-file) " --gradle --reinstall --device " (compile-tools-android-device))))
 
+(defun compile-tools-make-linux64 ()
+  "Calls make buildLINUX64 in current folder."
+  (interactive)
+  (compile "make buildLINUX64"))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; PERL specific functions.
@@ -463,8 +469,8 @@ COMMANDS
 
 (add-hook 'sgml-mode-hook 'hs-minor-mode)
 (add-hook 'sgml-mode-hook (lambda () (visual-line-mode -1)))
-(add-hook 'c-mode-hook 'display-line-numbers)
-(add-hook 'c++-mode-hook 'display-line-numbers)
+(add-hook 'c-mode-hook 'display-line-numbers-mode)
+(add-hook 'c++-mode-hook 'display-line-numbers-mode)
 
 ;; optional key bindings, easier than hs defaults
 ;; (define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
