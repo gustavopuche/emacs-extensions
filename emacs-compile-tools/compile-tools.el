@@ -365,6 +365,13 @@ COMMANDS
 		   " && "
 		   "perl Install.pl")))
 
+(defun compile-tools-run-perl-create-package ()
+  "Run [SICS]/Build/Install.sh"
+  (interactive)
+  (compile (concat "cd " (projectile-project-root) "/PerlScripts/SoftwarePackage"
+		   " && "
+		   "perl CreateSoftwarePackage.pl --no-cleanup")))
+
 ;; (defun compile-tools-set-perl-path ()
 ;;   "Set PERL5LIB environment variable to allow SICS perl."
 ;;   (interactive)

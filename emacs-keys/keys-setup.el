@@ -184,6 +184,7 @@
   (define-key lsp-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
   (define-key lsp-mode-map (kbd "<f5>") 'execute-perl)
   (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
+  (define-key lsp-mode-map (kbd "<f7>") 'compile-tools-run-perl-create-package)
   (define-key lsp-mode-map (kbd "<f11>") 'cperl-perldoc)
   (define-key lsp-mode-map (kbd "<f12>") 'cperl-perldoc-at-point))
 

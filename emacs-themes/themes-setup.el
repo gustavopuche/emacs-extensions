@@ -24,7 +24,7 @@
   )
 
 (with-eval-after-load 'doom-themes
-  (load-theme 'infodoc t)
+  (load-theme 'gus-infodoc t)
 
   ;; Use variable width font faces in current buffer
   (defun programming-face-mode ()
