@@ -25,10 +25,14 @@
 
 (with-eval-after-load 'doom-themes
 <<<<<<< HEAD
+<<<<<<< HEAD
   (load-theme 'gus-infodoc t)
 =======
   (load-theme 'gus-blue-yellow t)
 >>>>>>> 4ca7f7c (local changes)
+=======
+  (load-theme 'gus-blue-yellow t)
+>>>>>>> main
 
   ;; Use variable width font faces in current buffer
   (defun programming-face-mode ()
