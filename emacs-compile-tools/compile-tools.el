@@ -394,6 +394,7 @@ COMMANDS
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 
 (defun gus-cc-style()
+  (interactive)
   (c-set-style "linux")
   (c-set-offset 'innamespace '0)
   (c-set-offset 'inextern-lang '0)
