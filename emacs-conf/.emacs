@@ -103,10 +103,11 @@
      ("Update All" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.UpdateAll(%I)")
      ("Reload" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.Reload(%I)")))
  '(package-selected-packages
-   '(cmake-mode magit yasnippet ws-butler which-key use-package treemacs-all-the-icons srefactor rainbow-delimiters powerline ox-odt helm-swoop helm-projectile helm-org helm-lsp helm-gtags helm-grepint helm-ag gnu-elpa-keyring-update flycheck drag-stuff doom-themes delight dap-mode company-irony-c-headers company-irony))
+   '(lsp-ui flycheck-irony helm irony cmake-mode magit yasnippet ws-butler which-key use-package treemacs-all-the-icons srefactor rainbow-delimiters powerline ox-odt helm-swoop helm-projectile helm-org helm-lsp helm-gtags helm-grepint helm-ag gnu-elpa-keyring-update flycheck drag-stuff doom-themes delight dap-mode company-irony-c-headers company-irony))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
- '(warning-suppress-log-types '((comp))))
+ '(warning-suppress-log-types '((comp)))
+ '(warning-suppress-types '((emacs) (use-package) (emacs))))
 
 (package-initialize)
 

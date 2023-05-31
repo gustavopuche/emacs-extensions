@@ -5,9 +5,11 @@
 (use-package dap-mode :delight :ensure t)
 (use-package yasnippet :delight yas-minor-mode :ensure t)
 (use-package flycheck :delight :ensure t)
+(use-package flycheck-irony :delight :ensure t)
 (use-package drag-stuff :delight :ensure t)
 (use-package which-key :delight :ensure t)
 (use-package lsp-mode :ensure t)
+(use-package lsp-ui :ensure t)
 
 ;; Enable yasnippet
 (yas-global-mode 1)
