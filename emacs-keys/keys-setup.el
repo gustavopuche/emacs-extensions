@@ -29,8 +29,9 @@
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
 (global-set-key (kbd "<C-f4>") 'vc-annotate)
 (global-set-key (kbd "<C-f8>") 'compile-tools-reset-target)
-(global-set-key (kbd "<C-f9>") 'compile-tools-compile-make-apk)
+(global-set-key (kbd "<C-f9>") 'compile-tools-run-perl-sics-install)
 (global-set-key (kbd "<C-f10>") 'compile-tools-compile-make-install)
+(global-set-key (kbd "<C-f12>") 'kill-this-buffer)
 
 (global-set-key (kbd "<S-f12>") 'lsp-ui-peek-find-references)
 
