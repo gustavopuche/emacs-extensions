@@ -45,7 +45,7 @@
 	   :background "#f5f5f5"))
   "Basic face for highlighting." :group 'font-lock-faces)
 
-(font-lock-add-keywords 'c++-mode '(("[\(\)]" 0 'font-lock-parenthesis-face)))
+(font-lock-add-keywords 'c++-mode '(("[\(\)]," 0 'font-lock-parenthesis-face)))
 (font-lock-add-keywords 'sql-mode '(("[\(\)]" 0 'font-lock-parenthesis-face)))
 
 (defface font-lock-brackets-face
@@ -53,7 +53,7 @@
 	   :background "#f5f5f5"))
   "Basic face for highlighting." :group 'font-lock-faces)
 
-(font-lock-add-keywords 'c++-mode '(("[]\.\:,[]" 0 'font-lock-brackets-face)))
+(font-lock-add-keywords 'c++-mode '(("[]\.\:[]" 0 'font-lock-brackets-face)))
 (font-lock-add-keywords 'sql-mode '(("[][]" 0 'font-lock-brackets-face)))
 
 (defface font-lock-braces-face
