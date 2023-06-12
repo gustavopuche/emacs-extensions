@@ -51,13 +51,20 @@
   (align-regexp start end
 				"\\(\\s-+\\)\\(:=\\|[[:upper:]][[:upper:]]\\)" 1 1 t)))
 
-;; SQL varibles
-(defun align-var-cpp (start end)
+;; C++ special align.
+(defun  align-assign-cpp (start end)
   "Align C++ varibles."
   (interactive "r") ;; Pass region as arguments
   (let ((case-fold-search nil)) ;; Disable no case search locally.
   (align-regexp start end
 				"\\(\\s-+\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
+
+(defun  align-var-cpp (start end)
+  "Align C++ varibles."
+  (interactive "r") ;; Pass region as arguments
+  (let ((case-fold-search nil)) ;; Disable no case search locally.
+  (align-regexp start end
+				"\\(\\s-*\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
 
 (defun window-split-toggle ()
   "Toggle between horizontal and vertical split with two windows."
