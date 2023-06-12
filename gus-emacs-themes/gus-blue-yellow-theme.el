@@ -92,6 +92,7 @@
        (alert "light pink")
        (constant "lightyellow")
        (keyword "cyan")
+       (inactive "navajo white")
        (function "yellow")
        (lime "lime green")
        (coral "coral")
@@ -240,7 +241,7 @@
    
    ;; Emacs interface
    `(cursor ((,class (:background ,orange))))
-   `(fringe ((,class (:background ,current-line))))
+   `(fringe ((,class (:foregound ,yellow))))
    `(linum ((,class (:background ,current-line :foreground ,"yellow"))))
    `(border ((,class (:background ,current-line))))
    `(border-glyph ((,class (nil))))
@@ -252,7 +253,7 @@
                                      :family "CPMono_v07" :foundry "PYRS" :slant normal :weight light :height 98 :width normal))))
    `(mode-line-buffer-id ((,class (:foreground ,orange :background nil))))
    `(mode-line-inactive ((,class (:inherit mode-line
-                                           :foreground ,comment
+                                           :foreground ,inactive
                                            :background ,current-line :weight normal
                                            :box (:line-width 1 :color ,foreground)))))
    `(mode-line-emphasis ((,class (:foreground ,foreground :slant italic))))
@@ -485,6 +486,9 @@
    `(compilation-error ((t (:foreground ,warning :weight bold))))
    `(compilation-warning ((t (:foreground ,warning :weight bold))))
 
+   ;; power line
+   `(powerline-active2 ((t (:foreground ,green))))
+   
    ;; terminal colors
    `(term-color-blue ((t (:foreground ,yellow))))
    `(term-color-cyan ((t (:foreground ,cyan))))

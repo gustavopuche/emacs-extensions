@@ -24,6 +24,7 @@
 (with-eval-after-load 'c++-mode
   (set-compile-keys))
 
+(global-set-key (kbd "<backtab>") 'other-window)
 (global-set-key (kbd "s-SPC") 'company-etags)
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)

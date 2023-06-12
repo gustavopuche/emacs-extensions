@@ -73,14 +73,16 @@
 ;; Add organizer.org file to agenda.
 (org-agenda-files '("~/org/brain/organizer.org"))
 
-(setq org-todo-keywords '((sequence "TODO(t)" "DOING" "BLOCKED(b@/!)" "REVIEW" "|" "DONE(d!)" "CANCELLED(c@)")))
+(setq org-todo-keywords '((sequence "TODO(t)" "DOING" "BLOCKED(b@/!)" "REVIEW" "BUG" "|" "DONE(d!)" "CANCELLED(c@)" "FIXED")))
 
 (setq org-log-done 'time)
 (setq org-todo-keyword-faces '(("todo" . "SlateGray")
 			       ("doing" . "DarkOrchid")
 			       ("blocked" . "Firebrick")
+			       ("bug" . "Green")
 			       ("done" . "ForestGreen")
-			       ("cancelled" .  "SlateBlue")))
+			       ("cancelled" .  "SlateBlue")
+			       ("fixed" . "Yellow")))
 
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
 
