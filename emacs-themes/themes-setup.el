@@ -27,12 +27,24 @@
   (load-theme 'gus-blue-yellow t)
 
   ;; Use variable width font faces in current buffer
-  (defun programming-face-mode ()
+  (defun msx-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
     (setq buffer-face-mode-face '(:family "MSX Screen 0" :foundry "PfEd" :slant normal :weight normal :height 75 :width normal))
     (buffer-face-mode))
-  
+
+  (defun programming-face-mode ()
+    "Set font to a variable width (proportional) fonts in current buffer"
+    (interactive)
+    (setq buffer-face-mode-face '(:family "CPMono_v07 Bold" :weight light :height 95))
+    (buffer-face-mode))
+
+  (defun bold-face-mode ()
+    "Set font to a variable width (proportional) fonts in current buffer"
+    (interactive)
+    (setq buffer-face-mode-face '(:family "CPMono_v07 Bold" :weight normal :height 95))
+    (buffer-face-mode))
+
   (defun org-brain-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
@@ -67,14 +79,14 @@
   (add-hook 'dired-mode-hook 'dired-face-mode)
   (add-hook 'org-brain-visualize-mode-hook 'org-brain-face-mode)
   (add-hook 'org-mode-hook 'org-brain-face-mode)
-  (add-hook 'c++-mode-hook 'dired-face-mode)
+  (add-hook 'c++-mode-hook 'programming-face-mode)
   (add-hook 'c-mode-hook 'dired-face-mode)
   (add-hook 'emacs-lisp-mode-hook 'dired-face-mode)
   [add-hook 'text-mode-hook 'dired-face-mode]
   (add-hook 'which-key-mode-hook 'dired-face-mode)
   (add-hook 'helm-mode-hook 'dired-face-mode)
 
-  (set-face-attribute 'default nil :font "CPMono_v07 Bold" :height 98)
+  (set-face-attribute 'default nil :font "CPMono_v07 Black" :height 98)
   )
 
 (require 'treemacs-all-the-icons)

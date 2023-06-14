@@ -97,7 +97,7 @@
        (lime "lime green")
        (coral "coral")
        (sandy "sandy brown")
-       (current-line-number "#f3f99d")
+       (current-line-number "#ffd700")
        (type pink)
        (warning pink)
        (magenta "thistle")
@@ -458,6 +458,10 @@
    `(treemacs-fringe-indicator-face ((,class (:foreground ,directory))))
    `(error ((,class (:foreground ,alert))))
 
+   ;; line number colors
+   '(line-number ((t (:family "CPMono_v07" :98 height))))
+   `(line-number-current-line ((,class (:foreground ,current-line-number))))
+   
    ;; lsp
    `(lsp-ui-peek-highlight ((,class (:foreground ,white :background ,selection))))
    `(lsp-face-highlight-read ((,class (:foreground ,white :background ,coral))))
