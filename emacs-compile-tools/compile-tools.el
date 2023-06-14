@@ -13,6 +13,7 @@
 (use-package srefactor :ensure t)
 (use-package hideshow :ensure t)
 (use-package sgml-mode :ensure t)
+(use-package highlight-numbers :ensure t)
 (require 'srefactor-lisp)
 
 ;;; Commentary:

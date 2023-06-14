@@ -15,7 +15,7 @@
 (require 'iso-transl)
 
 ;;; Code:
-(defconst edit-tools--debug-comments "^.*////////.*\n.*Remove later\.*\n.*\n.*//////.*\n")
+(defconst edit-tools--debug-comments "^.*//.*Debug\.*\n.*\n.*//////.*\n")
 (defconst edit-tools--empty-line-with-spaces "^[[:space:]]+$")
 
 (defvar edit-tools--fdfind "")
