@@ -33,6 +33,8 @@
 (global-set-key (kbd "<C-f9>") 'compile-tools-run-perl-sics-install)
 (global-set-key (kbd "<C-f10>") 'compile-tools-compile-make-install)
 (global-set-key (kbd "<C-f12>") 'kill-this-buffer)
+(global-set-key (kbd "M-s-<right>") 'next-buffer)
+(global-set-key (kbd "M-s-<left>") 'previous-buffer)
 
 (global-set-key (kbd "<S-f12>") 'lsp-ui-peek-find-references)
 
