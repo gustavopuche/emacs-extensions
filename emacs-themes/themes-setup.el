@@ -7,7 +7,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-monokai-spectrum t)
+  (load-theme 'doom-one-light t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -24,7 +24,7 @@
   )
 
 (with-eval-after-load 'doom-themes
-  (load-theme 'gus-blue-yellow t)
+  (load-theme 'gus-infodoc t)
 
   ;; Use variable width font faces in current buffer
   (defun msx-face-mode ()
@@ -86,7 +86,7 @@
   (add-hook 'which-key-mode-hook 'dired-face-mode)
   (add-hook 'helm-mode-hook 'dired-face-mode)
 
-  (set-face-attribute 'default nil :font "CPMono_v07 Black" :height 98)
+  (set-face-attribute 'default nil :font "CPMono_v07 Bold" :height 98)
   )
 
 (require 'treemacs-all-the-icons)

@@ -182,6 +182,46 @@
                               :family "Humor Sans"
                               :foreground "#C9564C"
                               :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-10 ((t ( 
+                              :family "Humor Sans"
+                              :foreground "#C9564C"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-11 ((t ( 
+                              :family "Humor Sans"
+                              :foreground "#C9564C"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-12 ((t ( 
+                              :family "Humor Sans"
+                              :foreground "#C9564C"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-13 ((t ( 
+                              :family "Humor Sans"
+                              :foreground "#C9564C"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-09 ((t ( 
+                              :family "Humor Sans"
+                              :foreground "#C9564C"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-14 ((t ( 
+                              :family "Humor Sans"
+                              :foreground "#C9564C"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-15 ((t ( 
+                              :family "Humor Sans"
+                              :foreground "#C9564C"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-16 ((t ( 
+                              :family "Bitstream Vera Sans Mono"
+                              :foreground "#ff0000"
+                              :inherit org-extra-emphasis
                               ))))))
 
 
