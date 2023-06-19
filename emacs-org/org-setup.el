@@ -73,7 +73,7 @@
 ;; Add organizer.org file to agenda.
 (org-agenda-files '("~/org/brain/organizer.org"))
 
-(setq org-todo-keywords '((sequence "TODO(t)" "DOING" "BLOCKED(b@/!)" "REVIEW" "BUG" "|" "DONE(d!)" "CANCELLED(c@)" "FIXED")))
+(setq org-todo-keywords '((sequence "TODO(t)" "DOING(o)" "BLOCKED(b@)" "REVIEW(r)" "BUG(b)" "|" "DONE(d!)" "CANCELLED(c@)" "FIXED(f!)")))
 
 (setq org-log-done 'time)
 (setq org-todo-keyword-faces '(("todo" . "SlateGray")

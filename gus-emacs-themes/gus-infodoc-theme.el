@@ -32,8 +32,37 @@
 
 (let* ((class '((class color) (min-colors 89)))
        (256color (eq (display-color-cells (selected-frame)) 256))
-       (selection "#ff8836")
+       (selection "#ffaa00")
+       (foreground "#eaeaea")
+       (comment "#d6d8d6")
+       (orange "#ffbb88")
+       (yellow-dark "yellow")
+       (green "chartreuse")
+       (aqua "#00ecff")
+       (purple "#c397d8")
+       (black "#000000")
        (white "#ffffff")
+       (violet "#b9c6ff")
+       (pink "#ffd2ff")
+       (executable "#ffa0aa")
+       (directory "cyan")
+       (modified "gold")
+       (alert "light pink")
+       (constant "lightyellow")
+       (keyword "cyan")
+       (inactive "navajo white")
+       (function "yellow")
+       (lime "lime green")
+       (coral "coral")
+       (sandy "sandy brown")
+       (current-line-number "#ffd700")
+       (type pink)
+       (warning pink)
+       (magenta "thistle")
+       (cyan          "cyan")
+       (red           "#f2241f")
+       (blue          "#4f97d7")
+       (yellow        "#ffff7f")
        )
 
 (custom-theme-set-faces
@@ -129,60 +158,64 @@
  '(yellow ((t (:bold t :foreground "yellow"))))
  '(zmacs-region ((t (:bold t :background "lightyellow" :foreground "darkgreen"))))
 
- ;; org-extra-emphasis.
- '(org-extra-emphasis ((t ( 
-                           :height 1.5
-                           :inherit default
-                           :weight bold
-                           :width normal
-                           ))))
- '(org-extra-emphasis-01 ((t ( 
-                              :family "CherryBomb"
-                              :foreground "#A53E2D"
-                              :inherit org-extra-emphasis
-                              :underline t
-                              ))))
- '(org-extra-emphasis-02 ((t ( 
-                              :family "Eater"
-                              :foreground "#EEB97E"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-03 ((t ( 
-                              :family "Diplomata"
-                              :foreground "#683231"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-04 ((t ( 
-                              :family "Linux Biolinum Keyboard O"
-                              :foreground "#353D8B"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-05 ((t ( 
-                              :family "Finger-Maniac" :foundry "FSTR" :slant normal :weight normal
-                              :foreground "#54436E"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-06 ((t ( 
-                              :family "Fuzzy Bubbles"
-                              :foreground "#D65D8F"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-07 ((t ( 
-                              :family "Gloria Hallelujah"
-                              :foreground "#E5C494"
-                              :inherit org-extra-emphasis
-                              :weight extra-bold
-                              ))))
- '(org-extra-emphasis-08 ((t ( 
-                              :family "Henny Penny"
-                              :foreground "#0B9FCF"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-09 ((t ( 
-                              :family "Humor Sans"
-                              :foreground "#C9564C"
-                              :inherit org-extra-emphasis
-                              ))))
+   ;; org-extra-emphasis.
+   ;; !!, !@, !%, !&, @!, @@, @%, @&, %!, %@, %%, %&, &!, &@, &%, &&
+   `(org-extra-emphasis ((t ( 
+                             :height 1.5
+                             :inherit default
+                             :weight bold
+                             :width normal
+                             ))))
+   `(org-extra-emphasis-01 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,red
+				:inherit org-extra-emphasis
+				:weight extra-bold
+				))))
+   `(org-extra-emphasis-02 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,orange
+				:inherit org-extra-emphasis
+				:weight extra-bold
+				))))
+   `(org-extra-emphasis-03 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,yellow
+				:inherit org-extra-emphasis
+				:weight extra-bold
+				))))
+   `(org-extra-emphasis-04 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,green
+				:inherit org-extra-emphasis
+				:weight extra-bold
+				))))
+   `(org-extra-emphasis-05 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,cyan
+				:inherit org-extra-emphasis
+				))))
+   `(org-extra-emphasis-06 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,white
+				:inherit org-extra-emphasis
+				))))
+   `(org-extra-emphasis-07 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,pink
+				:inherit org-extra-emphasis
+				:weight extra-bold
+				))))
+   `(org-extra-emphasis-08 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,magenta
+				:inherit org-extra-emphasis
+				))))
+   `(org-extra-emphasis-09 ((t ( 
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,violet
+				:inherit org-extra-emphasis
+				))))
  '(org-extra-emphasis-10 ((t ( 
                               :family "Humor Sans"
                               :foreground "#C9564C"
@@ -218,6 +251,7 @@
                               :foreground "#C9564C"
                               :inherit org-extra-emphasis
                               ))))
+ ;; Marker &&
  '(org-extra-emphasis-16 ((t ( 
                               :family "Bitstream Vera Sans Mono"
                               :foreground "#ff0000"

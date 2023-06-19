@@ -14,6 +14,27 @@ Version: 2018-12-23 2022-04-07"
      (t (error "logic error 09535" )))
     (dired-sort-other xarg )))
 
+(setq dired-guess-shell-alist-user '(("\\.pdf\\'" "evince")
+                                   ("\\.doc\\'" "libreoffice")
+                                   ("\\.docx\\'" "libreoffice")
+                                   ("\\.ppt\\'" "libreoffice")
+                                   ("\\.pptx\\'" "libreoffice")
+                                   ("\\.xls\\'" "libreoffice")
+                                   ("\\.xlsx\\'" "libreoffice")))
+
+(require 'openwith)
+(setq openwith-associations
+      (list
+       (list (openwith-make-extension-regexp
+	      '("doc" "docx" "ppt" "pttx" "xls" "xlsx" "odt" "odf"))
+	     "soffice"
+	     '(file))
+       (list (openwith-make-extension-regexp
+	      '("pdf"))
+	      "evince"
+	      '(file))))
+(openwith-mode 1)
+
 (setq dired-omit-files
     (rx (or (seq bol (? ".") "#")     ;; emacs autosave files
         (seq bol "." (not (any "."))) ;; dot-files

@@ -7,7 +7,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one-light t)
+  (load-theme 'doom-monokai-spectrum t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -24,7 +24,7 @@
   )
 
 (with-eval-after-load 'doom-themes
-  (load-theme 'gus-infodoc t)
+  (load-theme 'gus-blue-yellow t)
 
   ;; Use variable width font faces in current buffer
   (defun msx-face-mode ()

@@ -14,7 +14,11 @@
 (use-package hideshow :ensure t)
 (use-package sgml-mode :ensure t)
 (use-package highlight-numbers :ensure t)
+(use-package elf-mode :ensure t)
 (require 'srefactor-lisp)
+
+(elf-setup-default)
+(setq elf-mode-command "nm -C %s")
 
 ;;; Commentary:
 ;; Settup keybindings for compile commands.

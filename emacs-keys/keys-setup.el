@@ -25,6 +25,7 @@
   (set-compile-keys))
 
 (global-set-key (kbd "<backtab>") 'other-window)
+(global-set-key (kbd "C-<iso-lefttab>") 'previous-window-any-frame)
 (global-set-key (kbd "s-SPC") 'company-etags)
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
@@ -162,8 +163,8 @@
 (with-eval-after-load 'lsp-mode
   (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
   (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
-  (define-key lsp-mode-map (kbd "<f6>") 'lsp-ui-peek-find-references)
-  (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-implementation)
+  (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
+  (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
   (define-key lsp-mode-map (kbd "<f8>") 'helm-lsp-workspace-symbol)
   (define-key lsp-mode-map (kbd "<f9>") 'compile-tools-compile-make)
   (define-key lsp-mode-map (kbd "<f10>") 'gdb)
