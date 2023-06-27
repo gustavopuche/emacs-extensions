@@ -28,11 +28,7 @@ Version: 2018-12-23 2022-04-07"
        (list (openwith-make-extension-regexp
 	      '("doc" "docx" "ppt" "pttx" "xls" "xlsx" "odt" "odf"))
 	     "soffice"
-	     '(file))
-       (list (openwith-make-extension-regexp
-	      '("pdf"))
-	      "evince"
-	      '(file))))
+	     '(file))))
 (openwith-mode 1)
 
 (setq dired-omit-files
