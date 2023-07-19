@@ -10,6 +10,8 @@
 (global-set-key (kbd "<f3>") 'helm-gtags-find-tag-from-here)
 (global-set-key (kbd "<f4>") 'helm-imenu)
 
+(global-set-key (kbd "<S-f1>") 'treemacs)
+
 (defun set-compile-keys ()
   (interactive)
   (global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
@@ -193,12 +195,14 @@
   (define-key magit-mode-map (kbd "<f12>") 'magit-toggle-untracked-files))
 
 (with-eval-after-load 'perl-mode
-  (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
-  (define-key lsp-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
-  (define-key lsp-mode-map (kbd "<f5>") 'execute-perl)
-  (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
-  (define-key lsp-mode-map (kbd "<f7>") 'compile-tools-run-perl-create-package)
-  (define-key lsp-mode-map (kbd "<f11>") 'cperl-perldoc)
-  (define-key lsp-mode-map (kbd "<f12>") 'cperl-perldoc-at-point))
+  (define-key perl-mode-map (kbd "<f3>") 'helm-etags-select)
+  (define-key perl-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
+  (define-key perl-mode-map (kbd "<f5>") 'execute-perl)
+  (define-key perl-mode-map (kbd "<f6>") 'perldb)
+  (define-key perl-mode-map (kbd "<f7>") 'compile-tools-run-perl-sics-install)
+  (define-key perl-mode-map (kbd "<f8>") 'compile-tools-run-perl-create-package)
+  (define-key perl-mode-map (kbd "<S-f8>") 'compile-tools-run-perl-create-package-force)
+  (define-key perl-mode-map (kbd "<f11>") 'cperl-perldoc)
+  (define-key perl-mode-map (kbd "<f12>") 'cperl-perldoc-at-point))
 
 (provide 'keys-setup)

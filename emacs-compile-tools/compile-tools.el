@@ -384,6 +384,13 @@ COMMANDS
 		   " && "
 		   "perl -d CreateSoftwarePackage.pl --no-cleanup")))
 
+(defun compile-tools-run-perl-create-package-force ()
+  "Run [SICS]/Build/Install.sh"
+  (interactive)
+  (compile (concat "cd " (projectile-project-root) "/PerlScripts/SoftwarePackage"
+		   " && "
+		   "perl CreateSoftwarePackage.pl --no-cleanup --forcedupgrade")))
+
 
 ;; (defun compile-tools-set-perl-path ()
 ;;   "Set PERL5LIB environment variable to allow SICS perl."
