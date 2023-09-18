@@ -21,6 +21,11 @@
 (defvar edit-tools--fdfind "")
 (defvar edit-tools--find-cmd "")
 
+(defun edit-tools-make-word-font-awesome (begin end)
+  "make current region colored red, using text properties"
+  (interactive (list (region-beginning) (region-end)))
+  (put-text-property begin end 'font-lock-face '(:family "Font Awesome")))
+
 (defun edit-tools-regex-global-replace (regex1 regex2)
  "Replace `regex1' with `regex2' in a buffer."
  (goto-char 1)
@@ -67,7 +72,7 @@
     "\n$" "" (edit-tools-set-fdfind filename))))
 
 (defun edit-tools-set-fdfind (filename)
-  (setq edit-tools--fdfind (shell-command-to-string (concat "fdfind --color=never -g " filename " " (projectile-project-root)))))
+  (setq edit-tools--fdfind (shell-command-to-string (concat "fdfind --color=never -I -g " filename " " (projectile-project-root)))))
 
 (defun edit-tools-find-cmd (filename)
   (setq edit-tools--find-cmd (concat "fdfind --color=never -g " filename " " (projectile-project-root))))
@@ -178,6 +183,17 @@ will be killed."
 
 ;; Hide dired details.
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
+
+;; Insert doxygen function/method comment.
+(defun edit-tools-doxygen-func-comment ()
+  "Insert doxygen function/method comment."
+  (interactive)
+  (insert (concat
+"/// <Insert description of importantStuff>
+///
+/// @param a <Insert description of a>
+/// @param b <Insert description of b>
+/// @return <Insert description of the return value>")))
 
 ;; ;; Copy org tags into other file.
 ;; (let* ((target-heading "Destination")

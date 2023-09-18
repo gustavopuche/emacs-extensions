@@ -295,6 +295,8 @@
    '(modeline-mousable ((t (:background "gray" :foreground "black" :box (:line-width 2 :style released-button)))))
    '(modeline-mousable-minor-mode ((t (:background "gray" :foreground "black" :box (:line-width 2 :style released-button)))))
    '(mouse ((t (:background "white"))))
+   `(shadow ((t (:foreground ,pink))))
+
 
    '(hi-yellow ((t (:background "yellow" :foreground "black"))))
    '(hi-pink ((t (:background "pink" :foreground "black"))))

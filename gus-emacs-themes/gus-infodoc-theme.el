@@ -32,42 +32,49 @@
 
 (let* ((class '((class color) (min-colors 89)))
        (256color (eq (display-color-cells (selected-frame)) 256))
-       (selection "#ffaa00")
-       (foreground "#eaeaea")
-       (background "PeachPuff")
-       (comment "#d6d8d6")
-       (orange "#ffbb88")
-       (yellow-dark "yellow")
-       (green "LimeGreen")
-       (aqua "#00ecff")
-       (purple "#c397d8")
-       (black "#000000")
-       (white "#ffffff")
-       (violet "#b9c6ff")
-       (pink "#ffd2ff")
-       (executable "#ffa0aa")
-       (directory "cyan")
-       (modified "gold")
        (alert "light pink")
+       (aqua "#00ecff")
+       (background "PeachPuff")
+       (black "#000000")
+       (blue    "#4f97d7")
+       (chartreuse "chartreuse2")
+       (comment "#d6d8d6")
        (constant "lightyellow")
+       (coral "coral")
+       (current-line-number "#ffd700")
+       (cyan    "cyan")
+       (darkorange "DarkOrange1")
+       (deepskyblue "DeepSkyBlue")
+       (directory "cyan")
+       (executable "#ffa0aa")
+       (foreground "#eaeaea")
+       (fringe   "magenta")
        (function "DeepSkyBlue1")
-       (keyword "HotPink")
-       (string "#20cd20")
-       (variable "tomato")
+       (gold "gold3")
+       (green "LimeGreen")
        (inactive "navajo white")
+       (keyword "HotPink")
        (lime "lime green")
        (link "deep sky blue")
-       (coral "coral")
-       (sandy "sandy brown")
-       (current-line-number "#ffd700")
-       (type pink)
-       (warning pink)
-       (org-block-bg "#ffeac9")
        (magenta "thistle")
-       (cyan    "cyan")
+       (modified "gold")
+       (orange "#ffbb88")
+       (org-block-bg "#ffeac9")
+       (purple "#c397d8")
+       (pink "magenta")
        (red     "#f2241f")
-       (blue    "#4f97d7")
+       (sandy "sandy brown")
+       (selection "#ffaa00")
+       (springgreen "SpringGreen2")
+       (string "#20cd20")
+       (turquoise "turquoise3")
+       (type pink)
+       (variable "tomato")
+       (violet "#b9c6ff")
+       (warning pink)
+       (white "#ffffff")
        (yellow  "#ffff7f")
+       (yellow-dark "yellow")
        )
 
   (custom-theme-set-faces
@@ -116,6 +123,7 @@
    `(font-lock-type-face ((t (:bold t :foreground "brown"))))
    `(font-lock-variable-name-face ((t (:bold t :foreground ,variable))))
    `(font-lock-warning-face ((t (:bold t :foreground "black"))))
+   `(fringe ((t (:bold t :foreground ,fringe))))
    `(gdb-arrow-face ((t (:bold t :background "LightGreen" :foreground "black"))))
    `(green ((t (:bold t :foreground "green"))))
    `(gui-button-face ((t (:bold t :foreground "red"))))
@@ -226,44 +234,44 @@
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-10 ((t ( 
-				:family "Humor Sans"
-				:foreground "#C9564C"
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,blue
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-11 ((t ( 
-				:family "Humor Sans"
-				:foreground "#C9564C"
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,deepskyblue
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-12 ((t ( 
-				:family "Humor Sans"
-				:foreground "#C9564C"
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,turquoise
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-13 ((t ( 
-				:family "Humor Sans"
-				:foreground "#C9564C"
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,springgreen
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-09 ((t ( 
-				:family "Humor Sans"
-				:foreground "#C9564C"
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,chartreuse
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-14 ((t ( 
-				:family "Humor Sans"
-				:foreground "#C9564C"
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,gold
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-15 ((t ( 
-				:family "Humor Sans"
-				:foreground "#C9564C"
+				:family "Bitstream Vera Sans Mono"
+				:foreground ,darkorange
 				:inherit org-extra-emphasis
 				))))
    ;; Marker &&
    `(org-extra-emphasis-16 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground "#ff0000"
+				:foreground ,black
 				:inherit org-extra-emphasis
 				))))))
 

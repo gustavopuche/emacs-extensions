@@ -23,11 +23,11 @@
 
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  (add-hook 'lsp-mode-hook (lambda()(toggle-truncate-lines 1)))
   (require 'dap-cpptools)
   (require 'helm-lsp)
   (yas-global-mode)
   (setq lsp-ui-doc-enable nil))
-
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)

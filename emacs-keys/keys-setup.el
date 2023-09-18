@@ -11,6 +11,7 @@
 (global-set-key (kbd "<f4>") 'helm-imenu)
 
 (global-set-key (kbd "<S-f1>") 'treemacs)
+(global-set-key (kbd "<S-f2>") 'woman)
 
 (defun set-compile-keys ()
   (interactive)
@@ -28,7 +29,7 @@
 
 (global-set-key (kbd "<backtab>") 'other-window)
 (global-set-key (kbd "C-<iso-lefttab>") 'previous-window-any-frame)
-(global-set-key (kbd "s-SPC") 'company-etags)
+(global-set-key (kbd "s-SPC") 'company-capf)
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
 (global-set-key (kbd "<C-f4>") 'vc-annotate)
@@ -95,7 +96,7 @@
 ;; Set full ag search or only source.
 (defun projectile-default-find-and-grep-commands ()
   (interactive)
-  (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|xml|tex|txt|ini|pl|pm|html|js|sh)$|^.[^\.]+$")
+  (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|el|xml|tex|txt|ini|pl|pm|html|js|sh)$|^.[^\.]+$")
   (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
   (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
   (message "Setup ag and fdfind for: c++ lisp latex txt xml perl ini html js sh"))
@@ -163,7 +164,7 @@
 
 ;; lsp.
 (with-eval-after-load 'lsp-mode
-  (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
+  ;; (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
   (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
   (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
@@ -195,7 +196,7 @@
   (define-key magit-mode-map (kbd "<f12>") 'magit-toggle-untracked-files))
 
 (with-eval-after-load 'perl-mode
-  (define-key perl-mode-map (kbd "<f3>") 'helm-etags-select)
+  ;; (define-key perl-mode-map (kbd "<f3>") 'helm-etags-select)
   (define-key perl-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
   (define-key perl-mode-map (kbd "<f5>") 'execute-perl)
   (define-key perl-mode-map (kbd "<f6>") 'perldb)

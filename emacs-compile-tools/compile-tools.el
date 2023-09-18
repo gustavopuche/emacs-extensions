@@ -412,6 +412,7 @@ COMMANDS
 
 ;; Lisp hooks
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook (lambda ()(toggle-truncate-lines 1)))
 
 (defun gus-cc-style()
   (interactive)
@@ -425,6 +426,7 @@ COMMANDS
   (setq c-basic-offset 2)
   (setq tab-width 2)
   (setq indent-tabs-mode nil)
+  (toggle-truncate-lines 1)
 )
 
 (add-hook 'c-mode-hook 'gus-cc-style)
@@ -435,7 +437,7 @@ COMMANDS
 
 ;; Set visual line mode to compilation buffer.
 (add-hook 'compilation-mode-hook
-          (lambda () (visual-line-mode 1)))
+          (lambda () (toggle-truncate-lines 1)))
 
 (setq
  ;; use gdb-many-windows by default
@@ -475,7 +477,7 @@ COMMANDS
 (semantic-mode 1) ;; -> this is optional for Lisp
 
 (defalias 'xml-mode 'sgml-mode 
-    "Use `sgml-mode' instead of nXML's `xml-mode'.")
+  "Use `sgml-mode' instead of nXML's `xml-mode'.")
 ;; (use-package nxml-mode)
 
 ;; (add-to-list 'hs-special-modes-alist
@@ -496,7 +498,7 @@ COMMANDS
                nil))
 
 (add-hook 'sgml-mode-hook 'hs-minor-mode)
-(add-hook 'sgml-mode-hook (lambda () (visual-line-mode -1)))
+(add-hook 'sgml-mode-hook (lambda () (toggle-truncate-lines 1)))
 (add-hook 'c-mode-hook 'display-line-numbers-mode)
 (add-hook 'c++-mode-hook 'display-line-numbers-mode)
 
@@ -518,6 +520,7 @@ COMMANDS
   (setq perl-indent-level                2)
   (setq indent-tabs-mode nil)
   (setq perl-continued-statement-offset  2)
+  (toggle-truncate-lines 1)
   (setq perl-continued-brace-offset     -2) )
 (my-init-perl-mode)
 
