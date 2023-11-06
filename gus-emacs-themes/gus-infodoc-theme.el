@@ -178,7 +178,7 @@
    ;; org-extra-emphasis.
    ;; !!, !@, !%, !&, @!, @@, @%, @&, %!, %@, %%, %&, &!, &@, &%, &&
    `(org-extra-emphasis ((t ( 
-                             :height 1.5
+                             :height 1.0
                              :inherit default
                              :weight bold
                              :width normal

@@ -1,5 +1,6 @@
 (require 'org)
 (require 'org-brain)
+
 ;; (use-package calfw-cal :ensure t)
 ;; (use-package calfw-ical :ensure t)
 ;; (use-package calfw-org :ensure t)

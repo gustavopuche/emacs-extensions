@@ -5,7 +5,7 @@
 ;; Define keys
 (setq lsp-keymap-prefix "C-s-l")
 (global-set-key [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-(global-set-key (kbd "<f1>") 'which-key-show-top-level)
+(global-set-key (kbd "<C-S-f1>") 'which-key-show-top-level)
 (global-set-key (kbd "<f2>") 'helm-occur)
 (global-set-key (kbd "<f3>") 'helm-gtags-find-tag-from-here)
 (global-set-key (kbd "<f4>") 'helm-imenu)
@@ -19,7 +19,10 @@
   (global-set-key (kbd "<f6>") 'compile-tools-debug)
   (global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
   (global-set-key (kbd "<f8>") 'compile-tools-compile-cmake)
-  (global-set-key (kbd "<f9>") 'compile-tools-compile-make))
+  (global-set-key (kbd "<f9>") 'compile-tools-compile-make)
+  (global-set-key (kbd "<f10>") 'gdb)
+  (global-set-key (kbd "<f12>") 'edit-tools-insert-include)
+)
 
 (with-eval-after-load 'cmake-mode
   (set-compile-keys))
@@ -137,6 +140,11 @@
 				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e el")
 				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e el")
 				 (message "Setup ag and fdfind for: Emacs LISP or No extension")))
+(global-set-key (kbd "<s-f8>") (lambda ()(interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(js)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e js")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e js")
+				 (message "Setup ag and fdfind for: Java Script")))
 
 ;; Change keybinds to whatever you like :)
 
@@ -165,14 +173,11 @@
 ;; lsp.
 (with-eval-after-load 'lsp-mode
   ;; (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
-  (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
+  ;; (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
   (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
   (define-key lsp-mode-map (kbd "<f8>") 'helm-lsp-workspace-symbol)
-  (define-key lsp-mode-map (kbd "<f9>") 'compile-tools-compile-make)
-  (define-key lsp-mode-map (kbd "<f10>") 'gdb)
   (define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
-  (define-key lsp-mode-map (kbd "<f12>") 'edit-tools-insert-include)
 )
 ;; rebihnd dired keys.
 (with-eval-after-load 'dired
@@ -196,14 +201,15 @@
   (define-key magit-mode-map (kbd "<f12>") 'magit-toggle-untracked-files))
 
 (with-eval-after-load 'perl-mode
-  ;; (define-key perl-mode-map (kbd "<f3>") 'helm-etags-select)
-  (define-key perl-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
+  (define-key perl-mode-map (kbd "<f1>") 'cperl-perldoc-at-point)
+  (define-key perl-mode-map (kbd "<f3>") 'helm-etags-select)
   (define-key perl-mode-map (kbd "<f5>") 'execute-perl)
-  (define-key perl-mode-map (kbd "<f6>") 'perldb)
-  (define-key perl-mode-map (kbd "<f7>") 'compile-tools-run-perl-sics-install)
-  (define-key perl-mode-map (kbd "<f8>") 'compile-tools-run-perl-create-package)
-  (define-key perl-mode-map (kbd "<S-f8>") 'compile-tools-run-perl-create-package-force)
+  (define-key perl-mode-map (kbd "<f10>") 'perldb)
   (define-key perl-mode-map (kbd "<f11>") 'cperl-perldoc)
-  (define-key perl-mode-map (kbd "<f12>") 'cperl-perldoc-at-point))
+  (define-key perl-mode-map (kbd "<S-f3>") 'helm-etags-select)
+  (define-key perl-mode-map (kbd "<S-f6>") 'compile-tools-run-perl-create-package)
+  (define-key perl-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
+  (define-key perl-mode-map (kbd "<C-S-f6>") 'compile-tools-run-perl-create-package-force)
+  )
 
 (provide 'keys-setup)

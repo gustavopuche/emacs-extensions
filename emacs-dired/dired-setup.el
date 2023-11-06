@@ -20,7 +20,8 @@ Version: 2018-12-23 2022-04-07"
                                    ("\\.ppt\\'" "libreoffice")
                                    ("\\.pptx\\'" "libreoffice")
                                    ("\\.xls\\'" "libreoffice")
-                                   ("\\.xlsx\\'" "libreoffice")))
+                                   ("\\.xlsx\\'" "libreoffice")
+				   ("\\.dia\\'" "dia")))
 
 (require 'openwith)
 (setq openwith-associations

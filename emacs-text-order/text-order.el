@@ -66,6 +66,34 @@
   (align-regexp start end
 				"\\(\\s-*\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
 
+(defun  align-perl-datapoints (start end)
+  "Align Perl datapoints."
+  (interactive "r") ;; Pass region as arguments
+  (let ((case-fold-search nil)) ;; Disable no case search locally.
+    (align-regexp start end
+		  "\\(\\s-*\\), " 1 0 t)))
+
+(defun  align-perl-hash (start end)
+  "Align Perl datapoints."
+  (interactive "r") ;; Pass region as arguments
+  (let ((case-fold-search nil)) ;; Disable no case search locally.
+    (align-regexp start end
+		  "\\(\\s-*\\) =>" 1 0 t)))
+
+(defun  align-perl-var (start end)
+  "Align Perl datapoints."
+  (interactive "r") ;; Pass region as arguments
+  (let ((case-fold-search nil)) ;; Disable no case search locally.
+    (align-regexp start end
+		  "\\(\\s-*\\)\\( =\\| ||\\| eq \\)" 1 0 t)))
+
+(defun  align-tex-table (start end)
+  "Align Perl datapoints."
+  (interactive "r") ;; Pass region as arguments
+  (let ((case-fold-search nil)) ;; Disable no case search locally.
+    (align-regexp start end
+		  "\\(\\s-*\\)\\( &\\| \\\\\\)" 1 0 t)))
+
 (defun window-split-toggle ()
   "Toggle between horizontal and vertical split with two windows."
   (interactive)

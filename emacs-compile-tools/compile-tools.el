@@ -15,6 +15,10 @@
 (use-package sgml-mode :ensure t)
 (use-package highlight-numbers :ensure t)
 (use-package elf-mode :ensure t)
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 2))
 (require 'srefactor-lisp)
 
 (elf-setup-default)
@@ -523,6 +527,11 @@ COMMANDS
   (toggle-truncate-lines 1)
   (setq perl-continued-brace-offset     -2) )
 (my-init-perl-mode)
+
+(add-hook 'perl-mode-hook 'display-line-numbers-mode)
+
+;; No final newline for any mode.
+(setq mode-require-final-newline nil)
 
 (provide 'compile-tools)
 
