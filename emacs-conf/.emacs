@@ -103,7 +103,11 @@
      ("Update All" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.UpdateAll(%I)")
      ("Reload" "soffice" "--norestore" "--invisible" "--headless" "macro:///OrgMode.Utilities.Reload(%I)")))
  '(package-selected-packages
+<<<<<<< HEAD
    '(dired-iconq org-kanban dired-icon dired-du disaster org-roam graphviz-dot-mode lsp-ui flycheck-irony helm irony cmake-mode magit yasnippet ws-butler which-key use-package treemacs-all-the-icons srefactor rainbow-delimiters powerline ox-odt helm-swoop helm-projectile helm-org helm-lsp helm-gtags helm-grepint helm-ag gnu-elpa-keyring-update flycheck drag-stuff doom-themes delight dap-mode company-irony-c-headers company-irony))
+=======
+   '(org-roam graphviz-dot-mode elf-mode lsp-ui flycheck-irony helm irony cmake-mode magit yasnippet ws-butler which-key use-package treemacs-all-the-icons srefactor rainbow-delimiters powerline ox-odt helm-swoop helm-projectile helm-org helm-lsp helm-gtags helm-grepint helm-ag gnu-elpa-keyring-update flycheck drag-stuff doom-themes delight dap-mode company-irony-c-headers company-irony))
+>>>>>>> 24930fb (Some minor changes)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tramp-default-proxies-alist nil)

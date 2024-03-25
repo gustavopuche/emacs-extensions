@@ -34,10 +34,16 @@ Version: 2018-12-23 2022-04-07"
 	     "soffice"
 	     '(file))
        (list (openwith-make-extension-regexp
+<<<<<<< HEAD
 	      '("dia"))
 	     "dia"
 	     '(file))
        ))
+=======
+	      '("xcf"))
+	     "gimp"
+	     '(file))))
+>>>>>>> 24930fb (Some minor changes)
 (openwith-mode 1)
 
 (setq dired-omit-files

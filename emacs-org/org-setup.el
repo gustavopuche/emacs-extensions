@@ -117,6 +117,7 @@
 
 ;; org latex classes
 (add-to-list 'org-latex-classes
+<<<<<<< HEAD
            '("koma-article"
               "\\documentclass{scrartcl}"
               ("\\section{%s}" . "\\section*{%s}")
@@ -124,6 +125,15 @@
               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
               ("\\paragraph{%s}" . "\\paragraph*{%s}")
               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+=======
+          '("koma-article"
+             "\\documentclass{scrartcl}"
+             ("\\section{%s}" . "\\section*{%s}")
+             ("\\subsection{%s}" . "\\subsection*{%s}")
+             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+             ("\\paragraph{%s}" . "\\paragraph*{%s}")
+             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+>>>>>>> 24930fb (Some minor changes)
 
 (provide 'org-setup)
 
