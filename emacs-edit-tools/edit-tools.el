@@ -189,7 +189,7 @@ will be killed."
   "Insert doxygen function/method comment."
   (interactive)
   (insert (concat
-"/// <Insert description of importantStuff>
+"/// @brief <Insert description of importantStuff>
 ///
 /// @param a <Insert description of a>
 /// @param b <Insert description of b>

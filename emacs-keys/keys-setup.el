@@ -17,9 +17,11 @@
   (interactive)
   (global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
   (global-set-key (kbd "<f6>") 'compile-tools-debug)
+  (global-set-key (kbd "<C-f6>") 'disaster)
   (global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
   (global-set-key (kbd "<f8>") 'compile-tools-compile-cmake)
   (global-set-key (kbd "<f9>") 'compile-tools-compile-make)
+  (global-set-key (kbd "<S-f9>") 'compile-tools-compile-make-verbose)
   (global-set-key (kbd "<f10>") 'gdb)
   (global-set-key (kbd "<f12>") 'edit-tools-insert-include)
 )
@@ -37,7 +39,7 @@
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
 (global-set-key (kbd "<C-f4>") 'vc-annotate)
 (global-set-key (kbd "<C-f8>") 'compile-tools-reset-target)
-(global-set-key (kbd "<C-f9>") 'compile-tools-run-perl-sics-install)
+(global-set-key (kbd "<C-f9>") 'compile-tools-make-uTestQNX)
 (global-set-key (kbd "<C-f10>") 'compile-tools-compile-make-install)
 (global-set-key (kbd "<C-f12>") 'kill-this-buffer)
 (global-set-key (kbd "M-s-<right>") 'next-buffer)
@@ -47,7 +49,8 @@
 
 (global-set-key (kbd "<C-S-f10>") 'lsp-ui-peek-find-definitions)
 
-(global-set-key (kbd "<C-s-f9>") 'compile-tools-compile-make-aab)
+(global-set-key (kbd "<C-S-f9>") 'compile-tools-make-oTestQNX)
+(global-set-key (kbd "<C-s-f9>") 'compile-tools-make-cTestQNX)
 (global-set-key (kbd "<C-s-f4>") 'magit-blame)
 (global-set-key (kbd "<C-s-f2>") 'compile-tools-set-target)
 (global-set-key (kbd "<C-S-f3>") 'xref-find-definitions-other-window)
@@ -100,9 +103,9 @@
 (defun projectile-default-find-and-grep-commands ()
   (interactive)
   (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|el|xml|tex|txt|ini|pl|pm|html|js|sh)$|^.[^\.]+$")
-  (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
-  (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
-  (message "Setup ag and fdfind for: c++ lisp latex txt xml perl ini html js sh"))
+  (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e c -e hpp -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
+  (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e cc -e c -e hpp -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
+  (message "Setup ag and fdfind for: c/c++ lisp latex txt xml perl ini html js sh"))
 
 (projectile-default-find-and-grep-commands) ;; Setup at startup.
 

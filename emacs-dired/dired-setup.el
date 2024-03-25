@@ -1,3 +1,6 @@
+(use-package dired-du :ensure t)
+(use-package dired-iconq :ensure t)
+
 (defun dired-sort ()
   "Sort dired dir listing in different ways.
 Prompt for a choice.
@@ -29,7 +32,12 @@ Version: 2018-12-23 2022-04-07"
        (list (openwith-make-extension-regexp
 	      '("doc" "docx" "ppt" "pttx" "xls" "xlsx" "odt" "odf"))
 	     "soffice"
-	     '(file))))
+	     '(file))
+       (list (openwith-make-extension-regexp
+	      '("dia"))
+	     "dia"
+	     '(file))
+       ))
 (openwith-mode 1)
 
 (setq dired-omit-files
@@ -38,5 +46,8 @@ Version: 2018-12-23 2022-04-07"
         (seq "~" eol)                 ;; backup-files
         (seq bol "CVS" eol)           ;; CVS dirs
         )))
+
+;; suppresh long file wwarn prompt
+(setq large-file-warning-threshold nil)
 
 (provide 'dired-setup)

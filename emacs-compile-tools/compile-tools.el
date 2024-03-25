@@ -15,6 +15,7 @@
 (use-package sgml-mode :ensure t)
 (use-package highlight-numbers :ensure t)
 (use-package elf-mode :ensure t)
+(use-package disaster :ensure t)
 (use-package graphviz-dot-mode
   :ensure t
   :config
@@ -23,6 +24,7 @@
 
 (elf-setup-default)
 (setq elf-mode-command "nm -C %s")
+(add-to-list 'auto-mode-alist '("\\.\\(?:a\\|so\\)\\'" . elf-mode))
 
 ;;; Commentary:
 ;; Settup keybindings for compile commands.
@@ -235,10 +237,15 @@ make -f ./Makefile qmake_all"
   "Execute make command."
   (interactive)
   (if (null compile-tools--qt-build-path)
-      (compile "make -j4")
+      (compile "make -j$(nproc)")
     (compile (concat "cd " compile-tools--qt-build-path
 		     " && "
-		     "make -j4"))))
+		     "make -j$(nproc)"))))
+
+(defun compile-tools-compile-make-verbose ()
+  "Execute make run command."
+  (interactive)
+  (compile "make -j$(nproc) VERBOSE=1"))
 
 (defun compile-tools-compile-make-run ()
   "Execute make run command."
@@ -363,6 +370,20 @@ COMMANDS
   (interactive)
   (compile "make buildLINUX64"))
 
+(defun compile-tools-make-cTestQNX ()
+  "Calls make cTestQNX in current folder."
+  (interactive)
+  (compile "make cTestQNX"))
+
+(defun compile-tools-make-oTestQNX ()
+  "Calls make oTestQNX in current folder."
+  (interactive)
+  (compile "make oTestQNX"))
+
+(defun compile-tools-make-uTestQNX ()
+  "Calls make uTestQNX in current folder."
+  (interactive)
+  (compile "make uTestQNX"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

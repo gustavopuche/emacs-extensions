@@ -36,7 +36,7 @@
   (defun programming-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
-    (setq buffer-face-mode-face '(:family "CPMono_v07 Bold" :weight light :height 95))
+    (setq buffer-face-mode-face '(:family "CPMono_v07 Bold" :weight light :height 115))
     (buffer-face-mode))
 
   (defun bold-face-mode ()
@@ -48,13 +48,13 @@
   (defun org-brain-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
-    (setq buffer-face-mode-face '(:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 90 :width normal))
+    (setq buffer-face-mode-face '(:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 125 :width normal))
     (buffer-face-mode))
 
   (defun treemacs-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
-    (setq buffer-face-mode-face '(:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 85 :width normal))
+    (setq buffer-face-mode-face '(:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 115 :width normal))
     (buffer-face-mode))
 
   (defun dired-face-mode ()
@@ -80,8 +80,8 @@
   (add-hook 'org-brain-visualize-mode-hook 'org-brain-face-mode)
   (add-hook 'org-mode-hook 'org-brain-face-mode)
   (add-hook 'c++-mode-hook 'programming-face-mode)
-  (add-hook 'c-mode-hook 'dired-face-mode)
-  (add-hook 'emacs-lisp-mode-hook 'dired-face-mode)
+  (add-hook 'c-mode-hook 'programming-face-mode)
+  (add-hook 'emacs-lisp-mode-hook 'bold-face-mode)
   [add-hook 'text-mode-hook 'dired-face-mode]
   (add-hook 'which-key-mode-hook 'dired-face-mode)
   (add-hook 'helm-mode-hook 'dired-face-mode)

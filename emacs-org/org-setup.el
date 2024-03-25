@@ -1,12 +1,11 @@
 (require 'org)
 (require 'org-brain)
 
-;; (use-package calfw-cal :ensure t)
-;; (use-package calfw-ical :ensure t)
-;; (use-package calfw-org :ensure t)
 (require 'org-extra-emphasis)
 (use-package ox-odt :ensure t)
-;; (use-package ob-dot :ensure t)
+(use-package org-kanban :ensure t)
+
+(setq org-hide-emphasis-markers t)
 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
@@ -22,9 +21,6 @@
       org-src-strip-leading-and-trailing-blank-lines t
       org-src-preserve-indentation t
       org-src-tab-acts-natively t)
-
-;; (setq org-odt-styles-file "/home/gustavo/org/styles.odt")
-;; (require 'ox-org)
 
 (defun refresh-org-agenda-files ()
    (interactive)
@@ -58,18 +54,12 @@
 ;; visual-line-mode active with latex-mode
 (add-hook 'text-mode-hook 'visual-line-mode)
 (add-hook 'org-brain-visualize-text-hook (lambda () (visual-line-mode 1)
-					   (org-display-inline-images)))
+					   (org-display-inline-images)
+					   (setq tab-width 2)))
+(add-hook 'org-mode-hook (lambda () 
+			   (setq tab-width 2)))
 
 
-;; this controls the color of bold, italic, underline, verbatim, strikethrough
-(setq org-emphasis-alist
-  '(("*" (bold :foreground "orange" )) ;; this make bold both italic and bold, but not color change
-    ("/" (italic :foreground "dark salmon" )) ;; italic text, the text will be "dark salmon"
-    ("_" (italic :foreground "DarkViolet") ) ;; underlined text, color is "DarkViolet"
-    ("=" (bold :foreground "DeepSkyBlue" )) 
-    ("~" (bold :foreground "MediumSeaGreen" ))
-    ("+" (bold :foreground "tomato" ))))
-(setq org-hide-emphasis-markers t) ;; hides the emphasis markers
 
 ;; Add organizer.org file to agenda.
 (org-agenda-files '("~/org/brain/organizer.org"))
@@ -116,7 +106,6 @@
  '(org-latex-to-mathml-jar-file
    "/home/kjambunathan/Downloads/mathtoweb.jar"))
 
-
 ;; (setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s")
 (setcdr (assq 'system org-file-apps-gnu) "xdg-open %s")
 
@@ -126,4 +115,111 @@
               (let ((process-connection-type nil))
                 (apply orig-fun args))))
 
+;; org latex classes
+(add-to-list 'org-latex-classes
+           '("koma-article"
+              "\\documentclass{scrartcl}"
+              ("\\section{%s}" . "\\section*{%s}")
+              ("\\subsection{%s}" . "\\subsection*{%s}")
+              ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+              ("\\paragraph{%s}" . "\\paragraph*{%s}")
+              ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
 (provide 'org-setup)
+
+;; To use with doom-one-light theme
+
+(custom-set-faces
+ '(org-default ((t ( 
+                    :inherit default
+                    ))))
+ '(org-extra-emphasis ((t ( 
+                           :height 2.0
+                           :inherit default
+                           :weight black
+                           :width normal
+                           ))))
+ '(org-extra-emphasis-01 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "#A53E2D"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-02 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "ForestGreen"
+                              :inherit org-extra-emphasis
+                              :weight bold
+                              ))))
+ '(org-extra-emphasis-03 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "gold2"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-04 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "cyan3"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-05 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "#54436E"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-06 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "#D65D8F"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-07 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "#E5C494"
+                              :inherit org-extra-emphasis
+                              :weight extra-bold
+                              ))))
+ '(org-extra-emphasis-08 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "DarkOrange1"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-09 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "firebrick1"
+                              :inherit org-extra-emphasis
+                              ))))
+  '(org-extra-emphasis-10 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "SpringGreen3"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-11 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "yellow3"
+                              :inherit org-extra-emphasis
+                              :weight bold
+                              ))))
+ '(org-extra-emphasis-12 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "DeepSkyBlue2"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-13 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "magenta4"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-14 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "burlywood4"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-15 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "sienna2"
+                              :inherit org-extra-emphasis
+                              ))))
+ '(org-extra-emphasis-16 ((t ( 
+                              :family "EnhancedDotDigital-7"
+                              :foreground "SlateBlue3"
+                              :inherit org-extra-emphasis
+                              :weight extra-bold
+                              )))))
