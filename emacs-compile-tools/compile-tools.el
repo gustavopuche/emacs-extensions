@@ -252,6 +252,11 @@ make -f ./Makefile qmake_all"
   (interactive)
   (compile "make run"))
 
+(defun compile-tools-compile-make-memory-ckech ()
+  "Execute make run command."
+  (interactive)
+  (compile "make memory-check"))
+
 (defun compile-tools-compile-make-clean ()
   "Execute make clean command."
   (interactive)

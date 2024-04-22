@@ -23,6 +23,7 @@
   (global-set-key (kbd "<f9>") 'compile-tools-compile-make)
   (global-set-key (kbd "<S-f9>") 'compile-tools-compile-make-verbose)
   (global-set-key (kbd "<f10>") 'gdb)
+  (global-set-key (kbd "S-<f10>") 'compile-tools-compile-make-memory-ckech)
   (global-set-key (kbd "<f12>") 'edit-tools-insert-include)
 )
 
