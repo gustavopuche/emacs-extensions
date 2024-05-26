@@ -15,7 +15,7 @@
 (use-package sgml-mode :ensure t)
 (use-package highlight-numbers :ensure t)
 (use-package elf-mode :ensure t)
-(use-package disaster :ensure t)
+;; (use-package disaster :ensure t)
 (use-package graphviz-dot-mode
   :ensure t
   :config

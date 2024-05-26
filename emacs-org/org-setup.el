@@ -3,7 +3,7 @@
 
 (require 'org-extra-emphasis)
 (use-package ox-odt :ensure t)
-(use-package org-kanban :ensure t)
+;; (use-package org-kanban :ensure t)
 
 (setq org-hide-emphasis-markers t)
 
@@ -117,23 +117,13 @@
 
 ;; org latex classes
 (add-to-list 'org-latex-classes
-<<<<<<< HEAD
-           '("koma-article"
-              "\\documentclass{scrartcl}"
-              ("\\section{%s}" . "\\section*{%s}")
-              ("\\subsection{%s}" . "\\subsection*{%s}")
-              ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-              ("\\paragraph{%s}" . "\\paragraph*{%s}")
-              ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-=======
-          '("koma-article"
-             "\\documentclass{scrartcl}"
-             ("\\section{%s}" . "\\section*{%s}")
-             ("\\subsection{%s}" . "\\subsection*{%s}")
-             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-             ("\\paragraph{%s}" . "\\paragraph*{%s}")
-             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
->>>>>>> 24930fb (Some minor changes)
+             '("koma-article"
+               "\\documentclass{scrartcl}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (provide 'org-setup)
 

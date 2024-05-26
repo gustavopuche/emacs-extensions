@@ -1,5 +1,5 @@
 (use-package dired-du :ensure t)
-(use-package dired-iconq :ensure t)
+;; (use-package dired-iconq :ensure t)
 
 (defun dired-sort ()
   "Sort dired dir listing in different ways.
@@ -34,16 +34,13 @@ Version: 2018-12-23 2022-04-07"
 	     "soffice"
 	     '(file))
        (list (openwith-make-extension-regexp
-<<<<<<< HEAD
 	      '("dia"))
 	     "dia"
 	     '(file))
-       ))
-=======
+       (list (openwith-make-extension-regexp
 	      '("xcf"))
 	     "gimp"
 	     '(file))))
->>>>>>> 24930fb (Some minor changes)
 (openwith-mode 1)
 
 (setq dired-omit-files
