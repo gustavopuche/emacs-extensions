@@ -1,6 +1,7 @@
 (require 'org)
 (require 'org-brain)
 
+(require 'ol-man) ;; Allows man links. e.g. [[man:printf][Printf Manual Page]]
 (require 'org-extra-emphasis)
 (use-package ox-odt :ensure t)
 ;; (use-package org-kanban :ensure t)
