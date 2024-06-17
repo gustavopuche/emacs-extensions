@@ -75,7 +75,14 @@
     (setq buffer-face-mode-face '(:family "CPMono_v07 Light" :height 98))
     (buffer-face-mode))
 
-  (add-hook 'treemacs-mode-hook 'treemacs-face-mode)
+  (add-hook 'treemacs-mode-hook (lambda()
+				  (setq treemacs-show-hidden-files nil)
+				  (setq treemacs-max-git-entries 10000)
+				  (treemacs-fringe-indicator-mode -1)
+				  (treemacs-face-mode)
+				  (setq treemacs-collapse-dirs 0)
+				  (treemacs-git-mode -1)))
+  
   (add-hook 'dired-mode-hook 'dired-face-mode)
   (add-hook 'org-brain-visualize-mode-hook 'org-brain-face-mode)
   (add-hook 'org-mode-hook 'org-brain-face-mode)

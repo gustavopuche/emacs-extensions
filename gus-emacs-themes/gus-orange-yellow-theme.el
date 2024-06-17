@@ -75,6 +75,7 @@
        (black		    "#000000")
        (blue		    "#91dbfc")
        (blue-dark           "Deepskyblue2")
+       (blue-dark-dark      "royal blue")
        (coral		    "coral")
        (cyan		    "cyan")
        (green		    "#5dfd93")
@@ -85,7 +86,7 @@
        (pink		    "pink")
        (pink-dark	    "deep pink")
        (purple		    "#c397d8")
-       (red		    "#f2241f")
+       (red		    "red")
        (sandy		    "sandy brown")
        (turquoise           "pale turquoise")
        (turquoise-dark      "turquoise1")
@@ -95,7 +96,7 @@
        (yellow-dark	    "yellow")
        (white		    "#ffffff")
        (gray		    "#5f665d")
-       (alert		    "light pink")
+       (alert		    "red")
        (comment		    gray)
        (constant	    "lightyellow")
        (current-line-number "#ffd700")
@@ -213,7 +214,7 @@
    `(font-latex-string-face ((t (:foreground ,string))))
    `(font-latex-warning-face ((t (:bold t :foreground ,pink :weight bold))))
 
-   `(font-lock-builtin-face ((t (:foreground ,aqua))))
+   `(font-lock-builtin-face ((t (:foreground ,yellow))))
    `(font-lock-comment-face ((t (:italic t :foreground ,comment :slant italic))))
    `(font-lock-constant-face ((,class (:foreground ,constant :weight bold))))
    `(font-lock-doc-face ((t (:foreground ,comment))))
@@ -333,7 +334,8 @@
    `(tool-bar ((t (:background "grey75" :foreground "black" :box (:line-width 1 :style released-button)))))
    ;; `(tooltip ((t (:background "lightyellow" :foreground "black"))))
 
-   `(company-tooltip-selection ((t (:background "yellow" :foreground "black"))))
+   ;; company.
+   `(company-tooltip-selection ((t (:background ,orange :foreground "black"))))
 
    `(trailing-whitespace ((t (:background "#102e4e"))))
    `(underline ((t (:underline t))))
@@ -349,6 +351,9 @@
    ;; dired.
    `(dired-directory ((t (:bold t :foreground ,yellow :weight bold))))
    `(dired-header ((t (:bold t :foreground ,yellow-dark :weight bold))))
+   `(dired-mark ((t (:bold t :foreground ,yellow :weight bold))))
+   `(dired-marked ((t (:bold t :foreground ,red :weight bold))))
+   `(dired-warning ((t (:bold t :foreground ,yellow :weight bold))))
    
    ;; helm.
    `(helm-M-x-key ((t (:foreground ,keyword :weight bold))))
@@ -404,10 +409,12 @@
    `(magit-filename ((,class (:foreground ,yellow))))
    `(magit-header-line ((,class (:foreground ,white))))
    `(git-commit-comment-detached ((,class (:foreground ,pink))))
+   `(git-commit-comment-branch-local ((,class (:foreground ,white))))
+   `(git-commit-comment-heading ((,class (:foreground ,white))))
 
    ;; Man.
    `(Man-overstrike ((,class (:foreground ,white))))
-   `(Man-underline ((t (:foreground ,cyan :weight bold))))
+   `(Man-underline ((t (:foreground ,blue-dark-dark :weight bold))))
 
    ;; org.
    `(org-macro ((t (:foreground ,orange))))
@@ -508,9 +515,9 @@
    
    ;; lsp
    `(lsp-ui-peek-highlight ((,class (:foreground ,black :background ,yellow))))
-   `(lsp-face-highlight-read ((,class (:foreground ,white :background ,coral))))
-   `(lsp-face-highlight-write ((,class (:foreground ,white :background ,sandy))))
-   `(lsp-face-highlight-textual ((,class (:foreground ,white :background ,orange))))
+   `(lsp-face-highlight-read ((,class (:foreground ,black :background ,green))))
+   `(lsp-face-highlight-write ((,class (:foreground ,black :background ,red))))
+   `(lsp-face-highlight-textual ((,class (:foreground ,black :background ,yellow))))
    `(lsp-headerline ((,class (:inherit mode-line :foreground ,orange :background,black))))
    `(lsp-headerline-breadcrumb-deprecated-face ((,class (:inherit lsp-headerline :foreground ,orange :bold t :weight bold :height 1.20))))
    `(lsp-headerline-breadcrumb-path-error-face ((,class (:inherit lsp-headerline-breadcrumb-deprecated-face))))
@@ -534,7 +541,7 @@
    `(flycheck-warning ((t (:underline (:color ,warning :style wave :position wave) :background ,background))))
 
    ;; compilation colors.
-   `(compilation-error ((t (:foreground ,warning :weight bold))))
+   `(compilation-error ((t (:foreground ,alert :weight bold))))
    `(compilation-warning ((t (:foreground ,warning :weight bold))))
 
    ;; power line

@@ -313,7 +313,8 @@
    '(tool-bar ((t (:background "grey75" :foreground "black" :box (:line-width 1 :style released-button)))))
    ;; '(tooltip ((t (:background "lightyellow" :foreground "black"))))
 
-   '(company-tooltip-selection ((t (:background "yellow" :foreground "black"))))
+   ;; company.
+   `(company-tooltip-selection ((t (:background ,orange :foreground "black"))))
 
    '(trailing-whitespace ((t (:background "#102e4e"))))
    '(underline ((t (:underline t))))
