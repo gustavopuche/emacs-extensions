@@ -430,6 +430,7 @@
    `(org-block ((t (:foreground ,white))))
    `(org-block-begin-line ((t (:foreground ,white :weight bold))))
    `(org-block-end-line ((t (:foreground ,white :weight bold))))
+   `(org-table ((t (:foreground ,white :weight bold))))
    `(org-time-grid ((t (:foreground ,red :weight bold))))
    `(org-property-value ((t (:foreground ,yellow))))
    `(org-special-keyword ((t (:foreground ,cyan :weight bold))))
@@ -444,6 +445,8 @@
 
    `(org-headline-done ((t (:foreground ,green))))
 
+   ;; org-brain
+   `(org-brain-parent ((t (:foreground ,green))))
    
    ;; org-extra-emphasis.
    ;; !!, !@, !%, !&, @!, @@, @%, @&, %!, %@, %%, %&, &!, &@, &%, &&
