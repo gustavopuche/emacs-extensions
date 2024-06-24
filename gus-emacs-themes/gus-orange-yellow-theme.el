@@ -423,7 +423,7 @@
    `(org-quote ((t (:foreground ,orange))))
    `(org-document-info-keyword ((t (:foreground ,orange))))
    `(org-document-title ((t (:foreground ,aqua))))
-   `(org-table ((t (:foreground ,aqua))))
+   `(org-table ((t (:foreground ,white))))
    `(org-latex-and-related ((t (:foreground ,orange))))
    `(org-agenda-current-date ((t (:foreground ,yellow))))
    `(org-agenda-current-time ((t (:foreground ,orange))))
