@@ -155,8 +155,7 @@
    
    `(default ((t (:background ,background :foreground "#eeeeee" :family "CPMono_v07 Black" :weight light :height 98))))
    `(all-the-icons-purple ((t (:foreground "green"))))
-   `(mouse ((t (:foregound "green"))))
-   `(cursor ((t (:foregound "green"))))
+   `(mouse ((t (:foregound ,cursor))))
    `(border ((t (:foregound "black"))))
    `(warning ((t (:foreground ,warning :weight bold))))
 
@@ -315,7 +314,6 @@
    `(modeline-buffer-id ((t (:background "gray" :foreground "black" :box (:line-width 2 :style released-button)))))
    `(modeline-mousable ((t (:background "gray" :foreground "black" :box (:line-width 2 :style released-button)))))
    `(modeline-mousable-minor-mode ((t (:background "gray" :foreground "black" :box (:line-width 2 :style released-button)))))
-   `(mouse ((t (:background "white"))))
    `(shadow ((t (:foreground ,pink))))
 
 

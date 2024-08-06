@@ -36,10 +36,11 @@
 (global-set-key (kbd "<backtab>") 'other-window)
 (global-set-key (kbd "C-<iso-lefttab>") 'previous-window-any-frame)
 (global-set-key (kbd "s-SPC") 'company-capf)
+(global-set-key (kbd "<C-f1>") 'company-yasnippet)
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
 (global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
 (global-set-key (kbd "<C-f4>") 'vc-annotate)
-(global-set-key (kbd "<C-f8>") 'compile-tools-reset-target)
+(global-set-key (kbd "<C-f8>") 'helm-lsp-code-actions)
 (global-set-key (kbd "<C-f9>") 'compile-tools-make-uTestQNX)
 (global-set-key (kbd "<C-f10>") 'compile-tools-compile-make-install)
 (global-set-key (kbd "<C-f12>") 'kill-this-buffer)
@@ -149,6 +150,11 @@
 				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e js")
 				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e js")
 				 (message "Setup ag and fdfind for: Java Script")))
+(global-set-key (kbd "<s-f9>") (lambda ()(interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(txt)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e txt")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e txt")
+				 (message "Setup ag and fdfind for: [CMakeLists.]txt")))
 
 ;; Change keybinds to whatever you like :)
 
@@ -180,7 +186,7 @@
   ;; (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
   (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
-  (define-key lsp-mode-map (kbd "<f8>") 'helm-lsp-workspace-symbol)
+  (define-key lsp-mode-map (kbd "<f8>") 'lsp-ui-flycheck-list)
   (define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
 )
 ;; rebihnd dired keys.

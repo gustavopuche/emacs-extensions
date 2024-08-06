@@ -41,7 +41,15 @@
      the given regular expression."
   (interactive "r\nsAlign regexp: ")
   (align-regexp start end 
-				(concat "\\(\\s-*\\)" regexp) 1 0 t))
+		(concat "\\(\\s-*\\)" regexp) 1 0 t))
+
+(defun align-var-def (start end)
+  "Align variable definition.
+    Align fields separated wwith spaces."
+  (interactive "r") ;; Pass region as arguments
+  (let ((case-fold-search nil)) ;; Disable no case search locally.
+    (align-regexp start end
+		  "\\(\\s-*\\)\\s-" 1 0 t)))
 
 ;; SQL varibles
 (defun align-var-sql (start end)
