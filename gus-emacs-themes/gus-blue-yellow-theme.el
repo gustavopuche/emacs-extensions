@@ -68,7 +68,7 @@
 
 (let* ((class '((class color) (min-colors 89)))
        (256color (eq (display-color-cells (selected-frame)) 256))
-       (background (if 256color "#1c1c1c" "#181a26"))
+       (background          "DodgerBlue")
        (current-line (if 256color "#121212" "#14151E"))
        (block-background (if 256color "#262626" "#1F2232"))
        (aqua		    "#00ecff")
@@ -485,6 +485,10 @@
 
    ;;flycheck.
    `(flycheck-fringe-warning ((t (:foreground ,yellow :weight bold))))
+   `(flycheck-error ((t (:underline (:color ,red :style wave :position wave) :background ,background))))
+   `(flycheck-info ((t (:underline (:color ,green :style wave :position wave) :background ,background))))
+   `(flycheck-warning ((t (:underline (:color ,warning :style wave :position wave) :background ,background))))
+
 
    ;; compilation colors.
    `(compilation-error ((t (:foreground ,warning :weight bold))))

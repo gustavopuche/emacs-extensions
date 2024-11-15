@@ -24,7 +24,7 @@
   )
 
 (with-eval-after-load 'doom-themes
-  (load-theme 'gus-orange-yellow t)
+  (load-theme 'gus-green-blue t)
 
   ;; Use variable width font faces in current buffer
   (defun msx-face-mode ()

@@ -400,6 +400,13 @@ COMMANDS
 		   " && "
 		   "perl Install.pl")))
 
+(defun compile-tools-run-perl-sics-install-QNX700x64 ()
+  "Run [SICS]/Build/Install.sh"
+  (interactive)
+  (compile (concat "cd " (projectile-project-root) "/Build"
+		   " && "
+		   "perl Install.pl -target=QNX700x64")))
+
 (defun compile-tools-run-perl-create-package ()
   "Run [SICS]/Build/Install.sh"
   (interactive)

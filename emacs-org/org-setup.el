@@ -1,7 +1,7 @@
 (require 'org)
 (require 'org-brain)
 
-(require 'ol-man) ;; Allows man links. e.g. [[man:printf][Printf Manual Page]]
+;; (require 'ol-man) ;; Allows man links. e.g. [[man:printf][Printf Manual Page]]
 (require 'org-extra-emphasis)
 (use-package ox-odt :ensure t)
 ;; (use-package org-kanban :ensure t)
@@ -135,30 +135,30 @@
                     :inherit default
                     ))))
  '(org-extra-emphasis ((t ( 
-                           :height 2.0
+                           :height 1.2
                            :inherit default
                            :weight black
                            :width normal
                            ))))
  '(org-extra-emphasis-01 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "#A53E2D"
+                              :foreground "red"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-02 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "ForestGreen"
+                              :foreground "SpringGreen1"
                               :inherit org-extra-emphasis
                               :weight bold
                               ))))
  '(org-extra-emphasis-03 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "gold2"
+                              :foreground "yellow"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-04 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "cyan3"
+                              :foreground "cyan"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-05 ((t ( 
@@ -189,7 +189,7 @@
                               ))))
   '(org-extra-emphasis-10 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "SpringGreen3"
+                              :foreground "chartreuse"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-11 ((t ( 
@@ -200,27 +200,27 @@
                               ))))
  '(org-extra-emphasis-12 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "DeepSkyBlue2"
+                              :foreground "turquoise"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-13 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "magenta4"
+                              :foreground "magenta"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-14 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "burlywood4"
+                              :foreground "wheat"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-15 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "sienna2"
+                              :foreground "LightSalmon"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-16 ((t ( 
                               :family "EnhancedDotDigital-7"
-                              :foreground "SlateBlue3"
+                              :foreground "LightSteelBlue1"
                               :inherit org-extra-emphasis
                               :weight extra-bold
                               )))))
