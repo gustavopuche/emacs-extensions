@@ -1,7 +1,7 @@
 (require 'org)
 (require 'org-brain)
 
-;; (require 'ol-man) ;; Allows man links. e.g. [[man:printf][Printf Manual Page]]
+(require 'ol-man) ;; Allows man links. e.g. [[man:printf][Printf Manual Page]]
 (require 'org-extra-emphasis)
 (use-package ox-odt :ensure t)
 ;; (use-package org-kanban :ensure t)
@@ -65,7 +65,7 @@
 ;; Add organizer.org file to agenda.
 (org-agenda-files '("~/org/brain/organizer.org"))
 
-(setq org-todo-keywords '((sequence "TODO(t)" "DOING(o)" "BLOCKED(b@)" "REVIEW(r)" "BUG(b)" "|" "DONE(d!)" "CANCELLED(c@)" "FIXED(f!)")))
+(setq org-todo-keywords '((sequence "TODO(t!)" "DOING(o!)" "BLOCKED(b@)" "REVIEW(r!)" "BUG(b!)" "|" "DONE(d!)" "CANCELLED(c@)" "FIXED(f!)")))
 
 (setq org-log-done 'time)
 (setq org-todo-keyword-faces '(("todo" . "SlateGray")
@@ -88,8 +88,9 @@
 
 ;; Use graphviz inside org.
 
-;; ox-odt config.
+;; org config.
 (custom-set-variables
+ '(org-log-into-drawer t)
  '(org-odt-convert-process "LibreOffice")
  '(org-odt-preferred-output-format "docx")
  '(org-odt-transform-processes
@@ -127,7 +128,6 @@
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (provide 'org-setup)
-
 ;; To use with doom-one-light theme
 
 (custom-set-faces
@@ -135,92 +135,70 @@
                     :inherit default
                     ))))
  '(org-extra-emphasis ((t ( 
-                           :height 1.2
                            :inherit default
-                           :weight black
-                           :width normal
+                           :weight bold
                            ))))
  '(org-extra-emphasis-01 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "red"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-02 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "SpringGreen1"
                               :inherit org-extra-emphasis
-                              :weight bold
                               ))))
  '(org-extra-emphasis-03 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "yellow"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-04 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "cyan"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-05 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "#54436E"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-06 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "#D65D8F"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-07 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "#E5C494"
                               :inherit org-extra-emphasis
-                              :weight extra-bold
                               ))))
  '(org-extra-emphasis-08 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "DarkOrange1"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-09 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "firebrick1"
                               :inherit org-extra-emphasis
                               ))))
   '(org-extra-emphasis-10 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "chartreuse"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-11 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "yellow3"
                               :inherit org-extra-emphasis
-                              :weight bold
                               ))))
  '(org-extra-emphasis-12 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "turquoise"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-13 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "magenta"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-14 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "wheat"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-15 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "LightSalmon"
                               :inherit org-extra-emphasis
                               ))))
  '(org-extra-emphasis-16 ((t ( 
-                              :family "EnhancedDotDigital-7"
                               :foreground "LightSteelBlue1"
                               :inherit org-extra-emphasis
-                              :weight extra-bold
                               )))))

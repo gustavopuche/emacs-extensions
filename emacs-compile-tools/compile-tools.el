@@ -236,11 +236,7 @@ make -f ./Makefile qmake_all"
 (defun compile-tools-compile-make ()
   "Execute make command."
   (interactive)
-  (if (null compile-tools--qt-build-path)
-      (compile "make -j$(nproc)")
-    (compile (concat "cd " compile-tools--qt-build-path
-		     " && "
-		     "make -j$(nproc)"))))
+  (compile "make -j$(nproc)"))
 
 (defun compile-tools-compile-make-verbose ()
   "Execute make run command."

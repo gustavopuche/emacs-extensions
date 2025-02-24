@@ -392,66 +392,7 @@
    `(org-warning ((t (:foreground ,warning :weight bold))))
 
    `(org-headline-done ((t (:foreground ,green))))
-
-   
-   ;; org-extra-emphasis.
-   ;; !!, !@, !%, !&, @!, @@, @%, @&, %!, %@, %%, %&, &!, &@, &%, &&
-   `(org-extra-emphasis ((t ( 
-                             :height 1.5
-                             :inherit default
-                             :weight bold
-                             :width normal
-                             ))))
-   `(org-extra-emphasis-01 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,red
-				:inherit org-extra-emphasis
-				:weight extra-bold
-				))))
-   `(org-extra-emphasis-02 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,orange
-				:inherit org-extra-emphasis
-				:weight extra-bold
-				))))
-   `(org-extra-emphasis-03 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,yellow
-				:inherit org-extra-emphasis
-				:weight extra-bold
-				))))
-   `(org-extra-emphasis-04 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,green
-				:inherit org-extra-emphasis
-				:weight extra-bold
-				))))
-   `(org-extra-emphasis-05 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,cyan
-				:inherit org-extra-emphasis
-				))))
-   `(org-extra-emphasis-06 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,white
-				:inherit org-extra-emphasis
-				))))
-   `(org-extra-emphasis-07 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,pink
-				:inherit org-extra-emphasis
-				:weight extra-bold
-				))))
-   `(org-extra-emphasis-08 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,magenta
-				:inherit org-extra-emphasis
-				))))
-   `(org-extra-emphasis-09 ((t ( 
-				:family "Bitstream Vera Sans Mono"
-				:foreground ,violet
-				:inherit org-extra-emphasis
-				))))
+ 
    ;; treemacs.
    `(treemacs-git-modified-face ((,class (:foreground ,modified))))
    `(treemacs-git-ignored-face ((,class (:foreground ,pink))))
