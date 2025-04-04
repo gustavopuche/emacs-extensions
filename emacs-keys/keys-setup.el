@@ -104,9 +104,9 @@
 ;; Set full ag search or only source.
 (defun projectile-default-find-and-grep-commands ()
   (interactive)
-  (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|el|xml|tex|txt|ini|pl|pm|html|js|sh)$|^.[^\.]+$")
-  (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e c -e hpp -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
-  (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e cc -e c -e hpp -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e sh")
+  (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(cpp|h|cc|cxx|el|xml|tex|txt|ini|pl|pm|html|js|json|sh)$|^.[^\.]+$")
+  (setq projectile-generic-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e c -e hpp -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e json -e sh")
+  (setq projectile-git-command "fdfind . -0 --type f --color=never -e cpp -e h -e cc -e cc -e c -e hpp -e el -e ini -e xml -e tex -e txt -e pl -e pm -e html -e js -e json -e sh")
   (message "Setup ag and fdfind for: c/c++ lisp latex txt xml perl ini html js sh"))
 
 (projectile-default-find-and-grep-commands) ;; Setup at startup.
@@ -155,6 +155,12 @@
 				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e txt")
 				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e txt")
 				 (message "Setup ag and fdfind for: [CMakeLists.]txt")))
+
+(global-set-key (kbd "<s-f10>") (lambda ()(interactive)
+				 (setq helm-ag-base-command "ag --nocolor --nogroup -G\.(json)$")
+				 (setq projectile-generic-command "fdfind . -0 --type f --color=never -e json")
+				 (setq projectile-git-command "fdfind . -0 --type f --color=never -e json")
+				 (message "Setup ag and fdfind for: Json only")))
 
 ;; Change keybinds to whatever you like :)
 

@@ -7,8 +7,8 @@
 
 (use-package helm-gtags :delight :ensure t)
 (use-package helm-swoop :ensure t)
-(with-eval-after-load 'helm-mode
-	    (use-package helm-org :ensure t))
+;; (with-eval-after-load 'helm-mode
+;; 	    (use-package helm-org :ensure t))
 
 ;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)
