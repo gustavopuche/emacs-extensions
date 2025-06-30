@@ -60,6 +60,11 @@
    `(font-lock-type-face ((,class (:foreground "#ffff33"))))
    `(font-lock-variable-name-face ((,class (:foreground "dodger blue"))))
    `(font-lock-warning-face ((,class (:foreground "orange red" :weight bold))))
+   '(hi-yellow ((t (:background "yellow" :foreground "black"))))
+   '(hi-pink ((t (:background "pink" :foreground "black"))))
+   '(hi-green ((t (:background "green" :foreground "black"))))
+   '(hi-blue ((t (:background "DeepSkyBlue" :foreground "black"))))
+
    ;; Compilation faces
    `(next-error ((,class (:inherit region :background "SkyBlue"))))))
 
