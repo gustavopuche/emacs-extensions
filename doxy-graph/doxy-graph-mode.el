@@ -130,16 +130,16 @@ Shows iverted call graph of the function or method at cursor."
 	"Gets class before :: word at cursor position."
 	(interactive)
 	(if (equal (doxy-graph-file-name-extension) "h")
-			(progn
-				(message "Source extension: h")
-				(search-backward "class")
-				(right-word)
-				(right-word)
-				(left-word))
-		(progn
-			(message "Source extension: cpp")
-			(left-word)
-			(left-word)))
+	    (progn
+	      (message "Source extension: h")
+	      (search-backward "class")
+	      (right-word)
+	      (right-word)
+	      (left-word))
+	  (progn
+	    (message "Source extension: cpp")
+	    (left-word)
+	    (left-word)))
 	
 	(thing-at-point 'word 'no-properties))
 

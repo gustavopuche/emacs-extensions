@@ -16,6 +16,6 @@
 
 ;; Tramp stuff.
 (setq tramp-save-ad-hoc-proxies t)
-(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+;;(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 
 (provide 'projectile-setup)

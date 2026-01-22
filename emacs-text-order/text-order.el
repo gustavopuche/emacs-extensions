@@ -34,7 +34,7 @@
      the given regular expression."
   (interactive "r\nsAlign regexp: ")
   (align-regexp start end 
-				(concat "\\(\\s-*\\)" regexp) 1 1 t))
+		(concat "\\(\\s-*\\)" regexp) 1 1 t))
 
 (defun align-repeat-0 (start end regexp)
   "Repeat alignment with respect to 
@@ -57,7 +57,7 @@
   (interactive "r") ;; Pass region as arguments
   (let ((case-fold-search nil)) ;; Disable no case search locally.
   (align-regexp start end
-				"\\(\\s-+\\)\\(:=\\|[[:upper:]][[:upper:]]\\)" 1 1 t)))
+		"\\(\\s-+\\)\\(:=\\|[[:upper:]][[:upper:]]\\)" 1 1 t)))
 
 ;; C++ special align.
 (defun  align-assign-cpp (start end)
@@ -65,14 +65,14 @@
   (interactive "r") ;; Pass region as arguments
   (let ((case-fold-search nil)) ;; Disable no case search locally.
   (align-regexp start end
-				"\\(\\s-+\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
+		"\\(\\s-+\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
 
 (defun  align-var-cpp (start end)
   "Align C++ varibles."
   (interactive "r") ;; Pass region as arguments
   (let ((case-fold-search nil)) ;; Disable no case search locally.
   (align-regexp start end
-				"\\(\\s-*\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
+		"\\(\\s-*\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
 
 (defun  align-perl-datapoints (start end)
   "Align Perl datapoints."

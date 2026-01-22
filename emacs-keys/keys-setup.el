@@ -194,6 +194,11 @@
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
   (define-key lsp-mode-map (kbd "<f8>") 'lsp-ui-flycheck-list)
   (define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
+  (define-key lsp-mode-map (kbd "M-n") 'flycheck-next-error)
+  (define-key lsp-mode-map (kbd "M-p") 'flycheck-previous-error)
+  (define-key lsp-mode-map (kbd "M-f") 'helm-lsp-code-actions)
+  (define-key lsp-mode-map (kbd "s-r") 'edit-tools-remove-typesel-logintyp)
+
 )
 ;; rebihnd dired keys.
 (with-eval-after-load 'dired
@@ -207,6 +212,10 @@
   (define-key dired-mode-map (kbd "<f8>") 'dired-do-delete)
   (define-key dired-mode-map (kbd "s") 'dired-sort)
   (define-key dired-mode-map (kbd ".") 'dired-omit-mode)
+  (define-key dired-mode-map (kbd "F")
+  (lambda ()
+    (interactive)
+    (mapc #'find-file (reverse (dired-get-marked-files)))))
   ) 
 
 ;; (add-hook 'after-init-hook (lambda ()
@@ -227,5 +236,7 @@
   (define-key perl-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
   (define-key perl-mode-map (kbd "<C-S-f6>") 'compile-tools-run-perl-create-package-force)
   )
+(with-eval-after-load 'shell
+  (define-key shell-mode-map (kbd "C-l") 'comint-clear-buffer))
 
 (provide 'keys-setup)

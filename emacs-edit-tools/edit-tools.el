@@ -17,9 +17,17 @@
 ;;; Code:
 (defconst edit-tools--debug-comments "^.*//.*Debug\\(.\\|[\n]\\)+.*//////\n\n")
 (defconst edit-tools--empty-line-with-spaces "^[[:space:]]+$")
+(defconst edit-tools--typeselection-logintyp "^.*<typeselection>\n.*<name>LoginTyp</name>\n.*\n.*</typeselection>\n")
 
 (defvar edit-tools--fdfind "")
 (defvar edit-tools--find-cmd "")
+
+(defun init-int-var-next ()
+  "interactive"
+  (goto-char (point-min))
+  (while (re-search-forward "\\(TUint.*m[[:upper:]][[:alpha:]]+\\)\\(;\\)" nil t)
+    (replace-match "\\1{0}\\2")))
+
 
 (defun ascii-table ()
     "Display basic ASCII table (0 thru 128)."
@@ -59,6 +67,14 @@
   "Clean debug comments."
   (interactive)
   (edit-tools-regex-global-replace edit-tools--debug-comments ""))
+
+(defun edit-tools-remove-typesel-logintyp ()
+  "Clean typeselection LoginTyp."
+  (interactive)
+  (goto-char 1)
+  (search-forward-regexp edit-tools--typeselection-logintyp nil)
+  (replace-match ""))
+
 
 (defun edit-tools-hack-isearch-kill ()
    "Push current matching string into kill ring."
