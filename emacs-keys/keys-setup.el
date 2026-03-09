@@ -7,7 +7,7 @@
 (global-set-key [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 (global-set-key (kbd "<C-S-f1>") 'which-key-show-top-level)
 (global-set-key (kbd "<f2>") 'helm-occur)
-(global-set-key (kbd "<f3>") 'helm-gtags-find-tag-from-here)
+(global-set-key (kbd "<f3>") 'helm-swoop)
 (global-set-key (kbd "<f4>") 'helm-imenu)
 
 (global-set-key (kbd "<S-f1>") 'treemacs)
@@ -25,6 +25,9 @@
   (global-set-key (kbd "<f10>") 'gdb)
   (global-set-key (kbd "S-<f10>") 'compile-tools-compile-make-memory-ckech)
   (global-set-key (kbd "<f12>") 'edit-tools-insert-include)
+  (global-set-key (kbd "M-i") 'edit-tools-insert-debug-comment)
+  (global-set-key (kbd "C-c d") 'edit-tools-remove-debug-comment)
+  (global-set-key (kbd "C-c D") 'edit-tools-remove-all-debug-comments)
 )
 
 (with-eval-after-load 'cmake-mode
@@ -82,7 +85,6 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
-(global-set-key (kbd "M-i") 'helm-swoop)
 (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
 (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
 (global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
@@ -188,7 +190,7 @@
 
 ;; lsp.
 (with-eval-after-load 'lsp-mode
-  ;; (define-key lsp-mode-map (kbd "<f3>") 'helm-etags-select)
+  (define-key lsp-mode-map (kbd "<f1>") 'revert-buffer)
   ;; (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
   (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)

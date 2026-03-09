@@ -20,6 +20,7 @@
   :ensure t
   :config
   (setq graphviz-dot-indent-width 2))
+(use-package mistty :ensure t)
 (require 'srefactor-lisp)
 
 (elf-setup-default)

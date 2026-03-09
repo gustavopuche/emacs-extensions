@@ -53,4 +53,7 @@ Version: 2018-12-23 2022-04-07"
 ;; suppresh long file wwarn prompt
 (setq large-file-warning-threshold nil)
 
+;; dired+.el needs a symbolic link in ~/.emacs.d/lisp
+(require 'dired+)
+
 (provide 'dired-setup)

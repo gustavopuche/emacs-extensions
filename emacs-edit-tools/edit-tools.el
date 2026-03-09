@@ -15,7 +15,8 @@
 (require 'iso-transl)
 
 ;;; Code:
-(defconst edit-tools--debug-comments "^.*//.*Debug\\(.\\|[\n]\\)+.*//////\n\n")
+;;(defconst edit-tools--debug-comments "^.*//.*Debug\\(.\\|[\n]\\)+.*//////\n\n")
+(defconst edit-tools--debug-comments "^[[:space:]]*////.*\n[[:space:]]*//.*Debug.*\\([[:space:]]\\|std.*\\|<<.*\\|[\n]\\)+.*//////\n")
 (defconst edit-tools--empty-line-with-spaces "^[[:space:]]+$")
 (defconst edit-tools--typeselection-logintyp "^.*<typeselection>\n.*<name>LoginTyp</name>\n.*\n.*</typeselection>\n")
 
@@ -63,10 +64,31 @@
   (interactive)
   (edit-tools-regex-global-replace edit-tools--empty-line-with-spaces ""))
 
-(defun edit-tools-remove-debug-comments ()
-  "Clean debug comments."
+(defun edit-tools-remove-all-debug-comments ()
+  "Clean all debug comments."
   (interactive)
   (edit-tools-regex-global-replace edit-tools--debug-comments ""))
+
+(defun edit-tools-remove-debug-comment ()
+  "Clean debug comment."
+  (interactive)
+  (search-forward-regexp edit-tools--debug-comments nil)
+  (replace-match ""))
+
+(defun edit-tools-find-debug-comment ()
+  "Find debug comment."
+  (interactive)
+  (highlight-regexp edit-tools--debug-comments))
+
+;; Insert debug comment.
+(defun edit-tools-insert-debug-comment ()
+  "Insert debug comment."
+  (interactive)
+  (insert (concat
+"//////////////////////////////////////////////////////////////////////
+// Debug. Remove later.
+std::cout << __PRETTY_FUNCTION__ << \":\" << __LINE__ << std::endl;
+//////////////////////////////////////////////////////////////////////")))
 
 (defun edit-tools-remove-typesel-logintyp ()
   "Clean typeselection LoginTyp."

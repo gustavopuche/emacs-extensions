@@ -38,12 +38,11 @@
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
-(add-hook 'sgml-mode-hook #'lsp-deferred)
 (add-hook 'sh-mode-hook 'lsp)
 (add-hook 'perl-mode-hook 'lsp)
 (add-hook 'js-mode-hook 'lsp)
 
-(setq lsp-clangd-binary-path "/usr/bin/clangd")
+(setq lsp-clangd-binary-path "/usr/bin/clangd-20")
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))

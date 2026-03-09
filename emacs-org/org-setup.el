@@ -5,6 +5,27 @@
 (require 'org-extra-emphasis)
 ;; (use-package ox-odt :ensure t)
 ;; (use-package org-kanban :ensure t)
+(require 'org-indent)
+
+(use-package org-roam :ensure t)
+(use-package org-roam-ui :ensure t)
+(setq org-roam-directory (file-truename "~/org-roam"))
+(org-roam-db-autosync-mode) ;; performance cost
+(org-roam-db-autosync-mode)
+
+(add-to-list 'display-buffer-alist
+                  '("\\*org-roam\\*"
+                    (display-buffer-in-side-window)
+                    (side . right)
+                    (slot . 0)
+                    (window-width . 0.33)
+                    (window-parameters . ((no-other-window . t)
+                                          (no-delete-other-windows . t)))))
+
+(use-package org-sliced-images
+  :ensure t
+  :config
+  (org-sliced-images-mode 1))
 
 (setq org-hide-emphasis-markers t)
 
@@ -126,6 +147,22 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(defun org-brain-insert-resource-icon (link)
+  "Insert an icon, based on content of org-mode LINK."
+  (insert (format "%s "
+                  (cond ((string-prefix-p "brain:" link)
+                         (all-the-icons-fileicon "brain"))
+                        ((string-prefix-p "info:" link)
+                         (all-the-icons-octicon "info"))
+                        ((string-prefix-p "help:" link)
+                         (all-the-icons-material "help"))
+                        ((string-prefix-p "http" link)
+                         (all-the-icons-icon-for-url link))
+                        (t
+                         (all-the-icons-icon-for-file link))))))
+
+(add-hook 'org-brain-after-resource-button-functions #'org-brain-insert-resource-icon)
 
 (provide 'org-setup)
 ;; To use with doom-one-light theme

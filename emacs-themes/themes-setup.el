@@ -36,7 +36,7 @@
   (defun programming-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
-    (setq buffer-face-mode-face '(:family "CPMono_v07 Bold" :weight light :height 115))
+    (setq buffer-face-mode-face '(:family "CPMono_v07 Bold" :weight light :height 98))
     (buffer-face-mode))
 
   (defun bold-face-mode ()

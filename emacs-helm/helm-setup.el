@@ -7,8 +7,12 @@
 
 (use-package helm-gtags :delight :ensure t)
 (use-package helm-swoop :ensure t)
+(use-package helm-roam :ensure t)
 ;; (with-eval-after-load 'helm-mode
 ;; 	    (use-package helm-org :ensure t))
+
+;; Enable helm-mode
+(setq helm-mode t)
 
 ;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)
@@ -19,6 +23,9 @@
     (setq helm-gtags-auto-update t))
 
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
+
+;; (add-to-list 'helm-completing-read-handlers-alist '(org-capture . helm-org-completing-read-tags))
+;; (add-to-list 'helm-completing-read-handlers-alist '(org-set-tags . helm-org-completing-read-tags))
 
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
