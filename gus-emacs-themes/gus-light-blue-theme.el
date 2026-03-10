@@ -132,8 +132,10 @@
    '(lsp-face-highlight-write ((t (:background "red" :foreground "black"))))
 
    ;; Compilation faces
-   `(next-error ((,class (:inherit region :background "SkyBlue"))))))
-
+   `(next-error ((,class (:inherit region :background "SkyBlue"))))
+   
+   '(vc-annotate-face-383a42 ((t (:background "gray" :foreground "black"))))))
+   
 (provide-theme 'gus-light-blue)
 
 ;;; gus-light-blue-theme.el ends here

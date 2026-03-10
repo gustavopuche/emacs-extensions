@@ -273,7 +273,8 @@
 				:family "Bitstream Vera Sans Mono"
 				:foreground ,black
 				:inherit org-extra-emphasis
-				))))))
+				))))
+   `(vc-annotate-face-383a42 ((t (:background "gray" :foreground "black"))))))
 
 
 ;;;###autoload
