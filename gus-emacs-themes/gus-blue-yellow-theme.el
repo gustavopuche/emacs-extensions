@@ -373,7 +373,7 @@
    `(org-quote ((t (:foreground ,orange))))
    `(org-document-info-keyword ((t (:foreground ,orange))))
    `(org-document-title ((t (:foreground ,aqua))))
-   `(org-table ((t (:foreground ,aqua))))
+   `(org-table ((t (:foreground ,white :weight bold))))
    `(org-latex-and-related ((t (:foreground ,orange))))
    `(org-agenda-current-date ((t (:foreground ,yellow))))
    `(org-agenda-current-time ((t (:foreground ,orange))))
@@ -393,7 +393,25 @@
    `(org-warning ((t (:foreground ,warning :weight bold))))
 
    `(org-headline-done ((t (:foreground ,green))))
- 
+
+   ;; org-extra-emphasis
+   `(org-extra-emphasis-01 ((t (:foreground "red" :background "black" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-02 ((t (:foreground "chartreuse" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-03 ((t (:foreground "yellow" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-04 ((t (:foreground "cyan"  :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-05 ((t (:foreground "blue" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-06 ((t (:foreground "black" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-07 ((t (:foreground "violet" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-08 ((t (:foreground "SpringGreen" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-09 ((t (:foreground "gold" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-10 ((t (:foreground "green" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-11 ((t (:foreground "LightGoldenrod" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-12 ((t (:foreground "turquoise"	:inherit org-extra-emphasis))))
+   `(org-extra-emphasis-13 ((t (:foreground "violet" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-14 ((t (:foreground "wheat" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-15 ((t (:foreground "LightSalmon" :inherit org-extra-emphasis))))
+   `(org-extra-emphasis-16 ((t (:foreground "LightSteelBlue1" :inherit org-extra-emphasis))))
+   
    ;; treemacs.
    `(treemacs-git-modified-face ((,class (:foreground ,modified))))
    `(treemacs-git-ignored-face ((,class (:foreground ,pink))))

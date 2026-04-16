@@ -92,6 +92,8 @@
   [add-hook 'text-mode-hook 'dired-face-mode]
   (add-hook 'which-key-mode-hook 'dired-face-mode)
   (add-hook 'helm-mode-hook 'dired-face-mode)
+  (add-hook 'js-mode-hook 'programming-face-mode)
+  (add-hook 'cmake-mode-hook 'programming-face-mode)
 
   (set-face-attribute 'default nil :font "CPMono_v07 Bold" :height 98)
   )

@@ -144,6 +144,18 @@ std::cout << __PRETTY_FUNCTION__ << \":\" << __LINE__ << std::endl;
            (switch-to-buffer buffer-b)
            (other-window 1)))))
 
+;; Scroll one line at a time when cursor hits the top/bottom
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+
+;; Optional: Keep a 3-line margin at the top/bottom
+(setq scroll-margin 3)
+
+;; Optional: Smooth scrolling for mouse wheel
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil)            ;; don't accelerate scrolling
+
+
 (defun reload-init-file ()
   (interactive)
   (load-file "~/.emacs"))

@@ -162,80 +162,13 @@
                         (t
                          (all-the-icons-icon-for-file link))))))
 
+(defun org-open-other-frame ()
+  "Jump to bookmark in another frame. See `bookmark-jump' for more."
+  (interactive)
+  (let ((org-link-frame-setup (acons 'file 'find-file-other-frame org-link-frame-setup)))
+    (org-open-at-point)))
+
 (add-hook 'org-brain-after-resource-button-functions #'org-brain-insert-resource-icon)
 
 (provide 'org-setup)
-;; To use with doom-one-light theme
 
-(custom-set-faces
- '(org-default ((t ( 
-                    :inherit default
-                    ))))
- '(org-extra-emphasis ((t ( 
-                           :inherit default
-                           :weight bold
-                           ))))
- '(org-extra-emphasis-01 ((t ( 
-                              :foreground "red"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-02 ((t ( 
-                              :foreground "SpringGreen1"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-03 ((t ( 
-                              :foreground "yellow"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-04 ((t ( 
-                              :foreground "cyan"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-05 ((t ( 
-                              :foreground "#54436E"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-06 ((t ( 
-                              :foreground "#D65D8F"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-07 ((t ( 
-                              :foreground "#E5C494"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-08 ((t ( 
-                              :foreground "DarkOrange1"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-09 ((t ( 
-                              :foreground "firebrick1"
-                              :inherit org-extra-emphasis
-                              ))))
-  '(org-extra-emphasis-10 ((t ( 
-                              :foreground "chartreuse"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-11 ((t ( 
-                              :foreground "yellow3"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-12 ((t ( 
-                              :foreground "turquoise"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-13 ((t ( 
-                              :foreground "magenta"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-14 ((t ( 
-                              :foreground "wheat"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-15 ((t ( 
-                              :foreground "LightSalmon"
-                              :inherit org-extra-emphasis
-                              ))))
- '(org-extra-emphasis-16 ((t ( 
-                              :foreground "LightSteelBlue1"
-                              :inherit org-extra-emphasis
-                              )))))

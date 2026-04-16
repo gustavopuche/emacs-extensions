@@ -196,8 +196,10 @@
   (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
   (define-key lsp-mode-map (kbd "<f8>") 'lsp-ui-flycheck-list)
   (define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
+  (define-key lsp-mode-map (kbd "S-<f4>") 'lsp-treemacs-symbols)
   (define-key lsp-mode-map (kbd "M-n") 'flycheck-next-error)
   (define-key lsp-mode-map (kbd "M-p") 'flycheck-previous-error)
+  (define-key lsp-mode-map (kbd "M-r") 'lsp-rename)
   (define-key lsp-mode-map (kbd "M-f") 'helm-lsp-code-actions)
   (define-key lsp-mode-map (kbd "s-r") 'edit-tools-remove-typesel-logintyp)
 
@@ -212,6 +214,7 @@
   (define-key dired-mode-map (kbd "<f6>") 'dired-do-rename)
   (define-key dired-mode-map (kbd "<f7>") 'dired-do-create-files)
   (define-key dired-mode-map (kbd "<f8>") 'dired-do-delete)
+  (define-key dired-mode-map (kbd "S-<f4>") 'helm-find-files)
   (define-key dired-mode-map (kbd "s") 'dired-sort)
   (define-key dired-mode-map (kbd ".") 'dired-omit-mode)
   (define-key dired-mode-map (kbd "F")
@@ -219,6 +222,10 @@
     (interactive)
     (mapc #'find-file (reverse (dired-get-marked-files)))))
   ) 
+
+;; rebind org keys.
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "<f12>") 'org-open-other-frame))
 
 ;; (add-hook 'after-init-hook (lambda ()
 ;; 			     (define-key makefile-gmake-mode-map (kbd "<f5>") 'compile-tools-make-linux64)))
@@ -240,5 +247,14 @@
   )
 (with-eval-after-load 'shell
   (define-key shell-mode-map (kbd "C-l") 'comint-clear-buffer))
+
+;; treemacs
+(with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map [drag-mouse-1] nil)
+  (define-key treemacs-mode-map [down-mouse-1] #'treemacs-single-click-expand-action)
+  (define-key treemacs-mode-map [mouse-2] #'ignore)
+  (define-key treemacs-mode-map [down-mouse-2] #'ignore)
+  (define-key treemacs-mode-map [mouse-3] #'ignore)
+  (define-key treemacs-mode-map [down-mouse-3] #'ignore))
 
 (provide 'keys-setup)

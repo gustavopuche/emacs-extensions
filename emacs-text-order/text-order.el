@@ -74,6 +74,13 @@
   (align-regexp start end
 		"\\(\\s-*\\)\\(=\\|[[:lower:]][[:upper:]]\\|*[[:lower:]]\\)" 1 1 t)))
 
+(defun  align-comments-cpp (start end)
+  "Align C++ varibles."
+  (interactive "r") ;; Pass region as arguments
+  (let ((case-fold-search nil)) ;; Disable no case search locally.
+  (align-regexp start end
+		"\\(\\s-*\\)\\(//\\)" 1 1 t)))
+
 (defun  align-perl-datapoints (start end)
   "Align Perl datapoints."
   (interactive "r") ;; Pass region as arguments
