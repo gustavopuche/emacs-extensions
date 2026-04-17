@@ -77,11 +77,9 @@
 (add-hook 'text-mode-hook 'visual-line-mode)
 (add-hook 'org-brain-visualize-text-hook (lambda () (visual-line-mode 1)
 					   (org-display-inline-images)
-					   (setq tab-width 2)))
+					   (setq tab-width 8)))
 (add-hook 'org-mode-hook (lambda () 
-			   (setq tab-width 2)))
-
-
+			   (setq tab-width 8)))
 
 ;; Add organizer.org file to agenda.
 (org-agenda-files '("~/org/brain/organizer.org"))
