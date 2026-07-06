@@ -22,4 +22,6 @@
   (add-hook 'irony-mode-hook 'my-irony-mode-hook)
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
+(setq truncate-partial-width-windows nil)
+
 (provide 'irony-setup)

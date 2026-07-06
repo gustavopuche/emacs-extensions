@@ -7,7 +7,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one-light t)
+  (load-theme 'base16-synth-midnight-light t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -24,7 +24,7 @@
   )
 
 (with-eval-after-load 'doom-themes
-  (load-theme 'gus-yellow t)
+  (load-theme 'base16-synth-midnight-light t)
 
   ;; Use variable width font faces in current buffer
   (defun msx-face-mode ()
@@ -60,7 +60,7 @@
   (defun dired-face-mode ()
     "Set font to a variable width (proportional) fonts in current buffer"
     (interactive)
-    (setq buffer-face-mode-face '(:family "CPMono_v07" :weight light :height 98))
+    (setq buffer-face-mode-face '(:family "CPMono_v07 Bold" :weight light :height 98))
     (buffer-face-mode))
 
   (defun extralight-face-mode ()

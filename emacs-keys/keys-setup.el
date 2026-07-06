@@ -24,6 +24,7 @@
   (global-set-key (kbd "<S-f9>") 'compile-tools-compile-make-verbose)
   (global-set-key (kbd "<f10>") 'gdb)
   (global-set-key (kbd "S-<f10>") 'compile-tools-compile-make-memory-ckech)
+  (global-set-key (kbd "S-<f11>") 'toggle-truncate-lines)
   (global-set-key (kbd "<f12>") 'edit-tools-insert-include)
   (global-set-key (kbd "M-i") 'edit-tools-insert-debug-comment)
   (global-set-key (kbd "C-c d") 'edit-tools-remove-debug-comment)
