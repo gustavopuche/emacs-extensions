@@ -449,19 +449,26 @@ COMMANDS
 (add-hook 'emacs-lisp-mode-hook (lambda ()(toggle-truncate-lines 1)))
 
 (defun gus-cc-style()
-  (interactive)
-  (c-set-style "linux")
-  (c-set-offset 'innamespace '0)
-  (c-set-offset 'inextern-lang '0)
-  (c-set-offset 'inline-open '0)
-  (c-set-offset 'label '*)
-  (c-set-offset 'case-label '*)
-  (c-set-offset 'access-label '/)
-  (setq c-basic-offset 2)
-  (setq tab-width 2)
-  (setq indent-tabs-mode nil)
-  (toggle-truncate-lines 1)
-)
+   (interactive)
+   (c-set-style "linux")
+   (c-set-offset 'innamespace '0)
+   (c-set-offset 'inextern-lang '0)
+   (c-set-offset 'inline-open '0)
+   (c-set-offset 'label '*)
+   (c-set-offset 'case-label '*)
+   (c-set-offset 'access-label '/)
+   (setq c-basic-offset 2)
+   (setq tab-width 2)
+   (setq indent-tabs-mode nil)
+   (add-to-list 'c-hanging-braces-alist '(defun-open before))
+             (add-to-list 'c-hanging-braces-alist '(class-open before))
+             (add-to-list 'c-hanging-braces-alist '(inline-open before))
+             (add-to-list 'c-hanging-braces-alist '(block-open before))
+             ;; Ensure the next-line brace aligns flush with the
+             (c-set-offset 'defun-open 0)
+             (c-set-offset 'class-open 0)
+             (c-set-offset 'inline-open 0)
+             (c-set-offset 'block-open 0))
 
 (add-hook 'c-mode-hook 'gus-cc-style)
 (add-hook 'c++-mode-hook 'gus-cc-style)
@@ -505,10 +512,6 @@ COMMANDS
 	(add-hook 'magit-status-sections-hook 'magit-insert-untracked-files)
 	(message "Activate magit-insert-untracked-files."))))
   )
-
-
-;; OPTIONAL: ADD IT ONLY IF YOU USE C/C++. 
-(semantic-mode 1) ;; -> this is optional for Lisp
 
 (defalias 'xml-mode 'sgml-mode 
   "Use `sgml-mode' instead of nXML's `xml-mode'.")

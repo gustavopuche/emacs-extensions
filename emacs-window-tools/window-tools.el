@@ -40,14 +40,6 @@
            (switch-to-buffer buffer-b)
            (other-window 1)))))
 
-(global-set-key (kbd "C-c s") 'swap-buffer)
-(global-set-key (kbd "C-c v") 'halve-other-window-height)
-(global-set-key (kbd "<M-s-down>") 'shrink-window)
-(global-set-key (kbd "<M-s-up>") 'enlarge-window)
-(global-set-key (kbd "<C-M-s-up>") 'window-split-toggle)
-(global-set-key (kbd "<C-M-left>") 'shrink-window-horizontally)
-(global-set-key (kbd "<C-M-right>") 'enlarge-window-horizontally)
-
 ;; delight
 (delight 'doxy-graph-mode nil)
 (delight 'abbrev-mode nil 'abbrev)

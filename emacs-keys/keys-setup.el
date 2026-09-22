@@ -1,4 +1,5 @@
-;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;  
 ;; Keybinds      ;;
 ;;;;;;;;;;;;;;;;;;;
 
@@ -13,6 +14,15 @@
 (global-set-key (kbd "<S-f1>") 'treemacs)
 (global-set-key (kbd "<S-f2>") 'woman)
 
+;; Windows keys
+(global-set-key (kbd "C-c s") 'swap-buffer)
+(global-set-key (kbd "C-c v") 'halve-other-window-height)
+(global-set-key (kbd "<M-s-down>") 'shrink-window)
+(global-set-key (kbd "<M-s-up>") 'enlarge-window)
+(global-set-key (kbd "<C-M-s-up>") 'window-split-toggle)
+(global-set-key (kbd "<C-M-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-M-right>") 'enlarge-window-horizontally)
+
 (defun set-compile-keys ()
   (interactive)
   (global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
@@ -26,7 +36,6 @@
   (global-set-key (kbd "S-<f10>") 'compile-tools-compile-make-memory-ckech)
   (global-set-key (kbd "S-<f11>") 'toggle-truncate-lines)
   (global-set-key (kbd "<f12>") 'edit-tools-insert-include)
-  (global-set-key (kbd "M-i") 'edit-tools-insert-debug-comment)
   (global-set-key (kbd "C-c d") 'edit-tools-remove-debug-comment)
   (global-set-key (kbd "C-c D") 'edit-tools-remove-all-debug-comments)
 )
@@ -47,7 +56,7 @@
 (global-set-key (kbd "<C-f8>") 'helm-lsp-code-actions)
 (global-set-key (kbd "<C-f9>") 'compile-tools-make-uTestQNX)
 (global-set-key (kbd "<C-f10>") 'compile-tools-compile-make-install)
-(global-set-key (kbd "<C-f12>") 'kill-this-buffer)
+(global-set-key (kbd "<C-f12>") 'kill-current-buffer)
 (global-set-key (kbd "M-s-<right>") 'next-buffer)
 (global-set-key (kbd "M-s-<left>") 'previous-buffer)
 
@@ -167,44 +176,6 @@
 
 ;; Change keybinds to whatever you like :)
 
-;; When doing isearch, hand the word over to helm-swoop
-(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
-
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-(define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
-(define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
-(define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
-
-(define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-(define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-(global-set-key (kbd "M-RET o") 'srefactor-lisp-one-line)
-(global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
-(global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
-(global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer)
-
-;; lsp.
-(with-eval-after-load 'lsp-mode
-  (define-key lsp-mode-map (kbd "<f1>") 'revert-buffer)
-  ;; (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
-  (define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
-  (define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
-  (define-key lsp-mode-map (kbd "<f8>") 'lsp-ui-flycheck-list)
-  (define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
-  (define-key lsp-mode-map (kbd "S-<f4>") 'lsp-treemacs-symbols)
-  (define-key lsp-mode-map (kbd "M-n") 'flycheck-next-error)
-  (define-key lsp-mode-map (kbd "M-p") 'flycheck-previous-error)
-  (define-key lsp-mode-map (kbd "M-r") 'lsp-rename)
-  (define-key lsp-mode-map (kbd "M-f") 'helm-lsp-code-actions)
-  (define-key lsp-mode-map (kbd "s-r") 'edit-tools-remove-typesel-logintyp)
-
-)
 ;; rebihnd dired keys.
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "<tab>") 'other-window)
@@ -224,38 +195,80 @@
     (mapc #'find-file (reverse (dired-get-marked-files)))))
   ) 
 
-;; rebind org keys.
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "<f12>") 'org-open-other-frame))
+;; When doing isearch, hand the word over to helm-swoop
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+;;(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
 
-;; (add-hook 'after-init-hook (lambda ()
-;; 			     (define-key makefile-gmake-mode-map (kbd "<f5>") 'compile-tools-make-linux64)))
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
 
-(with-eval-after-load 'magit
-  (define-key magit-mode-map (kbd "<f5>") 'magit-refresh)
-  (define-key magit-mode-map (kbd "<f12>") 'magit-toggle-untracked-files))
+;; (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
+;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
-(with-eval-after-load 'perl-mode
-  (define-key perl-mode-map (kbd "<f1>") 'cperl-perldoc-at-point)
-  (define-key perl-mode-map (kbd "<f3>") 'helm-etags-select)
-  (define-key perl-mode-map (kbd "<f5>") 'execute-perl)
-  (define-key perl-mode-map (kbd "<f10>") 'perldb)
-  (define-key perl-mode-map (kbd "<f11>") 'cperl-perldoc)
-  (define-key perl-mode-map (kbd "<S-f3>") 'helm-etags-select)
-  (define-key perl-mode-map (kbd "<S-f6>") 'compile-tools-run-perl-create-package)
-  (define-key perl-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
-  (define-key perl-mode-map (kbd "<C-S-f6>") 'compile-tools-run-perl-create-package-force)
-  )
-(with-eval-after-load 'shell
-  (define-key shell-mode-map (kbd "C-l") 'comint-clear-buffer))
+(if (version< "29.3" emacs-version)
+    (progn
+      (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
+      (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
+      (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
-;; treemacs
-(with-eval-after-load 'treemacs
-  (define-key treemacs-mode-map [drag-mouse-1] nil)
-  (define-key treemacs-mode-map [down-mouse-1] #'treemacs-single-click-expand-action)
-  (define-key treemacs-mode-map [mouse-2] #'ignore)
-  (define-key treemacs-mode-map [down-mouse-2] #'ignore)
-  (define-key treemacs-mode-map [mouse-3] #'ignore)
-  (define-key treemacs-mode-map [down-mouse-3] #'ignore))
+      (define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+      (define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+      (global-set-key (kbd "M-RET o") 'srefactor-lisp-one-line)
+      (global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
+      (global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
+      (global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer)
+
+      ;; lsp.
+      (with-eval-after-load 'lsp-mode
+	(define-key lsp-mode-map (kbd "<f1>") 'revert-buffer)
+	;; (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
+	(define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
+	(define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
+	(define-key lsp-mode-map (kbd "<f8>") 'lsp-ui-flycheck-list)
+	(define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
+	(define-key lsp-mode-map (kbd "S-<f4>") 'lsp-treemacs-symbols)
+	(define-key lsp-mode-map (kbd "M-n") 'flycheck-next-error)
+	(define-key lsp-mode-map (kbd "M-p") 'flycheck-previous-error)
+	(define-key lsp-mode-map (kbd "M-r") 'lsp-rename)
+	(define-key lsp-mode-map (kbd "M-f") 'helm-lsp-code-actions)
+	(define-key lsp-mode-map (kbd "s-r") 'edit-tools-remove-typesel-logintyp)
+	(define-key lsp-mode-map (kbd "M-i") 'edit-tools-insert-debug-comment)
+	(define-key lsp-mode-map (kbd "M-e") 'edit-tools-insert-error-comment)
+	)
+
+      ;; rebind org keys.
+      (with-eval-after-load 'org
+	(define-key org-mode-map (kbd "<f12>") 'org-open-other-frame))
+
+      ;; (add-hook 'after-init-hook (lambda ()
+      ;; 			     (define-key makefile-gmake-mode-map (kbd "<f5>") 'compile-tools-make-linux64)))
+
+      (with-eval-after-load 'magit
+	(define-key magit-mode-map (kbd "<f5>") 'magit-refresh)
+	(define-key magit-mode-map (kbd "<f12>") 'magit-toggle-untracked-files))
+
+      (with-eval-after-load 'perl-mode
+	(define-key perl-mode-map (kbd "<f1>") 'cperl-perldoc-at-point)
+	(define-key perl-mode-map (kbd "<f3>") 'helm-etags-select)
+	(define-key perl-mode-map (kbd "<f5>") 'execute-perl)
+	(define-key perl-mode-map (kbd "<f10>") 'perldb)
+	(define-key perl-mode-map (kbd "<f11>") 'cperl-perldoc)
+	(define-key perl-mode-map (kbd "<S-f3>") 'helm-etags-select)
+	(define-key perl-mode-map (kbd "<S-f6>") 'compile-tools-run-perl-create-package)
+	(define-key perl-mode-map (kbd "<C-f3>") 'xref-pop-marker-stack)
+	(define-key perl-mode-map (kbd "<C-S-f6>") 'compile-tools-run-perl-create-package-force)
+	)
+      (with-eval-after-load 'shell
+	(define-key shell-mode-map (kbd "C-l") 'comint-clear-buffer))
+
+      ;; treemacs
+      (with-eval-after-load 'treemacs
+	(define-key treemacs-mode-map [drag-mouse-1] nil)
+	(define-key treemacs-mode-map [down-mouse-1] #'treemacs-single-click-expand-action)
+	(define-key treemacs-mode-map [mouse-2] #'ignore)
+	(define-key treemacs-mode-map [down-mouse-2] #'ignore)
+	(define-key treemacs-mode-map [mouse-3] #'ignore)
+	(define-key treemacs-mode-map [down-mouse-3] #'ignore))))
 
 (provide 'keys-setup)

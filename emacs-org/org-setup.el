@@ -1,3 +1,4 @@
+
 (require 'org)
 (require 'org-brain)
 
@@ -7,11 +8,13 @@
 ;; (use-package org-kanban :ensure t)
 (require 'org-indent)
 
-(use-package org-roam :ensure t)
-(use-package org-roam-ui :ensure t)
-(setq org-roam-directory (file-truename "~/org-roam"))
-(org-roam-db-autosync-mode) ;; performance cost
-(org-roam-db-autosync-mode)
+(if (version< "29.3" emacs-version)
+    (progn
+      (use-package org-roam :ensure t)
+      (use-package org-roam-ui :ensure t)
+      (setq org-roam-directory (file-truename "~/org-roam"))
+      (org-roam-db-autosync-mode) ;; performance cost
+      (org-roam-db-autosync-mode)))
 
 (add-to-list 'display-buffer-alist
                   '("\\*org-roam\\*"
@@ -44,11 +47,42 @@
       org-src-preserve-indentation t
       org-src-tab-acts-natively t)
 
+;;;;;;;;;;;;
+;; Agenda
+;;;;;;;;;;;;
+
+;; Functions
+(defun air-org-skip-subtree-if-priority (priority)
+  "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+        (pri-value (* 1000 (- org-lowest-priority priority)))
+        (pri-current (org-get-priority (thing-at-point 'line t))))
+    (if (= pri-value pri-current)
+        subtree-end
+      nil)))
+
+(defun air-org-skip-subtree-if-habit ()
+  "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t))))
+    (if (string= (org-entry-get nil "STYLE") "habit")
+        subtree-end
+      nil)))
+
+;; Agenda files
 (defun refresh-org-agenda-files ()
    (interactive)
-   (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")))
+   (setq org-agenda-files (directory-files-recursively "~/org-roam" "\\.org$"))
+   (setq org-agenda-prefix-format
+      '((agenda . " %i %?-12t% s")
+        (todo . " %i ")
+        (tags . " %i ")
+        (search . " %i "))))
 
 (refresh-org-agenda-files)
+
+;; Custom commands
 (add-to-list 'org-agenda-custom-commands
              '("W" "Closed tasks previous weeks"
                agenda ""
@@ -66,12 +100,27 @@
                 (org-agenda-start-on-weekday 1))))
 
 (add-to-list 'org-agenda-custom-commands
-	     '("D" "Show all DONE tasks"
-               agenda ""
-               ((org-agenda-start-day "2022-01-01")
-		(org-agenda-span 1000)
-                (org-agenda-start-with-log-mode '(closed))
-                (org-agenda-skip-function '(org-agenda-skip-entry-if 'notregexp "^\\* DONE ")))))
+	     '("D" "All Done Tasks"
+               todo "DONE"
+               ((org-agenda-overriding-header "Completed Tasks Collection"))))
+
+(add-to-list 'org-agenda-custom-commands
+	     '("B" "All Blocked Tasks"
+               todo "BLOCKED"
+               ((org-agenda-overriding-header "Blocked Tasks Collection"))))
+
+(add-to-list 'org-agenda-custom-commands
+	     '("d" "Daily agenda and all TODOs"
+		((tags "PRIORITY=\"A\""
+                       ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+			(org-agenda-overriding-header "High-priority unfinished tasks:")))
+		 (agenda "" ((org-agenda-ndays 1)))
+		 (alltodo ""
+			  ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
+							  (air-org-skip-subtree-if-priority ?A)
+							  (org-agenda-skip-if nil '(scheduled deadline))))
+			   (org-agenda-overriding-header "ALL normal priority tasks:"))))
+		((org-agenda-compact-blocks t))))
 
 ;; visual-line-mode active with latex-mode
 (add-hook 'text-mode-hook 'visual-line-mode)
@@ -169,4 +218,3 @@
 (add-hook 'org-brain-after-resource-button-functions #'org-brain-insert-resource-icon)
 
 (provide 'org-setup)
-

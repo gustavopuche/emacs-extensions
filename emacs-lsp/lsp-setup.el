@@ -28,6 +28,7 @@
   (require 'helm-lsp)
   (yas-global-mode)
   (setq lsp-ui-doc-enable nil)
+  (setq lsp-enable-on-type-formatting nil)
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\Q5\\'")
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\W2\\'")
@@ -35,6 +36,12 @@
   (add-to-list 'lsp-file-watch-ignored-files "[/\\\\]\\.d\\'")
   (add-to-list 'lsp-file-watch-ignored-files "[/\\\\]\\.dt\\'")
   )
+
+(with-eval-after-load 'lsp-treemacs
+  ;; Set to 'right if your main treemacs is 'left, or 'left if it is 'right
+  (setq lsp-treemacs-symbols-position-params
+        '((side . right) (slot . 2) (window-width . 35))))
+
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)

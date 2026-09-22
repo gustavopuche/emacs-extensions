@@ -1,13 +1,20 @@
 ;; (require 'helm-config)
 (use-package helm :ensure t)
-(use-package helm-grepint :ensure t)
-(use-package helm-projectile :ensure t)
-(use-package helm-ag :ensure t)
-(use-package helm-lsp :ensure t)
 
-(use-package helm-gtags :delight :ensure t)
-(use-package helm-swoop :ensure t)
-(use-package helm-roam :ensure t)
+(if (version< "29.3" emacs-version)
+    (progn
+      (use-package helm-grepint :ensure t)
+      (use-package helm-projectile :ensure t)
+      (use-package helm-ag :ensure t)
+      (use-package helm-lsp :ensure t)
+      
+      (use-package helm-gtags :delight :ensure t)
+      (use-package helm-swoop :ensure t)
+      (use-package helm-roam :ensure t)
+      (if helm-gtags-mode
+	  (setq helm-gtags-auto-update t))
+      ))
+      
 ;; (with-eval-after-load 'helm-mode
 ;; 	    (use-package helm-org :ensure t))
 
@@ -19,8 +26,6 @@
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
-(if helm-gtags-mode
-    (setq helm-gtags-auto-update t))
 
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
 

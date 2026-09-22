@@ -90,6 +90,16 @@
 std::cout << __PRETTY_FUNCTION__ << \":\" << __LINE__ << std::endl;
 //////////////////////////////////////////////////////////////////////")))
 
+;; Insert error comment.
+(defun edit-tools-insert-error-comment ()
+  "Insert debug comment."
+  (interactive)
+  (insert (concat
+"//////////////////////////////////////////////////////////////////////
+// Debug. Remove later.
+std::cerr << \"[DEBUG]\" << __func__ << \":\" << __LINE__ << std::endl;
+//////////////////////////////////////////////////////////////////////")))
+
 (defun edit-tools-remove-typesel-logintyp ()
   "Clean typeselection LoginTyp."
   (interactive)

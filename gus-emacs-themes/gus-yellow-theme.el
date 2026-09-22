@@ -199,19 +199,19 @@
 				))))
    `(org-extra-emphasis-02 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground ,orange
+				:foreground ,darkorange
 				:inherit org-extra-emphasis
 				:weight extra-bold
 				))))
    `(org-extra-emphasis-03 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground ,yellow
+				:foreground "yellow"
 				:inherit org-extra-emphasis
 				:weight extra-bold
 				))))
    `(org-extra-emphasis-04 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground ,green
+				:foreground "LimeGreen"
 				:inherit org-extra-emphasis
 				:weight extra-bold
 				))))
@@ -233,12 +233,12 @@
 				))))
    `(org-extra-emphasis-08 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground ,magenta
+				:foreground "magenta1"
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-09 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground ,violet
+				:foreground "firebrick1"
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-10 ((t ( 
@@ -268,12 +268,12 @@
 				))))
    `(org-extra-emphasis-14 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground ,gold
+				:foreground "tomato"
 				:inherit org-extra-emphasis
 				))))
    `(org-extra-emphasis-15 ((t ( 
 				:family "Bitstream Vera Sans Mono"
-				:foreground ,darkorange
+				:foreground "DarkGrey"
 				:inherit org-extra-emphasis
 				))))
    ;; Marker &&
