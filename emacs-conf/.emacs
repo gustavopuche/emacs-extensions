@@ -244,12 +244,12 @@
 
 
 ;; Modules
-;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 ;; (add-to-list 'package-archives '("ox-odt" . "https://kjambunathan.github.io/elpa/") t)
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") 
-;; (package-refresh-contents)
+(package-refresh-contents)
 ;; (message "packages are refreshed")
 (unless (package-installed-p 'use-package)
        (package-install 'use-package))
@@ -265,7 +265,6 @@
       (require 'org-setup)
       (require 'irony-setup)
       (require 'company-setup)
-      (require 'helm-setup)
       (require 'lsp-setup)
       (require 'projectile-setup)
       ;; (require 'licondefusr)
@@ -273,6 +272,7 @@
       (require 'text-order)
       (require 'doxy-graph-mode)
       (require 'compile-tools)))
+(require 'helm-setup)
 (require 'window-tools)
 (require 'keys-setup)
 

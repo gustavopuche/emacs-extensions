@@ -148,6 +148,57 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
+(defun capture-tag-entries (tag cut)
+  "Extract all entries and children tagged with :debug from the current file 
+and append them to debug.org."
+  (interactive)
+  (let ((entries '()))
+    ;; Step 1: Collect the text of all matching subtrees
+    (org-map-entries
+     (lambda ()
+       (push (org-copy-subtree nil cut nil nil) entries)
+       (setq org-map-continue-from (point-min)))
+     tag 'file)
+    (string-join (reverse entries))
+))
+(setq org-directory "~/org-roam")
+(setq org-capture-templates
+      '(("d" "Extract current :debug: entries" entry 
+         (file "debug.org")  ;; <-- Define your target file here!
+         (function (lambda () (capture-tag-entries "debug" nil)))
+         :immediate-finish t)
+	("c" "Extract current :cpp: entries" entry 
+         (file "cpp.org")  ;; <-- Define your target file here!
+         (function (lambda () (capture-tag-entries "cpp" nil)))
+         :immediate-finish t)
+	("b" "Extract current :bug: entries" entry 
+         (file "bugs.org")  ;; <-- Define your target file here!
+         (function (lambda () (capture-tag-entries "bug" nil)))
+         :immediate-finish t)
+	("p" "Prompt us for input" entry
+	 (file+headline "demo.org" "Our first heading")
+	 "* %^{Please write here} %?")
+	("o" "Options in prompt" entry
+	 (file+headline "demo.org" "Our first heading")
+	 "* %^{Select your option|ONE|TWO|THREE} %?")
+	("t" "Task with a Date" entry
+	 (file+headline "demo.org" "Scheduled tasks")
+	 "* %^{Select your option|ONE|TWO|THREE}\n SCHEDULED: %t\n %i %?")
+	("i" "Task with a Date" entry
+	 (file+headline "ideas.org" "Ideas to do")
+	 "* %^{Select your option|Work|Home|Service}\n SCHEDULED: %t\n %i %?")
+	("a" "Task with ask for a Date" entry
+	 (file+headline "demo.org" "Scheduled tasks")
+	 "* %^{Select your option|ONE|TWO|THREE}\n SCHEDULED: %^t\n %i %?")
+	("r" "Remove tags")
+	("rb" "Remove current :bug: entries" entry 
+         (file "bugs.org")  ;; <-- Define your target file here!
+         (function (lambda () (capture-tag-entries "bug" t)))
+	 :immediate-finish t)
+	("rp" "Prompt us for input" entry
+	 (file+headline "demo.org" "Our first heading")
+	 "* %^{Please write here} %?")))
+
 (setq org-startup-with-inline-images t)
 (setq org-support-shift-select t)
 
