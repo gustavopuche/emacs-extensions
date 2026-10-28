@@ -1,0 +1,9 @@
+BasedOnStyle: LLVM
+IndentWidth: 2
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterControlStatement: Always  # Fixes if, for, while
+  AfterFunction: true            # Fixes int main() and functions
+  AfterClass: true               # Fixes class MyClass { -> class MyClass \n {
+  AfterStruct: true              # Fixes struct MyStruct { -> struct MyStruct \n {
+  BeforeElse: true               # Keeps else on its own line after }

@@ -450,25 +450,18 @@ COMMANDS
 
 (defun gus-cc-style()
    (interactive)
-   (c-set-style "linux")
-   (c-set-offset 'innamespace '0)
-   (c-set-offset 'inextern-lang '0)
-   (c-set-offset 'inline-open '0)
-   (c-set-offset 'label '*)
-   (c-set-offset 'case-label '*)
-   (c-set-offset 'access-label '/)
-   (setq c-basic-offset 2)
-   (setq tab-width 2)
-   (setq indent-tabs-mode nil)
-   (add-to-list 'c-hanging-braces-alist '(defun-open before))
-             (add-to-list 'c-hanging-braces-alist '(class-open before))
-             (add-to-list 'c-hanging-braces-alist '(inline-open before))
-             (add-to-list 'c-hanging-braces-alist '(block-open before))
-             ;; Ensure the next-line brace aligns flush with the
-             (c-set-offset 'defun-open 0)
-             (c-set-offset 'class-open 0)
-             (c-set-offset 'inline-open 0)
-             (c-set-offset 'block-open 0))
+   (c-set-style "bsd")
+    (c-set-offset 'substatement-open 0)
+    ;; other customizations can go here
+    
+    (setq c++-tab-always-indent t)
+    (setq c-basic-offset 2)                  ;; Default is 2
+    (setq c-indent-level 2)                  ;; Default is 2
+
+    (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+    (setq tab-width 2)
+    (setq indent-tabs-mode t)  ; use spaces only if nil
+)
 
 (add-hook 'c-mode-hook 'gus-cc-style)
 (add-hook 'c++-mode-hook 'gus-cc-style)

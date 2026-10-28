@@ -1,4 +1,5 @@
 *.*
+!.clang-format
 !.gitattributes
 !.gitignore
 !.emacs

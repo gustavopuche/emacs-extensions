@@ -244,12 +244,12 @@
 
 
 ;; Modules
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 ;; (add-to-list 'package-archives '("ox-odt" . "https://kjambunathan.github.io/elpa/") t)
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") 
-(package-refresh-contents)
+;; (package-refresh-contents)
 ;; (message "packages are refreshed")
 (unless (package-installed-p 'use-package)
        (package-install 'use-package))
