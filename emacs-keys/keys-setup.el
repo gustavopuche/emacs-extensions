@@ -8,8 +8,8 @@
 (global-set-key [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 (global-set-key (kbd "<C-S-f1>") 'which-key-show-top-level)
 (global-set-key (kbd "<f2>") 'helm-occur)
-(global-set-key (kbd "<f3>") 'helm-swoop)
 (global-set-key (kbd "<f4>") 'helm-imenu)
+(global-set-key (kbd "<f5>") 'revert-buffer)
 
 (global-set-key (kbd "<S-f1>") 'treemacs)
 (global-set-key (kbd "<S-f2>") 'woman)
@@ -25,7 +25,7 @@
 
 (defun set-compile-keys ()
   (interactive)
-  (global-set-key (kbd "<f5>") 'compile-tools-compile-make-run)
+  (global-set-key (kbd "<C-f5>") 'compile-tools-compile-make-run)
   (global-set-key (kbd "<f6>") 'compile-tools-debug)
   (global-set-key (kbd "<C-f6>") 'disaster)
   (global-set-key (kbd "<f7>") 'compile-tools-run-gtest)
@@ -221,9 +221,8 @@
 
       ;; lsp.
       (with-eval-after-load 'lsp-mode
-	(define-key lsp-mode-map (kbd "<f1>") 'revert-buffer)
-	;; (define-key lsp-mode-map (kbd "<f5>") 'compile-tools-make-linux64)
-	(define-key lsp-mode-map (kbd "<f6>") 'compile-tools-run-perl-sics-install)
+	(define-key lsp-mode-map (kbd "<f3>") 'lsp-find-definition)
+	(define-key lsp-mode-map (kbd "<f6>") 'lsp-find-declaration)
 	(define-key lsp-mode-map (kbd "<f7>") 'lsp-ui-peek-find-references)
 	(define-key lsp-mode-map (kbd "<f8>") 'lsp-ui-flycheck-list)
 	(define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
