@@ -426,6 +426,12 @@ COMMANDS
 		   "perl CreateSoftwarePackage.pl --no-cleanup --forcedupgrade")))
 
 
+(defun compile-tools-shell-clear ()
+  "Clear the shell buffer and trigger a fresh prompt over manual SSH."
+  (interactive)
+  (comint-clear-buffer)
+  (process-send-string (get-buffer-process (current-buffer)) "\n"))
+
 ;; (defun compile-tools-set-perl-path ()
 ;;   "Set PERL5LIB environment variable to allow SICS perl."
 ;;   (interactive)

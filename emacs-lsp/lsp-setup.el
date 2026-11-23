@@ -8,7 +8,32 @@
 (use-package flycheck-irony :delight :ensure t)
 (use-package drag-stuff :delight :ensure t)
 (use-package which-key :delight :ensure t)
-(use-package lsp-mode :ensure t)
+(use-package lsp-mode
+  :ensure t
+  :hook ((perl-mode . lsp-deferred)
+         (cperl-mode . lsp-deferred))
+  :custom
+  ;; Explicitly point to your pnpm perlnavigator binary
+  (lsp-perlnavigator-executable (expand-file-name "~/.local/share/pnpm/perlnavigator"))
+  ;; Optional: Disable Perl::LanguageServer so lsp-mode strictly uses PerlNavigator
+  (lsp-disabled-clients '(perl-ls))
+;; Enable Perl::Critic and Perl::Tidy (enabled by default in PerlNavigator)
+  (lsp-perlnavigator-perlcritic-enabled t)
+  (lsp-perlnavigator-perltidy-enabled t)
+
+  ;; Optional: Specify custom config files (use expand-file-name; do not use ~/)
+  ;; If omitted, PerlNavigator defaults to ~/.perlcriticrc and ~/.perltidyrc
+  (lsp-perlnavigator-perlcritic-profile (expand-file-name "~/.perlcriticrc"))
+  (lsp-perlnavigator-perltidy-profile (expand-file-name "~/.perltidyrc"))
+
+  ;; Optional: Map Perl::Critic severity levels (1=brutal to 5=gentle) to Emacs diagnostics
+  ;; Options: "error", "warning", "info", "hint", or "none"
+  (lsp-perlnavigator-severity1 "error")
+  (lsp-perlnavigator-severity2 "warning")
+  (lsp-perlnavigator-severity3 "warning")
+  (lsp-perlnavigator-severity4 "info")
+  (lsp-perlnavigator-severity5 "hint"))
+
 (use-package lsp-ui :ensure t)
 
 ;; Enable yasnippet

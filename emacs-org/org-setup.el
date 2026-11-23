@@ -7,6 +7,9 @@
 ;; (use-package ox-odt :ensure t)
 ;; (use-package org-kanban :ensure t)
 (require 'org-indent)
+(require 'ox-reveal)
+(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
+(setq org-reveal-title-slide nil)
 
 (if (version< "29.3" emacs-version)
     (progn

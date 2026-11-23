@@ -51,7 +51,7 @@
 (global-set-key (kbd "s-SPC") 'company-capf)
 (global-set-key (kbd "<C-f1>") 'company-yasnippet)
 (global-set-key (kbd "<C-f2>") 'compile-tools-set-qt-build-path)
-(global-set-key (kbd "<C-f3>") 'helm-gtags-pop-stack)
+(global-set-key (kbd "<C-f3>") 'helm-do-ag-project-root)
 (global-set-key (kbd "<C-f4>") 'vc-annotate)
 (global-set-key (kbd "<C-f8>") 'helm-lsp-code-actions)
 (global-set-key (kbd "<C-f9>") 'compile-tools-make-uTestQNX)
@@ -111,7 +111,7 @@
 
 ;; Global keys definitions.
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-set-key (kbd "s-p s a") 'helm-ag-project-root)
+(global-set-key (kbd "s-p s a") 'helm-do-ag-project-root)
 
 ;; Set full ag search or only source.
 (defun projectile-default-find-and-grep-commands ()
@@ -259,7 +259,7 @@
 	(define-key perl-mode-map (kbd "<C-S-f6>") 'compile-tools-run-perl-create-package-force)
 	)
       (with-eval-after-load 'shell
-	(define-key shell-mode-map (kbd "C-l") 'comint-clear-buffer))
+	(define-key shell-mode-map (kbd "C-l") 'compile-tools-shell-clear))
 
       ;; treemacs
       (with-eval-after-load 'treemacs
