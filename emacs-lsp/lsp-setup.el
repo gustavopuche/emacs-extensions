@@ -84,8 +84,17 @@
 
   ;; Automatically open the dap-hydra control menu when a breakpoint is hit
   (add-hook 'dap-stopped-hook
-            (lambda (_arg) (call-interactively #'dap-hydra))))
+            (lambda (_arg) (call-interactively #'dap-hydra)))
 
+
+  (dap-register-debug-template
+   "Firefox::Debug Local HTML"
+   (list :type "firefox"
+	 :request "launch"
+	 :reAttach t
+	 :firefoxExecutable "/usr/bin/firefox-esr"
+	 :file "/home/gus/dev/javascript/square/index.html"
+	 :name "Firefox::Debug Local HTML")))
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
