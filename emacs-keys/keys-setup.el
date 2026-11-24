@@ -227,6 +227,7 @@
 	(define-key lsp-mode-map (kbd "<f8>") 'lsp-ui-flycheck-list)
 	(define-key lsp-mode-map (kbd "<f11>") 'lsp-ui-sideline-mode)
 	(define-key lsp-mode-map (kbd "S-<f4>") 'lsp-treemacs-symbols)
+	(define-key lsp-mode-map (kbd "C-S-<f4>") 'helm-lsp-workspace-symbol)
 	(define-key lsp-mode-map (kbd "M-n") 'flycheck-next-error)
 	(define-key lsp-mode-map (kbd "M-p") 'flycheck-previous-error)
 	(define-key lsp-mode-map (kbd "M-r") 'lsp-rename)
