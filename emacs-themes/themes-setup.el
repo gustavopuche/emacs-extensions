@@ -101,5 +101,8 @@
 (require 'treemacs-all-the-icons)
 (treemacs-load-theme "all-the-icons")
 
+;;(set-face-attribute 'gnus-group-news-low nil :inherit 'gnus-group-news-3)
+;;(set-face-attribute 'gnus-group-news-low-empty nil :inherit 'gnus-group-news-low)
+
 (provide 'themes-setup)
 ;;

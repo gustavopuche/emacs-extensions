@@ -35,6 +35,7 @@
   (lsp-perlnavigator-severity5 "hint"))
 
 (use-package lsp-ui :ensure t)
+(use-package typescript-mode :ensure t)
 
 ;; Enable yasnippet
 (yas-global-mode 1)
@@ -60,12 +61,30 @@
   (add-to-list 'lsp-file-watch-ignored-files "[/\\\\]\\.o\\'")
   (add-to-list 'lsp-file-watch-ignored-files "[/\\\\]\\.d\\'")
   (add-to-list 'lsp-file-watch-ignored-files "[/\\\\]\\.dt\\'")
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
   )
 
 (with-eval-after-load 'lsp-treemacs
   ;; Set to 'right if your main treemacs is 'left, or 'left if it is 'right
   (setq lsp-treemacs-symbols-position-params
         '((side . right) (slot . 2) (window-width . 35))))
+
+(use-package dap-mode
+  :after lsp-mode
+  :config
+  (dap-auto-configure-mode 1)
+
+  ;; Load the JavaScript/Node.js debug adapter module
+  (require 'dap-node)
+  ;; Optional: uncomment below if you also want browser debugging
+  ;; (require 'dap-chrome)
+  (require 'dap-firefox)
+  (setq dap-firefox-debug-program
+	`("node" ,(expand-file-name "~/.emacs.d/.extension/vscode/firefox-devtools.vscode-firefox-debug/extension/dist/adapter.bundle.js")))
+
+  ;; Automatically open the dap-hydra control menu when a breakpoint is hit
+  (add-hook 'dap-stopped-hook
+            (lambda (_arg) (call-interactively #'dap-hydra))))
 
 
 (add-hook 'c-mode-hook 'lsp)
