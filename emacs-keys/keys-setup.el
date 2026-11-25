@@ -206,6 +206,15 @@
 ;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 ;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
+(with-eval-after-load 'helm
+  ;; Mirror whatever interactive command C-j is bound to in helm-map
+  (let ((persistent-cmd (lookup-key helm-map (kbd "C-j"))))
+    (define-key helm-map (kbd "<tab>") persistent-cmd)
+    (define-key helm-map (kbd "TAB")   persistent-cmd))
+
+  ;; Keep the action menu accessible on C-z
+  (define-key helm-map (kbd "C-z") #'helm-select-action))
+
 (if (version< "29.3" emacs-version)
     (progn
       (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
