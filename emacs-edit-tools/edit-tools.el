@@ -23,6 +23,12 @@
 (defvar edit-tools--fdfind "")
 (defvar edit-tools--find-cmd "")
 
+(defun downcase-char (arg)
+  "Lowercasify ARG chars starting from point.  Point doesn't move."
+  (interactive "p")
+  (save-excursion
+    (downcase-region (point) (progn (forward-char arg) (point)))))
+
 (defun init-int-var-next ()
   "interactive"
   (goto-char (point-min))

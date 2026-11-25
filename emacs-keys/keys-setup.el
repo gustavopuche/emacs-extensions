@@ -79,8 +79,8 @@
 
 ;; Select All keybinding
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "C-s-u") 'upcase-char)
-
+(global-set-key (kbd "C-S-u") 'upcase-char)
+(global-set-key (kbd "C-S-l") 'downcase-char)
 
 (global-set-key (kbd "M-t") 'helm-gtags-find-tag)
 (global-set-key (kbd "M-r") 'helm-gtags-find-rtag)
