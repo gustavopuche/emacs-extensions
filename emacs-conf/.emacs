@@ -229,8 +229,9 @@
 		helm-grepint helm-gtags helm-lsp helm-projectile
 		helm-roam helm-swoop highlight-numbers irony lsp-ui
 		magit mistty org-roam org-roam-ui org-sliced-images
-		powerline rainbow-delimiters srefactor
-		treemacs-all-the-icons ws-butler yasnippet))
+		ox-reveal powerline rainbow-delimiters srefactor
+		treemacs-all-the-icons typescript-mode ws-butler
+		yasnippet))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tramp-default-proxies-alist nil)
